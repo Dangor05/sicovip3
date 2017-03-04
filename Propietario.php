@@ -1,49 +1,84 @@
-<!Doctype html>
-<html lang="es">
-<head>
-<meta charset="utf-8">
-<TITLE>SICOVIP</TITLE>
-<link rel="stylesheet" type="text/css" href="<?php echo URL;?>public/css/stylesheet.css">
-<link rel="stylesheet" type="text/css" href="<?php echo URL;?>public/bootstrap/css/bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href="<?php echo URL;?>Assets/datatables.min.css">
-<script src="<?php echo URL;?>public/js/jquery-1.11.0.min.js"></script>
-</head>
-<body>
-	<div class="container">
+<html>
+  <head>
+    <title>SICOVIP</title>
+    <link rel="stylesheet" type="text/css" href="public/css/stylesheet.css">
+    <link rel="stylesheet" type="text/css" href="public/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/datatables.min.css">
+    <script src="public/js/jquery-1.11.0.min.js"></script>
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="assets/css/bootstrap-theme.min.css" />
+    <link rel="stylesheet" href="assets/js/jquery-ui/jquery-ui.min.css" />
+    <link rel="stylesheet" href="assets/js/jquery-ui/jquery-ui.theme.min.css" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <script src="js/jquery-1.11.3.min.js"></script>
+    <script src="js/jquery-ui.js"></script>
+    <script src="js/jquery.min.js"></script>
+    <script>
+          $(document).ready(function(){   
+        $( "#ced" ).autocomplete({
+              source: function(resquest, response){
+                $.ajax({
+                  url:"srchOwn.php",
+                  dataType:"json",
+                  data:{q:resquest.term},
+                  success:function(data){
+                    response(data);
+                  }
+                });
+              } ,
+              minLength: 1,
+              select:function(event ui){
+                alert("selecciono: "+ ui.item.label);
+              }
+          });
+                 
+      });
+        </script>
+  </head>
+  <body>
+  <?php    session_start();
+     if ($_SESSION['sv05codu'] == 1) {
+      include('php/navbar.php');  
+      }else if ($_SESSION['sv05codu'] == 2) {
+        include('php/navh2.php');
+      }  ?>
+<div class="container">
+<div  class="row">
+<div  class="col-md-4">
+        
+<form Class="form" action="php/addPropie.php" method="POST" > 
+     <center><h3>Registro Propietario</h3></center>
+  <div class="form-group">
 
-<form role="form" method="post" action="<?php echo URL;?>Propieratario/agrePropietario.php">
+   <label for="cedp">Cedula</label>&nbsp
+   <input type='number' class="form-control" name='cedp' required></div>
+<div  class="form-group">
+	  <label for="nomp">Nombre</label>&nbsp
+    <input type='text' class="form-control" name='nomp'><br></div>
 <div class="form-group">
-    <label for="sv03cedp">Cedula</label>
-    <input type="text" class="form-control" name="sv03cedp" required>
-  </div>
-  <div class="form-group">
-    <label for="sv03nomp">Nombre</label>
-    <input type="text" class="form-control" name="sv03nomp" required>
-  </div>
-  <div class="form-group">
-    <label for="sv03apdp">Apellidos</label>
-    <input type="text" class="form-control" name="sv03apdp" required>
-  </div>
-  <div class="form-group">
-    <label for="sv03emp">Email</label>
-    <input type="email" class="form-control" name="sv03emp" required>
-  </div>
-  <div class="form-group">
-    <label for="sv03telp">Telefono</label>
-    <input type="text" class="form-control" name="sv03telp" required>
-  </div>
-   <div class="form-group">
+    <label for="apdp">Apellidos</label>&nbsp
+    <input type='text' class="form-control" name='apelp'><br></div>
+<div class="form-group">
+    <label for="emp">Email</label>&nbsp
+   <input type='email' class="form-control" name='emap'><br></div>
+<div class="form-group">
+    <label for="telp">Telefono</label>&nbsp
+   <input type='tel'class="form-control" name='telp'><br></div>
+<div class="form-group">
     <label for="sv06codp">Tipo Usuario</label>
-    <select name="sv06codp" class="form-control" name="sv06codp" >
+    <select name="tipro" class="form-control" name="tipro" >
     <option value="1">Fisico</option>
-    <option value="2">juridico</option>
- </select>
-</div>
-<a class="btn btn-default" href="Home.php">Regresar</a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<button type="submit" class="btn btn-default text-right">Continuar</button>
-</form>
+    <option value="2">Juridico</option></select></div>
 
-
+<br>
+  <a href="Cliente.php" class="btn btn-default"></a>
+<center><button type="submit" class="btn btn-default">Continuar</button>
+    
+  </form>
+  </div>
 </div>
+</div>
+
+<script src="bootstrap/js/bootstrap.min.js"></script>
 </body>
-
 </html>
