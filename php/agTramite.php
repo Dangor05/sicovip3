@@ -24,9 +24,7 @@ $sql2 = "INSERT INTO sv08trmte(sv08conse,sv08fchs,sv08fumt,sv01cedc,sv03cedp,sv0
 VALUES ('$conse',NOW(),NOW(),'$cedcli','$cedpr','$nfin','7')";
 	$query2=$con->query($sql2);
 	if($query2!=null){
-		unset($cedcli);
-		unset($cedpr);
-		unset($email);
+
 		if(file_exists($dir)){
 
 		move_uploaded_file($plano['tmp_name'],$dir.$plano['name']);
@@ -46,6 +44,10 @@ VALUES ('$conse',NOW(),NOW(),'$cedcli','$cedpr','$nfin','7')";
 		mysqli_close($con);
 
 		include('phpmailer.php');
+
+		unset($cedcli);
+		unset($cedpr);
+		unset($email);
 		header("Location:../verlista.php");
 			}
 			}else{

@@ -28,19 +28,18 @@ if( $password1 != "" && $password2 != "" && $idusuario != "" && $token != "" ){
       <div class="col-md-8">
 <?php
 
-	
-	$conexion = new mysqli('localhost', 'root', '', 'ejemplobd');
-	$sql = " SELECT * FROM sv07tpgfo WHERE sv07npas = '$token' ";
+	include("php/conexion.php");
+	$consulta = " SELECT * FROM sv11res WHERE sv11tok = '$token' ";
 
-	$resultado = $conexion->query($consulta);
+	$resultado = $con->query($consulta);
 	if( $resultado->num_rows > 0 ){
 		$usuario = $resultado->fetch_assoc();
 		if( sha1( $usuario['sv07cdtp'] === $idusuario ) ){
 			if( $password1 === $password2 ){
 				$sql = "UPDATE sv07tpgfo SET sv07pass = '".sha1($password1)."' WHERE sv07cdtp = ".$usuario['sv07cdtp'];
-				$resultado = $conexion->query($sql);
-				if($resultado){
-					$sql = "DELETE FROM tblreseteopass WHERE token = '$token';";
+				$resultado = $con->query($sql);
+				if($resultado =! null){
+					$sql = "DELETE FROM sv11res WHERE sv11tok = '$token';";
 					$resultado = $conexion->query( $sql );
 				?>
 					<p> La contraseña se actualizó con exito. </p>

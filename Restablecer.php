@@ -2,10 +2,10 @@
 	$token = $_GET['token'];
 	$idusuario = $_GET['idusuario'];
 	
-	include ("conexion.php");
+	include ("php/conexion.php");
 
 	$sql = "SELECT * FROM sv11res WHERE sv11tok = '$token'";
-	$resultado = $conexion->query($sql);
+	$resultado = $con->query($sql);
 	
 	if( $resultado->num_rows > 0 ){
 		$usuario = $resultado->fetch_assoc();
@@ -35,7 +35,7 @@
     <div class="container" role="main">
       <div class="col-md-4"></div>
       <div class="col-md-4">
-        <form action="cambiarpassword.php" method="post">
+        <form action="cambiopassword.php" method="post">
           <div class="panel panel-default">
             <div class="panel-heading"> Restaurar contraseña </div>
             <div class="panel-body">
