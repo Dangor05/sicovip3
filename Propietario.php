@@ -4,7 +4,7 @@
     <link rel="stylesheet" type="text/css" href="public/css/stylesheet.css">
     <link rel="stylesheet" type="text/css" href="public/bootstrap/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="assets/datatables.min.css">
-    <script src="public/js/jquery-1.11.0.min.js"></script>
+    <script src="public/js/jquery-1.11.3.min.js"></script>
     <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
     <link rel="stylesheet" href="assets/css/bootstrap-theme.min.css" />
     <link rel="stylesheet" href="assets/js/jquery-ui/jquery-ui.min.css" />

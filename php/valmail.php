@@ -10,7 +10,7 @@
 
 		$resultado = $con->query($sql);
 		if($resultado){
-			$enlace = $_SERVER["SERVER_NAME"].'/sicovip1/Restablecer.php?idusuario='.sha1($idusuario).'&token='.$token;
+			$enlace = $_SERVER["SERVER_NAME"].':8080/sicovip/Restablecer.php?idusuario='.sha1($idusuario).'&token='.$token;
 			return $enlace;
 		}
 		else
@@ -61,7 +61,7 @@
        
           $mail->From = "tuemail@gmail.com";
         
-          $mail->FromName = "Administrador";
+          $mail->FromName = "Municipalidad de Santa Cruz";
         
           $mail->Subject = $asunto;
         
@@ -77,10 +77,6 @@
         {
     $msg = "Lo siento, ha habido un error al enviar el mensaje a $email";
     }
- 
-
-
-
 	}
 	
 	$email = $_POST['email'];

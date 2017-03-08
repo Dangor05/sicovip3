@@ -26,7 +26,7 @@ $msg = null;
           $mail->Port = 465;
 
 		  //indico un usuario / clave de un usuario de gmail
-          $mail->Username = "dani.ramos@gmail.com";
+          $mail->Username = "dani.ramos92@gmail.com";
           $mail->Password = "r4ind4nc3";
        
           $mail->From = "tuemail@gmail.com";

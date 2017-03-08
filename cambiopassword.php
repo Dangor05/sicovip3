@@ -34,8 +34,8 @@ if( $password1 != "" && $password2 != "" && $idusuario != "" && $token != "" ){
 	$resultado = $con->query($consulta);
 	if( $resultado->num_rows > 0 ){
 		$usuario = $resultado->fetch_assoc();
-		if( sha1( $usuario['sv07cdtp'] === $idusuario ) ){
-			if( $password1 === $password2 ){
+		if( sha1( $usuario['sv07cdtp'] == $idusuario ) ){
+			if( $password1 == $password2 ){
 				$sql = "UPDATE sv07tpgfo SET sv07pass = '".sha1($password1)."' WHERE sv07cdtp = ".$usuario['sv07cdtp'];
 				$resultado = $con->query($sql);
 				if($resultado =! null){
