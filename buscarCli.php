@@ -18,6 +18,7 @@
 <div class="container">
 <div class="row">
 <div class="col-md-12">
+<a class="btn btn-default" href="vercli.php"><span class="glyphicon glyphicon-circle-arrow-left"></span> &nbsp;Volver</a>
 		<h2>BUSCAR</h2>
 
 

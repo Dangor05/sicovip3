@@ -29,7 +29,7 @@
 			
 						if($std==1)
 			{
-				header("Location: ../verlista.php"); 
+				header("Location: ../Home.php"); 
 			}
 
 			else{

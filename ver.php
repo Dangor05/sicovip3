@@ -126,5 +126,39 @@
 </div>
 
 <script src="bootstrap/js/bootstrap.min.js"></script>
+<script src="public/Bootstrap/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="assets/datatables.min.js"></script>
+<script type="text/javascript" src="assets/crud.js"></script>
+<script type="text/javascript" charset="utf-8">
+$(document).ready(function() {
+    $('#example').DataTable();
+
+    $('#example')
+    .removeClass( 'display' )
+    .addClass('table table-bordered');
+});
+</script>
+<script type="text/javascript">
+$(document).ready(function(){
+
+    $(".edit-link").click(function Carga() 
+    {
+        $("#example tbody tr").each(function (index) 
+        {
+            var campo1, campo2, campo3 campo4, campo5, campo6;
+            $(this).children("td").each(function (index2) 
+            {
+                switch (index2) 
+                {
+                    case 0: campo1 = $(this).text();
+                            break;            
+                }
+                $(this).css("background-color", "#ECF8E0");
+            });
+        });
+        alert(campo1);
+    });
+ });  
+</script>
 	</body>
 </html>

@@ -8,7 +8,7 @@
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
     </button>
-    <a class="navbar-brand" href="./Home.php"><b>SICOVIP</b></a>
+    <a class="navbar-brand" href="./verLista.php"><b>SICOVIP</b></a>
   </div>
  <div class="collapse navbar-collapse navbar-ex1-collapse">
     <ul class="nav navbar-nav">
@@ -26,7 +26,7 @@
 <li><a href="./Cliente.php">Nuevo Tramite</a></li>
 <li><a href="./vertram.php">Tramites</a></li>
 </ul>
-</ul>    
+</ul> 
 <ul class="nav navbar-nav">
     <li class="dropdown" class="active"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">Consulta<span class="caret"></span></a> 
 <ul class="dropdown-menu">
@@ -35,7 +35,7 @@
 <li><a href="./verLista.php">Planos entrantes</a></li>
 </ul>
 </ul>
-<ul class="nav navbar-nav">
+    <ul class="nav navbar-nav">
     <li class="dropdown" class="active"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">Reportes<span class="caret"></span></a> 
 <ul class="dropdown-menu">
 <li><a href="./verReportVis.php">Fecha Visado</a></li>
@@ -47,16 +47,11 @@
 <li class="dropdown" class="active"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"><i class="glyphicon glyphicon-cog"></i><span class="caret"></span></a> 
 <ul class="dropdown-menu">
 <li><a href="./config.php">Configuraciones</a></li>
-<li><a href="./vert.php">Topografos</a></li>
 <li> <a href="index.php" class="btn btn-defult"> Cerrar sesion</a></li>
 </ul>
 </ul> 
-<form class="navbar-form navbar-left" role="search" action="./buscarclient.php">
-      <div class="form-group">
-        <input type="text" name="s" class="form-control" placeholder="Buscar">
-      </div>
-      <button type="submit" class="btn btn-default">&nbsp;<i class="glyphicon glyphicon-search"></i>&nbsp;</button>
-    </form>
+
       </div><!-- /.navbar-collapse -->
+
 </div>
 </nav>

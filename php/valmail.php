@@ -21,6 +21,7 @@
 		$msg = null;
 
 		$asunto="Restablecer contraseña";
+		$nombre=null;
 		$mensaje = '<html>
 		<head>
  			<title>Restablece tu contraseña</title>
@@ -89,10 +90,11 @@
 
    		if($resultado->num_rows > 0){
       		$usuario = $resultado->fetch_assoc();
-			$linkTemporal = generarLinkTemporal( $usuario['sv07cdtp']);
+      		$linkTemporal = generarLinkTemporal($usuario['sv07cdtp']);
       		if($linkTemporal){
         		enviarEmail( $email, $linkTemporal );
         		$respuesta->mensaje = '<div class="alert alert-info"> Un correo ha sido enviado a su cuenta de email con las instrucciones para restablecer la contraseña </div>';
+        		print "<script>alert(\"Un correo ha sido enviado a su cuenta de email con las instrucciones para restablecer la contraseña.\");window.location='../index.php';</script>";
       		}
    		}
    		else

@@ -17,25 +17,27 @@ $query = $con->query($sql1);
 ?>
 
 <?php if($query->num_rows>0):?>
-<table class=" table-bordered table-hover table-responsive">
+	<div class="well well-sm text-lefh">
+ <div class="content-loader">
+<table cellspacing="0" width="100%" id="example" class="table table-striped table-hover table-responsive">
 <thead>
-	<th style="width: 50%;">Propietario</th>
-	<th style="width: 10%;">Nfinca</th>
-	<th style="width: 10%;">Plano</th>
-	<th style="width: 10%;">Solitud</th>
-	<th style="width: 10%;">Conse</th>
-	<th style="width: 8%;">NºPlano</th>
-	<th style="width: 10%;">Folio</th>
+	<th>Propietario</th>
+	<th>Nfinca</th>
+	<th>Plano</th>
+	<th>Solitud</th>
+	<th>Conse</th>
+	<th>NºPlano</th>
+	<th>Folio</th>
 	<th>Predio</th>
 	<th>Fecha</th>
 	<th>Minuta</th>
-	<th style="width: 10%;">Impuestos</th>
+	<th>Impuestos</th>
 	<th>CartasAgua</th>
 	<th>Estado</th>
 	<th>CIT</th>
-
 	<th></th>
-</thead>
+
+	</thead>
 <?php while ($r=$query->fetch_array()):?>
 <tr>
 	<td><?php echo $r["sv03cedp"];?> <?php echo $r["sv03nomp"]; ?> <?php echo $r["sv03apdp"]; ?></td>
@@ -55,9 +57,12 @@ $query = $con->query($sql1);
 	<td style="width:150px;">
 	<a href="./editar.php?sv09npln=<?php echo $r["sv09npln"];?>" class="btn btn-sm btn-warning">Editar</a>
 	</td>
+	</td>
 </tr>
 <?php endwhile;?>
 </table>
+</div>
+</div>
 <?php else:?>
 	<p class="alert alert-warning">No hay resultados</p>
 <?php endif;mysqli_close($con);?>

@@ -8,8 +8,9 @@ $query = $con->query($sql1);
 ?>
 
 <?php if($query->num_rows>0):?>
-<table cellpadding="0" cellspacing="0" border="0" class="display" >
-<table class="table table-bordered table-hover table-responsive">
+	<div class="well well-sm text-lefh">
+ <div class="content-loader">
+<table cellspacing="0" width="100%" id="example" class="table table-striped table-hover table-responsive">
 <thead>
 	 <th>Plano</th>
 	<th>Folio</th>
@@ -58,7 +59,8 @@ $query = $con->query($sql1);
 </tr>
 <?php endwhile;?>
 </table>
-</table>
+</div>
+</div>
 <?php else:?>
 	<p class="alert alert-warning">No hay resultados</p>
 <?php endif; mysqli_close($con);?>

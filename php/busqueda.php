@@ -9,7 +9,7 @@ $sql1= "select * from sv09vsdo
               sv09npre like '%$_GET[s]%' or 
               sv08conse like '%$_GET[s]%' or 
               sv03cedp like '%$_GET[s]%' or
-              sv04nfin like  '%$_GET[s]%'  ";
+              sv04nfin like  '%$_GET[s]%' ";
 
 $query = $con->query($sql1);
 ?>

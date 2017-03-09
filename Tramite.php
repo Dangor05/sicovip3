@@ -74,7 +74,7 @@ if ($resp->num_rows>=0) {
   <div class="form-group"> 
  <label for="sv03ptario">AutoCat:</label>&nbsp
  <input type="file" name="dib" placeholder="Autocat" ><br><br></div>
-     <a href="Propietario.php" class="btn btn-default"></a> 
+     <a href="Propietario.php" class="btn btn-default"><span class="glyphicon glyphicon-circle-arrow-left"></span> &nbsp;Volver</a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp 
   <button type="submit" class="btn btn-default">Finalizar Tramite</button>
   
   </form>

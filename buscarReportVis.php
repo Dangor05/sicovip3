@@ -29,9 +29,13 @@
         include('php/navh2convis.php');
       }  ?>
 <div class="container">
-<button id="exportar">Imprimir</button>
+<!--<button id="exportar">Imprimir</button>-->
 <div class="row">
 <div class="col-md-12">
+<a href="verReportVis.php"> 	
+<button type="button" class="btn btn-default" ><span class="glyphicon glyphicon-circle-arrow-left"></span> &nbsp;Volver</button> </a>&nbsp;<button id="exportar" class="btn btn-info">Imprimir</button>
+
+
 		<h2>Reporte Fecha Visado.</h2>
 
 

@@ -24,6 +24,7 @@
 <div class="row">
 <div class="col-md-12">
 		<h2>BUSCAR</h2>
+		<a class="btn btn-default" href="verLista.php"><span class="glyphicon glyphicon-circle-arrow-left"></span> &nbsp;Volver</a>
 
 
 <?php include "php/busquedaconlista.php"; ?>  

@@ -33,7 +33,7 @@ if(isset ($_SESSION['sv07cdtp'])) {
 <br><br>
 <form role="form" method="post" action="Cliente.php"> 
 
-<button type="submit" class="btn btn-default">Nuevo Tramite</button>
+<button type="submit" class="btn btn-default"><span class="glyphicon glyphicon-pencil"></span> &nbsp;Nuevo Tramite</button>
 
 </form>
 <br>

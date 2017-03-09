@@ -72,7 +72,7 @@
    <label for="sv01telc">Telefono</label>
    <input type='tel' class="form-control" name='telt'><br></div>
    </div>
-<a class="btn btn-default" href="Home.php">Regresar</a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<button type="submit" class="btn btn-default text-right">Continuar</button>
+<a class="btn btn-default" href="Home.php"><span class="glyphicon glyphicon-circle-arrow-left"></span> &nbsp;Volver</a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<button type="submit" class="btn btn-default text-right">Continuar</button>
     
   </form>
 

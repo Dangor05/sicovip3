@@ -19,8 +19,10 @@ $query = $con->query($sql1);
 ?>
 
 <?php if($query->num_rows>0):?>
+	<div class="well well-sm text-lefh">
+ <div class="content-loader">
 <div class="table-responsive">
-<table class=" table-bordered table-hover ">
+<table cellspacing="0" width="100%" id="example" class="table table-striped table-hover table-responsive">
 
 <thead>
 	<th>Cedula propietario</th>
@@ -61,6 +63,8 @@ $query = $con->query($sql1);
 </tr>
 <?php endwhile;mysqli_close($con);?>
 </table>
+</div>
+</div>
 </div>
 <?php else:?>
 	<p class="alert alert-warning">No hay resultados</p>

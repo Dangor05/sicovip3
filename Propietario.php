@@ -51,7 +51,7 @@
   <div class="form-group">
 
    <label for="cedp">Cedula</label>&nbsp
-   <input type='number' class="form-control" name='cedp' required></div>
+   <input type='text' class="form-control" name='cedp' required></div>
 <div  class="form-group">
 	  <label for="nomp">Nombre</label>&nbsp
     <input type='text' class="form-control" name='nomp'><br></div>
@@ -71,8 +71,8 @@
     <option value="2">Juridico</option></select></div>
 
 <br>
-  <a href="Cliente.php" class="btn btn-default"></a>
-<center><button type="submit" class="btn btn-default">Continuar</button>
+  <a href="Cliente.php" class="btn btn-default"><span class="glyphicon glyphicon-circle-arrow-left"></span> &nbsp;Volver</a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+<button type="submit" class="btn btn-default">Continuar</button>
     
   </form>
   </div>
