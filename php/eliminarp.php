@@ -13,6 +13,21 @@ if(!empty($_GET)){
 				print "<script>alert(\"No se pudo eliminar.\");window.location='../verp.php';</script>";
 
 			}
-}
+}else{
+	if (isset($_POST['ced'])) {
+			
+			include "conexion.php";
+			
+			$sql = "DELETE FROM sv03ptario WHERE sv03cedp=".$_POST["ced"];
+			$query = $con->query($sql);
+			if($query!=null){
+				mysqli_close($con);
+				print "<script>alert(\"Eliminado exitosamente.\");window.location='../PropietarioMostrar.php';</script>";
+			}else{
+				mysqli_close($con);
+				print "<script>alert(\"No se pudo eliminar.\");window.location='../PropietarioMostrar.php';</script>";
 
+			}
+	}
+}
 ?>

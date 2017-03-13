@@ -12,10 +12,12 @@
   </div>
  <div class="collapse navbar-collapse navbar-ex1-collapse">
     <ul class="nav navbar-nav">
-      <li><a href="./verct.php">Cliente-Top</a></li>
+    <li><a href="./ClienteMostrar.php">Cliente-Top</a></li>
+      <!--<li><a href="./verct.php">Cliente-Top</a></li>-->
     </ul>
      <ul class="nav navbar-nav">
-      <li><a href="./verp.php">Propietario</a></li>
+     <!-- <li><a href="./verp.php">Propietario</a></li>-->
+     <li><a href="./PropietarioMostrar.php">Propietario</a></li>
     </ul>
     <ul class="nav navbar-nav">
       <li><a href="./ver.php">Visado</a></li>
@@ -24,7 +26,8 @@
     <li class="dropdown" class="active"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">Tramite<span class="caret"></span></a> 
 <ul class="dropdown-menu">
 <li><a href="./Cliente.php">Nuevo Tramite</a></li>
-<li><a href="./vertram.php">Tramites</a></li>
+<li><a href="./Tramites.php">Tramites</a></li>
+<!--<li><a href="./vertram.php">Tramites</a></li>-->
 </ul>
 </ul> 
 <ul class="nav navbar-nav">

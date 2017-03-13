@@ -12,10 +12,12 @@
   </div>
  <div class="collapse navbar-collapse navbar-ex1-collapse">
     <ul class="nav navbar-nav">
-      <li><a href="./verct.php">Cliente-Top</a></li>
+    <li><a href="./ClienteMostrar.php">Cliente-Top</a></li>
+      <!--<li><a href="./verct.php">Cliente-Top</a></li>-->
     </ul>
      <ul class="nav navbar-nav">
-      <li><a href="./verp.php">Propietario</a></li>
+     <!-- <li><a href="./verp.php">Propietario</a></li>-->
+     <li><a href="./PropietarioMostrar.php">Propietario</a></li>
     </ul>
     <ul class="nav navbar-nav">
       <li><a href="./ver.php">Visado</a></li>

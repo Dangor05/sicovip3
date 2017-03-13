@@ -25,7 +25,7 @@ $dir ='C:\apache\htdocs\SICOVIP\archivos/'.$sv03cedp.'/';
 			if($query!=null){
 				move_uploaded_file($sv09mnt['tmp_name'],$dir.$sv09mnt['name']);
 				mysqli_close($con);
-				header("location='../ver.php';</script>";
+				header("location='../ver.php';</script>");
 			}else{
 				print "<script>alert(\"No se pudo actualizar.\");window.location='../ver.php';</script>";
 

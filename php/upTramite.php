@@ -1,12 +1,12 @@
 <?php 
-include('../../BD/conexion.php');
+include('conexion.php');
 
 
 if(!empty($_POST) && !empty($_FILE))
 	{
-		$Conse = mysqli_real_escape_string($mysqli,$_POST['ncon']);
+		$Conse = mysqli_real_escape_string($mysqli,$_POST['conse']);
 		$nfin = mysqli_real_escape_string($mysqli,$_POST['nfin']);
-		$cdpr = mysqli_real_escape_string($mysqli,$_POST['pro']);
+		$cdpr = mysqli_real_escape_string($mysqli,$_POST['cedp']);
 		$plano = mysqli_real_escape_string($mysqli,$_FILE['pln']);
 		$carta = mysqli_real_escape_string($mysqli,$_FILE['aact']);
 		$autC = mysqli_real_escape_string($mysqli,$_FILE['acta']);

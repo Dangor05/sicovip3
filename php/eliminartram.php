@@ -3,7 +3,7 @@
 if(!empty($_GET)){
 			include "conexion.php";
 			
-			$sql = "DELETE FROM sv08trmte WHERE sv08conse=".$_GET["sv08conse"];
+			$sql = "DELETE FROM sv08trmte WHERE sv08conse=".$_GET["sv09npln"];
 			$query = $con->query($sql);
 			if($query!=null){
 				mysqli_close($con);

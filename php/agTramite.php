@@ -34,7 +34,8 @@ VALUES ('$conse',NOW(),NOW(),'$cedcli','$cedpr','$nfin','7')";
 
 		include('phpmailer.php');
 
-		header("Location:../verlista.php");
+		//header("Location:../Home.php");
+		header("Location:../reset.php");
 			} else{
 
 		mkdir($dir,7055);
@@ -48,7 +49,7 @@ VALUES ('$conse',NOW(),NOW(),'$cedcli','$cedpr','$nfin','7')";
 		unset($cedcli);
 		unset($cedpr);
 		unset($email);
-		header("Location:../verlista.php");
+		header("Location:../reset.php");
 			}
 			}else{
 				mysqli_close($con);
