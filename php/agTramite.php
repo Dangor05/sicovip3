@@ -34,8 +34,9 @@ VALUES ('$conse',NOW(),NOW(),'$cedcli','$cedpr','$nfin','7')";
 
 		include('phpmailer.php');
 
-		//header("Location:../Home.php");
-		header("Location:../reset.php");
+
+		header("Location:../Home.php");
+		//header("Location:../reset.php");
 			} else{
 
 		mkdir($dir,7055);
@@ -44,12 +45,15 @@ VALUES ('$conse',NOW(),NOW(),'$cedcli','$cedpr','$nfin','7')";
 		move_uploaded_file($autC['tmp_name'],$dir.$autC['name']);
 		mysqli_close($con);
 
+
+
 		include('phpmailer.php');
 
-		unset($cedcli);
-		unset($cedpr);
-		unset($email);
-		header("Location:../reset.php");
+		     session_start();
+     unset($_SESSION['Cedt']);
+     unset($Cedp = $_SESSION['Cedp']);
+     unset($mail= $_SESSION['mail']);
+		header("Location:../Home.php");
 			}
 			}else{
 				mysqli_close($con);

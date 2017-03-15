@@ -19,6 +19,7 @@ $query = $con->query($sql1);
 ?>
 
 <?php if($query->num_rows>0):?>
+	<div class="container-fluid">
 	<div class="well well-sm text-lefh">
  <div class="content-loader">
 <div class="table-responsive">
@@ -63,6 +64,7 @@ $query = $con->query($sql1);
 </tr>
 <?php endwhile;mysqli_close($con);?>
 </table>
+</div>
 </div>
 </div>
 </div>

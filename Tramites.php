@@ -10,17 +10,7 @@
 <link href="assets/datatables.min.css" rel="stylesheet" type="text/css">
 <script type="text/javascript" src="assets/jquery-1.11.3-jquery.min.js"></script>
 <script type="text/javascript" src="public\JS\jquery-3.1.0.min.js"></script>
-<link rel="stylesheet" type="text/css" href="public/css/stylesheet.css">
-<link rel="stylesheet" type="text/css" href="public/bootstrap/css/bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href="assets/datatables.min.css">
-<link rel="stylesheet" href="assets/css/bootstrap.min.css" />
-<link rel="stylesheet" href="assets/css/bootstrap-theme.min.css" />
-<link rel="stylesheet" href="assets/js/jquery-ui/jquery-ui.min.css" />
-<link rel="stylesheet" href="assets/js/jquery-ui/jquery-ui.theme.min.css" />
-<link rel="stylesheet" href="assets/css/style.css" />
-<script src="public/js/jquery-1.11.0.min.js"></script>
-<script src="public/js/jquery-1.11.3.min.js"></script>
-<script src="public/js/jquery-ui.js"></script>
+<script type="text/javascript" src="public\bootstrap\bootstrap\js/bootstrap.min.js"></script>
     </head>
     <body>
       <?php    session_start();
@@ -57,7 +47,7 @@
 
             <tr>
              <td><?php echo $r["sv08conse"]; ?></td>
-             <td><?php echo $r["sv08fchs"]=date("d-m-Y"); ?></td>
+             <td><?php echo $r["sv08fchs"]; ?></td>
              <td><?php echo $r["sv01cedc"]; ?></td>
              <td><?php echo $r["sv03cedp"]; ?></td>
              <td><?php echo $r["sv04nfin"]; ?></td>

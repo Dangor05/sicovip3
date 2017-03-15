@@ -16,10 +16,10 @@ if(!empty($_POST)){
 			$query = $con->query($sql);
 			if($query!=null){
 				mysqli_close($con);
-				print "<script>alert(\"Agregado exitosamente.\");window.location='../verct.php';</script>";
+				print "<script>alert(\"Agregado exitosamente.\");window.location='../ClienteModificar.php';</script>";
 			}else{
 				mysqli_close($con);
-				print "<script>alert(\"No se pudo agregar.\");window.location='../verct.php';</script>";
+				print "<script>alert(\"No se pudo agregar.\");window.location='../ClienteModificar.php';</script>";
 
 			}
 		//}

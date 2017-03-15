@@ -1,3 +1,7 @@
+<?php
+session_start();
+if(isset ($_SESSION['sv07cdtp'])) {
+?>
 <!Doctype html>
 <html lang="es">
 <head>
@@ -10,7 +14,7 @@
 <script type="text/javascript" src="public\JS\jquery-3.1.0.min.js"></script>      
 </head>
 <body>
- <?php      session_start();
+ <?php      
      if ($_SESSION['sv05codu'] == 1) {
       include "php/navbarct.php";  
       }else if ($_SESSION['sv05codu'] == 2) {
@@ -37,8 +41,7 @@
         <th>Apellido</th>
         <th>Email</th>
         <th>Telefono</th>
-        <th>EDITAR</th>
-        <th>ELIMINAR</th>
+
         </tr>
         </thead>
         <tbody>
@@ -169,15 +172,15 @@
         
          
 <div class="form-group row">
-         <label for="example-text-input" class="col-xs-1 col-form-label">CIT:</label>
+         <label for="example-text-input" class="col-xs-1 col-form-label">Cedula:</label>
              <div class="col-xs-2">
-                <input class="form-control" type="text" id="ced" name="sv01cdtpc" value="">
+                <input class="form-control" type="text" id="ced" name="sv01cedc" value="">
              </div>
              </div>
            <div class="form-group row">
-          <label for="example-text-input" class="col-xs-1 col-form-label">Cedula:</label>
+          <label for="example-text-input" class="col-xs-1 col-form-label">CIT:</label>
             <div class="col-xs-2">
-            <input class="form-control" required="required" type="text" id="cit" name="sv01cedc" value="">
+            <input class="form-control" required="required" type="text" id="cit" name="sv01cdtpc"  value="">
             </div>
             </div>
             <div class="form-group row">
@@ -244,7 +247,7 @@
             <div class="form-group">
               <label class="control-label col-md-3">Cedula</label>
               <div class="col-md-9">
-                <input class="form-control" type="text" value="" id="ced" name="ced">
+                <input class="form-control" type="text" value="" id="sv01cdtpc" name="sv01cdtpc">
               </div>
             </div>
             
@@ -292,8 +295,8 @@ $(document).ready(function() {
     var _trEdit = null;
     $(document).on('click', '#btnModi',function(){
         _trEdit = $(this).closest('tr');
-        var _cit = $(_trEdit).find('td:eq(0)').text();
-        var _ced = $(_trEdit).find('td:eq(1)').text();
+        var _ced = $(_trEdit).find('td:eq(0)').text();
+        var _cit = $(_trEdit).find('td:eq(1)').text();
         var _nom = $(_trEdit).find('td:eq(2)').text();
         var _apl = $(_trEdit).find('td:eq(3)').text();
         var _eml = $(_trEdit).find('td:eq(4)').text();
@@ -312,3 +315,5 @@ $(document).ready(function() {
 </body>
 
 </html>
+<?php
+}else{print "<script>alert(\"Debes iniciar de para poder ingresar.\");window.location='index.php';</script>"; } ?>

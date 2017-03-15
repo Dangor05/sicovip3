@@ -19,6 +19,7 @@ $query = $con->query($sql1);
 ?>
 
 <?php if($query->num_rows>0):?>
+	<div class="container-fluid">
 <div class="well well-sm text-lefh">
  <div class="content-loader">
 <div class="table-responsive">
@@ -29,15 +30,15 @@ $query = $con->query($sql1);
 	<th>Nombre</th>
 	<th>Apellidos</th>
 	<th>Nfinca</th>
-	<th>Fecha solitud</th>
+	<th>Solitud</th>
 	<th>Conse</th>
 	<th>Nplano</th>
 	<th>NFolio</th>
 	<th>Npredio</th>
-	<th>Fecha Visado</th>
-	<th>Estado Impuestos</th>
-	<th>Estado CartasAgua</th>
-	<th>Estado visado</th>
+	<th>Visado</th>
+	<th>Impuestos</th>
+	<th>CartasAgua</th>
+	<th>Estado</th>
 	<th>Cod Top</th>
 	<!--<th>nombre Top</th>-->
 	
@@ -64,6 +65,7 @@ $query = $con->query($sql1);
 </tr>
 <?php endwhile; mysqli_close($con);?>
 </table>
+</div>
 </div>
 </div>
 </div>

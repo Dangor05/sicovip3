@@ -20,7 +20,8 @@
      <li><a href="./PropietarioMostrar.php">Propietario</a></li>
     </ul>
     <ul class="nav navbar-nav">
-      <li><a href="./ver.php">Visado</a></li>
+      <!--<li><a href="./ver.php">Visado</a></li>-->
+      <li><a href="./VisadoMostrar.php">Visado</a></li>
     </ul>
     <ul class="nav navbar-nav">
     <li class="dropdown" class="active"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">Tramite<span class="caret"></span></a> 
@@ -48,7 +49,8 @@
 <li class="dropdown" class="active"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"><i class="glyphicon glyphicon-cog"></i><span class="caret"></span></a> 
 <ul class="dropdown-menu">
 <li><a href="./config.php">Configuraciones</a></li>
-<li><a href="./vert.php">Topografos</a></li>
+<!--<li><a href="./vert.php">Topografos</a></li>-->
+<li><a href="./UsuariosMostrar.php">Topografos</a></li>
 <li> <a href="index.php" class="btn btn-defult"> Cerrar sesion</a></li>
 </ul>
 </ul> 

@@ -32,9 +32,9 @@
     
 
 	 <div class="Form-group" class="col-sm-10">
-	  	   <h4>Desde</h4><input type="date"  name="S" class="form-control" placeholder="Buscar">
+	  	   <h4>Desde</h4><input type="date"  name="S" class="form-control" placeholder="AAAA/MM/DD">
 		     
-		   <h4>Hasta</h4><input type="date" name="FS" class="form-control" placeholder="Buscar">
+		   <h4>Hasta</h4><input type="date" name="FS" class="form-control" placeholder="AAAA/MM/DD">
 		 <div id="next_button" align="left"><button  type="submit" class="btn btn-default" >&nbsp;<i class="glyphicon glyphicon-search"></i>&nbsp;</button> </div>
      
 	 </div>

@@ -7,7 +7,7 @@ $cons=null;
 if ($resp->num_rows>=0) {
   while ($r=$resp->fetch_array()) {
 
-    $cons=$r[1]=date("Ymd").$r[0];
+    $cons=$r[0].$r[1]=date("dmY");
     
   }
 }
@@ -42,40 +42,39 @@ if ($resp->num_rows>=0) {
       }  ?>
   <div class="container">
 <div class="row">
-<div class="col-md-6">
+<div class="col-md-4">
   <form action="php/agTramite.php" method="post" enctype="multipart/form-data"> 
 <div class="form-group">
  <label for="sv03cedp">Nº Ced Propietario</label>&nbsp
  <!--<p><?php// echo $_SESSION['Cedp']; ?></p>-->
-  <input type="text" class="form-control" value="<?php echo $GLOBALS['Cedp'];?>" name ="Cedpr"><br></div>
+  <input type="text" class="form-control" value="<?php echo $GLOBALS['Cedp'];?>" name ="Cedpr"></div>
 
 <div class="form-group"> 
  <label for="sv01cedt">Nº Ced Topografo</label>&nbsp
  <!--<p><?php //echo $_SESSION['Cedt']; ?></p>-->
- <input type="text" class="form-control" value="<?php echo $GLOBALS['Cedt'];?>" name="cedc"><br></div>
-
-  <div class="form-group"> 
- <input type="hidden" class="form-control" value="<?php echo $GLOBALS['mail'];?>" name="mail"><br></div>
+ <input type="text" class="form-control" value="<?php echo $GLOBALS['Cedt'];?>" name="cedc"></div>
 
   <div class="form-group"> 
  <label for="sv03ptario">Nº consecutivo:</label>&nbsp
- <input type="text" class="form-control" value="<?php echo $cons; ?>" name="conse" required><br></div>
+ <input type="text" class="form-control" value="<?php echo $cons; ?>" name="conse" required></div>
 
   <div class="form-group"> 
  <label for="sv03ptario">Nº Finca:</label>&nbsp
-<input type="text" class="form-control" name="fin" placeholder="Nº Finca" required><br></div>
+<input type="text" class="form-control" name="fin" placeholder="Nº Finca" required></div>
 
   <div class="form-group"> 
  <label for="sv03ptario">Plano:</label>&nbsp
-  <input type="file"  name="pla" placeholder="Plano" ><br></div>
+  <input type="file"  name="pla" placeholder="Plano" ></div>
 
   <div class="form-group"> 
  <label for="sv03ptario">Cartas de Agua:</label>&nbsp
- <input type="file" name="car" placeholder="Cartas de Agua" ><br></div>
+ <input type="file" name="car" placeholder="Cartas de Agua" ></div>
 
   <div class="form-group"> 
  <label for="sv03ptario">AutoCat:</label>&nbsp
- <input type="file" name="dib" placeholder="Autocat" ><br><br></div>
+ <input type="file" name="dib" placeholder="Autocat" ></div>
+   <div class="form-group"> 
+ <input type="hidden" class="form-control" value="<?php echo $GLOBALS['mail'];?>" name="mail"></div>
      <a href="Propietario.php" class="btn btn-default"><span class="glyphicon glyphicon-circle-arrow-left"></span> &nbsp;Volver</a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp 
   <button type="submit" class="btn btn-default">Finalizar Tramite</button>
   

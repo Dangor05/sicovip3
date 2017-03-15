@@ -43,7 +43,7 @@ while ($r=$query->fetch_object()){
   </div>
  <div class="form-group">
     <label for="sv05codu">Tipo Usuario</label>
-    <select name="sv05codu" class="form-control" value="<?php echo $person->sv05codu; ?>"name="sv05codu" >
+    <select name="sv05codu" class="form-control" value="<?php echo $person->sv05codu; ?>" name="sv05codu" >
     <option value="1">Administrador </option>
     <option value="2">Topografo</option>
  </select>

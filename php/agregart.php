@@ -10,20 +10,21 @@ include "conexion.php";
      $sv07apdt=$_POST['sv07apdt'];
      $sv07estd=$_POST['sv07estd'];
      $sv07pass=$_POST['sv07pass'];
+     $sv07emt=$_POST['sv07emt'];
      $sv05codu=$_POST['sv05codu'];
 
-       $sql =  "INSERT INTO sv07tpgfo (sv07cdtp,sv07cedt,sv07nomt,sv07apdt,sv07estd,sv07pass,sv05codu) values 
-        ('$sv07cdtp','$sv07cedt','$sv07nomt','$sv07apdt','$sv07estd','$sv07pass','$sv05codu')";
+       $sql =  "INSERT INTO sv07tpgfo (sv07cdtp,sv07cedt,sv07nomt,sv07apdt,sv07estd,sv07pass,sv07emt,sv05codu) values 
+        ('$sv07cdtp','$sv07cedt','$sv07nomt','$sv07apdt','$sv07estd','$sv07pass','$sv07emt','$sv05codu')";
 
 
 
 			$query = $con->query($sql);
 			if($query!=null){
 				mysqli_close($con);
-				print "<script>alert(\"Agregado exitosamente.\");window.location='../vert.php';</script>";
+				print "<script>alert(\"Agregado exitosamente.\");window.location='../UsuariosMostrar.php';</script>";
 			}else{
 				mysqli_close($con);
-				print "<script>alert(\"No se pudo agregar.\");window.location='../vert.php';</script>";
+				print "<script>alert(\"No se pudo agregar.\");window.location='../UsuariosMostrar.php';</script>";
 
 			}
 		//}

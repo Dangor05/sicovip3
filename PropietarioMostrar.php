@@ -39,8 +39,7 @@
         <th>Email</th>
         <th>Telefono</th>
         <th>Tipo Propietario</th>
-        <th>EDITAR</th>
-        <th>ELIMINAR</th>
+
         </tr>
         </thead>
         <tbody>
@@ -123,7 +122,7 @@
              <div class="form-group row">
             <label for="example-text-input" class="col-xs-1 col-form-label">Tipo:</label>
              <div class="col-xs-2">
-              <select name="impu" class="form-control" id="impu" name="impu" required>
+              <select name="sv06codp" class="form-control" id="impu" name="sv06codp" required>
                  <option value="1">Fisico</option>
                  <option value="2">Juridico</option>
               </select>
@@ -195,7 +194,10 @@
              <div class="form-group row">
             <label for="example-text-input" class="col-xs-1 col-form-label">Tipo:</label>
              <div class="col-xs-2">
-                <input class="form-control" type="text" id="tip" name="sv06codp" value="">
+                 <select name="sv06codp" class="form-control" id="impu" name="sv06codp" required>
+                 <option value="1">Fisico</option>
+                 <option value="2">Juridico</option>
+              </select>
              </div>
         </div>          
        <div class="form-group row"><br>
@@ -231,7 +233,7 @@
             <div class="form-group">
               <label class="control-label col-md-3">Cedula</label>
               <div class="col-md-9">
-                <input class="form-control" type="text" value="" id="ced" name="ced">
+                <input class="form-control" type="text" value="" id="ced" name="sv03cedp">
               </div>
             </div>
             

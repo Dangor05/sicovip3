@@ -53,19 +53,19 @@
   <div class="form-group">
 
    <label for="cedp">Cedula</label>&nbsp
-   <input type='text' class="form-control" name='cedp' required></div>
+   <input type='text' class="form-control" name='cedp' maxlength="10" required></div>
 <div  class="form-group">
 	  <label for="nomp">Nombre</label>&nbsp
-    <input type='text' class="form-control" name='nomp'><br></div>
+    <input type='text' class="form-control" name='nomp' maxlength="15" required></div>
 <div class="form-group">
     <label for="apdp">Apellidos</label>&nbsp
-    <input type='text' class="form-control" name='apelp'><br></div>
+    <input type='text' class="form-control" name='apelp' maxlength="25" required></div>
 <div class="form-group">
     <label for="emp">Email</label>&nbsp
-   <input type='email' class="form-control" name='emap'><br></div>
+   <input type='email' class="form-control" name='emap' maxlength="20" required></div>
 <div class="form-group">
     <label for="telp">Telefono</label>&nbsp
-   <input type='tel'class="form-control" name='telp'><br></div>
+   <input type='text'class="form-control" name='telp' maxlength="10" required=""></div>
 <div class="form-group">
     <label for="sv06codp">Tipo Usuario</label>
     <select name="tipro" class="form-control" name="tipro" >

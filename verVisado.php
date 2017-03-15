@@ -13,6 +13,7 @@
 <script src="public/js/jquery-1.11.0.min.js"></script>
 <script src="public/js/jquery-1.11.3.min.js"></script>
 <script src="public/js/jquery-ui.js"></script>
+<script type="text/javascript" src="public\bootstrap\bootstrap\js/bootstrap.min.js"></script>
 	</head>
 	<body>
 	<?php 
@@ -24,7 +25,7 @@
       } 
 
 	 ?>
-<div class="container">
+<div class="container-fluid">
 <div class="row">
 <div class="col-md-12">
 		<h2>Visados</h2>
@@ -42,7 +43,6 @@
 <script src="bootstrap/js/bootstrap.min.js"></script>
 <script src="public/Bootstrap/bootstrap/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="assets/datatables.min.js"></script>
-<script type="text/javascript" src="assets/crud.js"></script>
 <script type="text/javascript" charset="utf-8">
 $(document).ready(function() {
     $('#example').DataTable();

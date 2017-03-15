@@ -2,6 +2,9 @@
 
 if(!empty($_POST)){
 
+		if (isset($_POST['sv01cedc']) && isset($_POST['sv01cdtpc']) && isset($_POST['sv01nomc']) &&
+			isset($_POST['sv01apdc']) && isset($_POST['sv01emc']) && isset($_POST['sv01telc'])) {
+
      $sv01cedc=$_POST['sv01cedc'];
      $sv01cdtpc=$_POST['sv01cdtpc'];
      $sv01nomc=$_POST['sv01nomc'];
@@ -11,19 +14,23 @@ if(!empty($_POST)){
 
 	include "conexion.php";
 			
-			$sql="UPDATE `sv01clnte` SET `sv01cdtpc`='$sv01cdtpc',`sv01nomc`='$sv01nomc',`sv01apdc`='$sv01apdc',`sv01emc`='$sv01emc',`sv01telc`='$sv01telc' WHERE `sv01cedc`='$sv01cedc'";
 
-			
-			$query = $con->query($sql);
-			if($query!=null){
-				mysqli_close($con);
-				print "<script>alert(\"Actualizado exitosamente.\");window.location='../verct.php';</script>";
-			}else{
-				mysqli_close($con);
-				print "<script>alert(\"No se pudo actualizar.\");window.location='../verct.php';</script>";
+		$stm=$con->prepare("CALL ActualizarCliente(?,?,?,?,?,?);");
+		$stm->bind_param("sssssi",$sv01cedc,$sv01cdtpc, $sv01nomc, $sv01apdc, $sv01emc, $sv01telc);
+		$stm->execute();
 
-			}
-		
+		if ($stm->error) {
+			echo "Fallo al agregar".$res->error;
+		}
+
+		$stm->close();
+		$con->close(); 
+
+		print "<script>alert(\"Actualizado exitosamente.\");window.location='../ClienteMostrar.php';</script>";
+
+	}	else{
+		echo "revisa las vistas pendejo!!";
+	}
 }
 
 

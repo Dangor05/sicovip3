@@ -1,7 +1,6 @@
 <?php
 session_start();
-if(isset ($_SESSION['sv07cdtp'])) {
-?>
+if(isset ($_SESSION['sv07cdtp'])):?>
 <!Doctype html>
 <html lang="es">
 <head>
@@ -93,7 +92,7 @@ if(isset ($_SESSION['sv07cdtp'])) {
                         <h3 class="modal-title">Agregar visado</h3>
                      </div>
                      <div class="modal-body ">
-        <form name="Propietario" method="POST" action="php/actualizarp.php">
+        <form name="Propietario" method="POST" action="php/agregar.php">
         <div class="container">
         
          
@@ -204,7 +203,7 @@ if(isset ($_SESSION['sv07cdtp'])) {
         
          
           <div class="form-group row">
-          <input type="hidden" class="form-control" id="cedp" value="" name="cedp" required>
+          <input type="hidden" class="form-control" id="cedp" value="" name="cedp">
   </div>
   <div class="form-group row">
          <label for="example-text-input" class="col-xs-1 col-form-label">Consecutivo:</label>
@@ -300,5 +299,6 @@ $(document).ready(function() {
 </body>
 
 </html>
-<?php
-}else{print "<script>alert(\"Debes iniciar de para poder ingresar.\");window.location='index.php';</script>"; } ?>
+<?php else:?>
+ <script>alert(\"Debes iniciar de para poder ingresar.\");window.location='index.php';</script>
+<?php endif;?>

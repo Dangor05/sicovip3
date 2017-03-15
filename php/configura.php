@@ -2,7 +2,7 @@
 include "conexion.php";
 
 $user_id=null;
-$sql1= "SELECT sv07cdtp,sv07cedt,sv07nomt,sv07apdt,sv07estd,sv07pass from sv07tpgfo where sv07cdtp = ".$_SESSION['sv07cdtp'];
+$sql1= "SELECT sv07cdtp,sv07cedt,sv07nomt,sv07apdt,sv07estd,sv07pass, sv07emt from sv07tpgfo where sv07cdtp = ".$_SESSION['sv07cdtp'];
 $query = $con->query($sql1);
 $person = null;
 if($query->num_rows>0){
@@ -32,9 +32,17 @@ while ($r=$query->fetch_object()){
     <label for="sv07apdt">Apellidos</label>
     <input type="text" class="form-control" value="<?php echo $person->sv07apdt; ?>"  name="sv07apdt" >
   </div>
+    <div class="form-group">
+    <label for="sv07apdt">Correo:</label>
+    <input type="text" class="form-control" value="<?php echo $person->sv07emt; ?>"  name="sv07emt" >
+  </div>
   <div class="form-group">
     <label for="sv07pass">Pass</label>
     <input type="password" class="form-control" value="<?php echo $person->sv07pass; ?>" name="sv07pass" >
+  </div>
+    <div class="form-group">
+    <label for="sv07pass">Repita contraseña</label>
+    <input type="password" class="form-control" name="valpass" >
   </div>
 
 <input type="hidden" name="id" value="<?php echo $person->sv07cdtp; ?>">

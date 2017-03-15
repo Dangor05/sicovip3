@@ -35,7 +35,7 @@
       }else if ($_SESSION['sv05codu'] == 2) {
         include('php/navh2convis.php');
       }  ?>
-<div class="container">
+<div class="container-fluid">
 <!--<button id="exportar">Imprimir</button>-->
 <div class="row">
 <div class="col-md-12">

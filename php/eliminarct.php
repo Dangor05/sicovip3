@@ -14,11 +14,11 @@ if(!empty($_GET)){
 
 			}
 }else{
-	if (isset($_POST['ced'])) {
+	if (isset($_POST['sv01cdtpc'])) {
 			
 			include "conexion.php";
 			
-			$sql = "DELETE FROM sv01clnte WHERE sv01cedc=".$_POST["ced"];
+			$sql = "DELETE FROM sv01clnte WHERE sv01cedc=".$_POST["sv01cdtpc"];
 			$query = $con->query($sql);
 			if($query!=null){
 				mysqli_close($con);

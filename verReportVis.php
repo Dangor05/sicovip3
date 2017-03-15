@@ -13,6 +13,7 @@
 <link href="assets/datatables.min.css" rel="stylesheet" type="text/css">
 <script type="text/javascript" src="assets/jquery-1.11.3-jquery.min.js"></script>
 <script type="text/javascript" src="public\JS\jquery-3.1.0.min.js"></script>
+<script type="text/javascript" src="public\bootstrap\bootstrap\js/bootstrap.min.js"></script>
 	</head>
 	<body>
 	<?php	   session_start();
@@ -31,9 +32,9 @@
 <form class="form-inline" class="navbar-form navbar-left" role="search" action="buscarReportVis.php">
     
 	 <div class="Form-group" class="col-sm-7">
-	  	   <h4>Desde</h4><input type="date"  name="V" class="form-control" placeholder="Buscar">
+	  	   <h4>Desde</h4><input type="date"  name="V" class="form-control" placeholder="AAAA/MM/DD">
 		     
-		   <h4>Hasta</h4><input type="date" name="VS" class="form-control" placeholder="Buscar">
+		   <h4>Hasta</h4><input type="date" name="VS" class="form-control" placeholder="AAAA/MM/DD">
 		 <div id="next_button" align="left"><button  type="submit" class="btn btn-default" >&nbsp;<i class="glyphicon glyphicon-search"></i>&nbsp;</button> </div>
      
 	 </div>

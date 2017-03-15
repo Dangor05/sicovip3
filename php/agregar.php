@@ -24,7 +24,7 @@ $dir ='C:\apache\htdocs\SICOVIP\archivos/'.$sv03cedp.'/';
 
 
 $sql = "INSERT INTO sv09vsdo (sv09npln,sv09nfol,sv09npre,sv09mnt,sv09fvdp,sv09fumv,sv08conse,sv01cedc,sv03cedp,sv04nfin,sv02code,sv07cdtp,sv05codu) values 
-                                      ('$sv09npln','$sv09nfol','$sv09npre','".$sv09mnt['name']."','$sv09fvdp','$sv09fumv','$sv08conse','$sv01cedc','$sv03cedp','$sv04nfin','$sv02code','$sv07cdtp','$sv05codu')";
+                                      ('$sv09npln','$sv09nfol','$sv09npre','".$sv09mnt['name']."','$sv09fvdp','NOW()','$sv08conse','$sv01cedc','$sv03cedp','$sv04nfin','$sv02code','$sv07cdtp','$sv05codu')";
 
 	
 $query = $con->query($sql);
