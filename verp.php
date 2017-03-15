@@ -1,4 +1,7 @@
-
+<?php
+session_start();
+if(isset ($_SESSION['sv07cdtp'])) {
+?>
 <html>
   <head>
     <title>Propietario</title>
@@ -15,7 +18,7 @@
 <script src="public/js/jquery-ui.js"></script>
   </head>
   <body>
-  <?php      session_start();
+  <?php      
      if ($_SESSION['sv05codu'] == 1) {
       include "php/navbarp.php"; 
       }else if ($_SESSION['sv05codu'] == 2) {
@@ -93,27 +96,7 @@ $(document).ready(function() {
     .addClass('table table-bordered');
 });
 </script>
-<script type="text/javascript">
-$(document).ready(function(){
-
-    $(".edit-link").click(function Carga() 
-    {
-        $("#example tbody tr").each(function (index) 
-        {
-            var campo1, campo2, campo3 campo4, campo5, campo6;
-            $(this).children("td").each(function (index2) 
-            {
-                switch (index2) 
-                {
-                    case 0: campo1 = $(this).text();
-                            break;            
-                }
-                $(this).css("background-color", "#ECF8E0");
-            });
-        });
-        alert(campo1);
-    });
- });  
-</script>
   </body>
 </html>
+<?php
+}else{print "<script>alert(\"Debes iniciar de para poder ingresar.\");window.location='index.php';</script>"; } ?>

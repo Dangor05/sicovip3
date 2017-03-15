@@ -1,3 +1,7 @@
+<?php
+session_start();
+if(isset ($_SESSION['sv07cdtp'])) {
+?>
 <html>
 	<head>
 		<title>Configuraciones</title>
@@ -32,3 +36,5 @@
 <script src="bootstrap/js/bootstrap.min.js"></script>
 	</body>
 </html>
+<?php
+}else{print "<script>alert(\"Debes iniciar de para poder ingresar.\");window.location='index.php';</script>"; } ?>

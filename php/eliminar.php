@@ -14,5 +14,26 @@ if(!empty($_GET)){
 
 			}
 }
+else{
+	if (isset($_POST['sv09npln']) && isset($_POST['sv08conse'])) {
+			
+			include "conexion.php";
+
+
+			
+			$sql = "DELETE FROM sv01clnte WHERE sv01cedc=".$_POST["sv09npln"];
+			$consu = "UPDATE sv08trmte SET sv02code ='6' WHERE  sv08conse=".$_POST["sv08conse"];
+			$senten=$con->query($consu);
+			$query = $con->query($sql);
+			if($query!=null && $senten !null){
+				mysqli_close($con);
+				print "<script>alert(\"Eliminado exitosamente.\");window.location='../VisadoMostrar.php';</script>";
+			}else{
+				mysqli_close($con);
+				print "<script>alert(\"No se pudo eliminar.\");window.location='../VisadoMostrar.php';</script>";
+
+			}
+	}
+}
 
 ?>

@@ -20,7 +20,10 @@ $query = $con->query($sql1);
 ?>
 
 <?php if($query->num_rows>0):?>
-<table class="table-bordered table-hover table-responsive">
+	<div class="container-fluid">
+		<div class="well well-sm text-lefh">
+ <div class="content-loader">
+<table cellspacing="0" width="60%" id="example" class="table table-striped table-hover table-responsive">
 <thead>
 	<th>Cedula propietario</th>
 	<th>Nombre</th>
@@ -36,9 +39,9 @@ $query = $con->query($sql1);
 	<th>Npredio</th>
 	<th>Fecha Visado</th>
 	<th>Minuta</th>
-	<th>Estado Impuestos</th>
-	<th>Estado CartasAgua</th>
-	<th>Estado visado</th>
+	<th>Impuestos</th>
+	<th>Cartas de Agua</th>
+	<th>Estado</th>
 	<th>Cod Top</th>
 	<!--<th>nombre Top</th>-->
 	
@@ -69,6 +72,9 @@ $query = $con->query($sql1);
 </tr>
 <?php endwhile;?>
 </table>
+</div>
+</div>
+</div>
 <?php else:?>
 	<p class="alert alert-warning">No hay resultados</p>
 <?php endif;mysqli_close($con);?>

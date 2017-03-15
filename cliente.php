@@ -1,3 +1,7 @@
+<?php
+session_start();
+if(isset ($_SESSION['sv07cdtp'])) {
+?>
 <!Doctype html>
 <html lang="es">
 <head>
@@ -41,7 +45,7 @@
         </script>
 </head>
 <body>
-  <?php    session_start();
+  <?php
      if ($_SESSION['sv05codu'] == 1) {
       include('php/navbar.php');  
       }else if ($_SESSION['sv05codu'] == 2) {
@@ -86,3 +90,5 @@
 </body>
 
 </html>
+<?php
+}else{print "<script>alert(\"Debes iniciar de para poder ingresar.\");window.location='index.php';</script>"; } ?>

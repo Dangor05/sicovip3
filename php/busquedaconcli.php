@@ -19,7 +19,9 @@ $query = $con->query($sql1);
 ?>
 
 <?php if($query->num_rows>0):?>
-<table class="table table-bordered table-hover table-responsive">
+	<div class="well well-sm text-lefh">
+ <div class="content-loader">
+<table cellspacing="0" width="100%" id="example" class="table table-striped table-hover table-responsive">
 <thead>
 	<th>Cedula propietario</th>
 	<th>Nombre</th>
@@ -47,10 +49,12 @@ $query = $con->query($sql1);
 	<td><?php echo $r["sv02code"]== 1 ? 'Presenta' : 'No Presenta' ; ?></td>
 	<td><?php if($r["sv02code"]==5){echo 'Aprobado';}elseif($r["sv02code"]==6){echo 'Rechazado';}else{echo 'En proceso';} ?></td>
 	<td><a href="php/mnt.php?id=<?php echo $r['sv03cedp']?>&mnt=<?php echo $r['sv09mnt']?>"><?php echo $r["sv09mnt"]; ?></a></td>
-		<td>
+		
 </tr>
 <?php endwhile;?>
 </table>
+</div>
+</div>>
 <?php else:?>
 	<p class="alert alert-warning">No hay resultados</p>
 <?php endif; mysqli_close($con);?>

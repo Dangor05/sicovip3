@@ -1,5 +1,6 @@
-
-<?php 
+<?php
+session_start();
+if(isset ($_SESSION['sv07cdtp'])) {
 include("php/conexion.php");
 $last="SELECT MAX(sv10codcon), sv10fech FROM sv10ctlcon;";
 $resp = $con->query($last);
@@ -11,7 +12,7 @@ if ($resp->num_rows>=0) {
     
   }
 }
-     session_start();
+     
      $Cedt = $_SESSION['Cedt'];
      $Cedp = $_SESSION['Cedp'];
      $mail= $_SESSION['mail'];
@@ -89,3 +90,5 @@ if ($resp->num_rows>=0) {
 <script src="bootstrap/js/bootstrap.min.js"></script>
   </body>
 </html>
+<?php
+}else{print "<script>alert(\"Debes iniciar de para poder ingresar.\");window.location='index.php';</script>"; } ?>

@@ -1,3 +1,7 @@
+<?php
+session_start();
+if(isset ($_SESSION['sv07cdtp'])) {
+?>
 <!Doctype html>
 <html lang="es">
 <head>
@@ -93,6 +97,31 @@
            <div class="modal-body ">
     <form name="Diagnostico" method="POST" action="php/agregar.php">
     <div class="container">
+
+  <div class="form-group row">
+  <label for="example-text-input" class="col-xs-1 col-form-label">Consecutivo:</label>
+  <div class="col-xs-2">
+   <input type="text" class="form-control" id="sv08conse" value="" name="sv08conse" required>
+  </div>
+  </div>
+  <div class="form-group row">
+  <label for="example-text-input" class="col-xs-1 col-form-label">Cliente:</label>
+  <div class="col-xs-2">
+  <input type="text" class="form-control" id="cedc" value="" name="sv01cedc" required>
+  </div>
+  </div>
+  <div class="form-group row">
+  <label for="example-text-input" class="col-xs-1 col-form-label">Propietario:</label>
+  <div class="col-xs-2">
+   <input type="text" class="form-control" id="cedp" value="" name="sv03cedp" required>
+  </div>
+  </div>
+  <div class="form-group row">
+  <label for="example-text-input" class="col-xs-1 col-form-label">N° Finca:</label>
+  <div class="col-xs-2">
+   <input type="text" class="form-control" id="nfin" value="" name="sv04nfin" required>
+  </div>
+  </div>
           <div class="form-group row">
          <label for="example-text-input" class="col-xs-1 col-form-label">N° Plano:</label>
              <div class="col-xs-2">
@@ -344,6 +373,11 @@
               <div class="col-md-9">
                 <input class="form-control" type="text" value="" id="sv09npln" name="sv09npln">
               </div>
+              <div class="form-group row">
+              <div class="col-xs-2">
+              <input type="hidden" class="form-control" id="conse" value="" name="sv08conse" required>
+              </div>
+              </div>
             </div>
             
 
@@ -423,3 +457,5 @@ $(document).ready(function() {
 </body>
 
 </html>
+<?php
+}else{print "<script>alert(\"Debes iniciar de para poder ingresar.\");window.location='index.php';</script>"; } ?>

@@ -1,6 +1,7 @@
 <?php
 session_start();
-if(isset ($_SESSION['sv07cdtp'])):?>
+if(isset ($_SESSION['sv07cdtp'])) {
+?>
 <!Doctype html>
 <html lang="es">
 <head>
@@ -97,7 +98,9 @@ if(isset ($_SESSION['sv07cdtp'])):?>
         
          
           <div class="form-group row">
+          <div class="col-xs-2">
    <input type="hidden" class="form-control" id="conse" value="" name="conse" required>
+  </div>
   </div>
   <div class="form-group row">
   <div class="col-xs-2">
@@ -299,6 +302,5 @@ $(document).ready(function() {
 </body>
 
 </html>
-<?php else:?>
- <script>alert(\"Debes iniciar de para poder ingresar.\");window.location='index.php';</script>
-<?php endif;?>
+<?php
+}else{print "<script>alert(\"Debes iniciar de para poder ingresar.\");window.location='index.php';</script>"; } ?>

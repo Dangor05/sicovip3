@@ -1,4 +1,7 @@
-
+<?php
+session_start();
+if(isset ($_SESSION['sv07cdtp'])) {
+?>
 <html>
 	<head>
 		<title>Visado</title>
@@ -17,8 +20,7 @@
 	</head>
 	<body>
 	<?php 
-	   session_start();
-     if ($_SESSION['sv05codu'] == 1) {
+	   if ($_SESSION['sv05codu'] == 1) {
       include "php/navbarconvis.php";  
       }else if ($_SESSION['sv05codu'] == 2) {
         include "php/navh2convis.php";
@@ -76,3 +78,5 @@ $(document).ready(function(){
 </script>
 	</body>
 </html>
+<?php
+}else{print "<script>alert(\"Debes iniciar de para poder ingresar.\");window.location='index.php';</script>"; } ?>

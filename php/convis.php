@@ -36,15 +36,13 @@ $query = $con->query($sql1);
 	<th>CartasAgua</th>
 	<th>Estado</th>
 	<th>CIT</th>
-	<th></th>
-
-	</thead>
+		</thead>
 <?php while ($r=$query->fetch_array()):?>
 <tr>
 	<td><?php echo $r["sv03cedp"];?> <?php echo $r["sv03nomp"]; ?> <?php echo $r["sv03apdp"]; ?></td>
 	<td><?php echo $r["sv04nfin"]; ?></td>
 	<td><a href="php/plan.php?id=<?php echo $r['sv03cedp']?>&plan=<?php echo $r['sv04apln']?>"><?php echo $r["sv04apln"];?></a></td>
-	<td><?php echo $r["sv08fchs"]=date("d-m-Y"); ?></td>
+	<td><?php echo $r["sv08fchs"]; ?></td>
 	<td><?php echo $r["sv08conse"]; ?></td>
 	<td><?php echo $r["sv09npln"]; ?></td>
 	<td><?php echo $r["sv09nfol"]; ?></td>
@@ -68,3 +66,4 @@ $query = $con->query($sql1);
 <?php else:?>
 	<p class="alert alert-warning">No hay resultados</p>
 <?php endif;mysqli_close($con);?>
+

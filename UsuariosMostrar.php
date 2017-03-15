@@ -1,3 +1,7 @@
+<?php
+session_start();
+if(isset ($_SESSION['sv07cdtp'])) {
+?>
 <!Doctype html>
 <html lang="es">
 <head>
@@ -366,8 +370,9 @@ $(document).ready(function() {
         var _nom = $(_trEdit).find('td:eq(2)').text();
         var _apl = $(_trEdit).find('td:eq(3)').text();
         var _std = $(_trEdit).find('td:eq(4)').text();
-        var _pass = $(_trEdit).find('td:eq(5)').text();
+        var _tip = $(_trEdit).find('td:eq(5)').text();
         var _emt = $(_trEdit).find('td:eq(6)').text();
+
         
         
         $('input[name="sv07cdtp"]').val(_cit);
@@ -375,7 +380,6 @@ $(document).ready(function() {
         $('input[name="sv07nomt"]').val(_nom);
         $('input[name="sv07apdt"]').val(_apl);
         $('input[name="sv07estd"]').val(_std); 
-        $('input[name="sv07pass"]').val(_pass);
         $('input[name="sv07emt"]').val(_emt);        
     }); 
 }
@@ -384,3 +388,5 @@ $(document).ready(function() {
 </body>
 
 </html>
+<?php
+}else{print "<script>alert(\"Debes iniciar de para poder ingresar.\");window.location='index.php';</script>"; } ?>

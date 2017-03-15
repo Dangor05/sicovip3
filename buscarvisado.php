@@ -1,4 +1,3 @@
-
 <html>
 	<head>
 		<title>Busqueda Visado</title>
@@ -22,7 +21,7 @@
       }else if ($_SESSION['sv05codu'] == 2) {
         include('php/navh2convis.php');
       } ?>
-<div class="container">
+<div class="container-fluid">
 <div class="row">
 <div class="col-md-12">
 <a class="btn btn-default" href="verVisado.php"><span class="glyphicon glyphicon-circle-arrow-left"></span> &nbsp;Volver</a>

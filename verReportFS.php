@@ -1,4 +1,7 @@
-
+<?php
+session_start();
+if(isset ($_SESSION['sv07cdtp'])) {
+?>
 <html>
 	<head>
 		<title>Reportes</title>
@@ -15,7 +18,7 @@
 <script src="public/js/jquery-ui.js"></script>
 	</head>
 	<body>
-	<?php 	   session_start();
+	<?php 	  
      if ($_SESSION['sv05codu'] == 1) {
       include "php/navbarconvis.php";  
       }else if ($_SESSION['sv05codu'] == 2) {
@@ -46,3 +49,5 @@
 
 <script src="bootstrap/js/bootstrap.min.js"></script>
 	</body>
+	<?php
+}else{print "<script>alert(\"Debes iniciar de para poder ingresar.\");window.location='index.php';</script>"; } ?>
