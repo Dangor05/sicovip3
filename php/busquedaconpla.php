@@ -16,12 +16,12 @@ if ($dias<=5) {?>
 include "conexion.php";
 
 $user_id=null;
-	$sql1= "SELECT  b.sv03cedp,b.sv03nomp, b.sv03apdp, c.sv04apln,e.sv02code,d.sv09mnt, DATE_FORMAT(d.sv09fvdp ,'%d/%m/%Y') AS sv09fvdp
+	$sql1= "SELECT b.sv03cedp,b.sv03nomp, b.sv03apdp, c.sv04apln,e.sv02code,d.sv09mnt
 FROM sv03ptario b, sv04reqtos c, sv09vsdo d, sv08trmte e
  WHERE c.sv04nfin=d.`sv04nfin`
   AND b.sv03cedp=e.sv03cedp
-   AND e.`sv08conse`=d.`sv08conse`
-    AND	 b.`sv03cedp`=".$_POST['s'];
+   AND e.sv08conse=d.sv08conse
+    AND	d.sv09npln =".$_POST['s'];
 
 $query = $con->query($sql1);
 ?>
@@ -40,9 +40,9 @@ $query = $con->query($sql1);
 	<th>Minuta</th>
 	</thead>
 <?php while ($r=$query->fetch_array()):?>
-<?php $fchv=$r["sv09fvdp"];
-$std=$r["sv02code"];
-?>
+	<?php $fchv=$r["sv09fvdp"];
+	$std=$r["sv02code"];
+	?>
 <tr>
 	<td><?php echo $r["sv03cedp"]; ?></td>
 	<td><?php echo $r["sv03nomp"]; ?></td>
@@ -51,7 +51,7 @@ $std=$r["sv02code"];
 	<td><?php if($r["sv02code"]==5){echo 'Aprobado';}elseif($r["sv02code"]==6){echo 'Rechazado';}else{echo 'En proceso';} ?></td>
 	<td><a href="php/mnt.php?id=<?php echo $r['sv03cedp']?>&mnt=<?php echo $r['sv09mnt']?>"><?php echo $r["sv09mnt"];?></a></td>
 	</tr>
-<?php endwhile;?>
+<?php endwhile; mysqli_close($con);?>
 </table>
 </div>
 </div>
@@ -59,7 +59,6 @@ $std=$r["sv02code"];
 <?php if ($std==6) {
 	fecha($fchv);
 } ?>
-
 <?php else:?>
 	<p class="alert alert-warning">No hay resultados</p>
-<?php endif; mysqli_close($con);?>
+<?php endif?>

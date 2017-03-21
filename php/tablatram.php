@@ -3,7 +3,7 @@
 include "conexion.php";
 
 $user_id=null;
-$sql1= "select *from sv08trmte";
+$sql1= "select sv08conse,DATE_FORMAT(sv08fchs ,'%d-%m-%Y') AS sv08fchs, sv01cedc, sv03cedp, sv04nfin, sv02code  from sv08trmte";
 $query = $con->query($sql1);
 ?>
 
@@ -26,7 +26,7 @@ $query = $con->query($sql1);
 <?php while ($r=$query->fetch_array()):?>
 <tr>
 	<td><?php echo $r["sv08conse"]; ?></td>
-	<td><?php echo $r["sv08fchs"]=date("d-m-Y"); ?></td>
+	<td><?php echo $r["sv08fchs"]; ?></td>
 	<td><?php echo $r["sv01cedc"]; ?></td>
 	<td><?php echo $r["sv03cedp"]; ?></td>
 	<td><?php echo $r["sv04nfin"]; ?></td>

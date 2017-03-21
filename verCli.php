@@ -1,7 +1,3 @@
-<?php
-session_start();
-if(isset ($_SESSION['sv07cdtp'])) {
-?>
 <html>
 	<head>
 		<title>Visado</title>
@@ -23,14 +19,21 @@ if(isset ($_SESSION['sv07cdtp'])) {
 <div class="row">
 <div class="col-md-12">
 		<h2>Consulta de Visados</h2>
-<!-- Button trigger modal -->
 
-<form class="navbar-form navbar-left" role="search" action="./buscarcli.php">
+<form method="post" class="navbar-form navbar-left" role="search" action="./buscarcli.php">
      <h3>Cedula</h3>
+     <div class="form-group row">
+     <select name="vis" class="form-control" name="vis" >
+    <option value="1">Cedula</option>
+    <option value="2">Consecutivo</option>
+    <option value="3">N° Finca</option>
+    <option value="4">N° Plano</option>
+    </select>
+     </div>&nbsp&nbsp&nbsp&nbsp
 	 <div class="form-group">
 	  	   <input type="text" name="s" class="form-control" placeholder="Buscar">
       </div>
-      <button type="submit" class="btn btn-default">&nbsp;<i class="glyphicon glyphicon-search"></i>&nbsp;</button>
+      <button type="submit" class="btn btn-default">&nbsp;<i class="glyphicon glyphicon-search"></i>&nbsp;Buscar</button>
     </form>
 
 </div>
@@ -40,5 +43,3 @@ if(isset ($_SESSION['sv07cdtp'])) {
 <script src="bootstrap/js/bootstrap.min.js"></script>
 	</body>
 </html>
-<?php
-}else{print "<script>alert(\"Debes iniciar de para poder ingresar.\");window.location='index.php';</script>"; } ?>

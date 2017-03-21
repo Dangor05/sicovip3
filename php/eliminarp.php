@@ -14,20 +14,27 @@ if(!empty($_GET)){
 
 			}
 }else{
-	if (isset($_POST['ced'])) {
+	if(!empty($_POST)){
+	if (isset($_POST['sv03cedp'])) {
+			$sv03cedp=$_POST['sv03cedp'];
+			include ("conexion.php");
 			
-			include "conexion.php";
-			
-			$sql = "DELETE FROM sv03ptario WHERE sv03cedp=".$_POST["ced"];
-			$query = $con->query($sql);
-			if($query!=null){
-				mysqli_close($con);
-				print "<script>alert(\"Eliminado exitosamente.\");window.location='../PropietarioMostrar.php';</script>";
-			}else{
-				mysqli_close($con);
-				print "<script>alert(\"No se pudo eliminar.\");window.location='../PropietarioMostrar.php';</script>";
+		$stm=$con->prepare("CALL EliminarPropietario(?);");
+		$stm->bind_param("s",$sv03cedp);
+		$stm->execute();
 
-			}
+		if ($stm->error) {
+			echo "Fallo al eliminar".$res;
+		}
+
+		$stm->close();
+		$con->close(); 
+
+		print "<script>alert(\"Actualizado exitosamente.\");window.location='../PropietarioMostrar.php';</script>";
 	}
+	else{
+		echo "VERga!!";
+	}
+}
 }
 ?>

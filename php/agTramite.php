@@ -51,8 +51,8 @@ VALUES ('$conse',NOW(),NOW(),'$cedcli','$cedpr','$nfin','7')";
 
 		     session_start();
      unset($_SESSION['Cedt']);
-     unset($Cedp = $_SESSION['Cedp']);
-     unset($mail= $_SESSION['mail']);
+     unset($_SESSION['Cedp']);
+     unset($_SESSION['mail']);
 		header("Location:../Home.php");
 			}
 			}else{

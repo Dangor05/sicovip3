@@ -15,8 +15,7 @@ if(isset ($_SESSION['sv07cdtp'])) {
 <script type="text/javascript" src="public\bootstrap\bootstrap\js/bootstrap.min.js"></script>  
 </head>
 <body>
-<?php session_start();
-     if ($_SESSION['sv05codu'] == 1) {
+<?php     if ($_SESSION['sv05codu'] == 1) {
       include "php/navbarp.php"; 
       }else if ($_SESSION['sv05codu'] == 2) {
         include('php/navh2p.php');
@@ -101,31 +100,31 @@ if(isset ($_SESSION['sv07cdtp'])) {
   <div class="form-group row">
   <label for="example-text-input" class="col-xs-1 col-form-label">Consecutivo:</label>
   <div class="col-xs-2">
-   <input type="text" class="form-control" id="sv08conse" value="" name="sv08conse" required>
+   <input type="text" class="form-control" id="sv08conse" name="sv08conse" required>
   </div>
   </div>
   <div class="form-group row">
   <label for="example-text-input" class="col-xs-1 col-form-label">Cliente:</label>
   <div class="col-xs-2">
-  <input type="text" class="form-control" id="cedc" value="" name="sv01cedc" required>
+  <input type="text" class="form-control" id="cedc" name="sv01cedc" required>
   </div>
   </div>
   <div class="form-group row">
   <label for="example-text-input" class="col-xs-1 col-form-label">Propietario:</label>
   <div class="col-xs-2">
-   <input type="text" class="form-control" id="cedp" value="" name="sv03cedp" required>
+   <input type="text" class="form-control" id="cedp" name="sv03cedp" required>
   </div>
   </div>
   <div class="form-group row">
   <label for="example-text-input" class="col-xs-1 col-form-label">N° Finca:</label>
   <div class="col-xs-2">
-   <input type="text" class="form-control" id="nfin" value="" name="sv04nfin" required>
+   <input type="text" class="form-control" id="nfin" name="sv04nfin" required>
   </div>
   </div>
           <div class="form-group row">
          <label for="example-text-input" class="col-xs-1 col-form-label">N° Plano:</label>
              <div class="col-xs-2">
-                <input class="form-control" type="text" id="sv09npln" name="sv09npln" value="">
+                <input class="form-control" type="text" id="sv09npln" name="sv09npln" required>
              </div>
              </div>
            <div class="form-group row">
@@ -137,14 +136,14 @@ if(isset ($_SESSION['sv07cdtp'])) {
             <div class="form-group row">
             <label for="example-text-input" class="col-xs-1 col-form-label">N° Predio:</label>
           <div class="col-xs-2">
-            <input class="form-control" type="text" id="sv09npre" name="sv09npre" value="">
+            <input class="form-control" type="text" id="sv09npre" name="sv09npre" required>
           </div>
           </div>
                    
           <div class="form-group row">
           <label for="example-text-input" class="col-xs-1 col-form-label">Minuta:</label>
              <div class="col-xs-2">
-                <input class="form-control" type="file" id="sv09mnt" name="sv09mnt" value="">
+                <input class="form-control" type="file" id="sv09mnt" name="sv09mnt">
                 </div>
              </div>
              <div class="form-group row">
@@ -156,25 +155,25 @@ if(isset ($_SESSION['sv07cdtp'])) {
           <div class="form-group row">
              <label for="example-text-input" class="col-xs-1 col-form-label">Consecutivio:</label>
           <div class="col-xs-3">
-            <input class="form-control" type="text" id="sv08conse" name="sv08conse" value="">
+            <input class="form-control" type="text" id="sv08conse" name="sv08conse" required>
           </div>
         </div>
           <div class="form-group row">
              <label for="example-text-input" class="col-xs-1 col-form-label">Cliente:</label>
           <div class="col-xs-3">
-            <input class="form-control" type="text" id="sv01cedc" name="sv01cedc" value="">
+            <input class="form-control" type="text" id="sv01cedc" name="sv01cedc" required="">
           </div>
         </div>
           <div class="form-group row">
              <label for="example-text-input" class="col-xs-1 col-form-label">Propietario:</label>
           <div class="col-xs-3">
-            <input class="form-control" type="text" id="sv03cedp" name="sv03cedp" value="">
+            <input class="form-control" type="text" id="sv03cedp" name="sv03cedp" required="">
           </div>
         </div>
           <div class="form-group row">
              <label for="example-text-input" class="col-xs-1 col-form-label">N° Finca:</label>
           <div class="col-xs-3">
-            <input class="form-control" type="text" id="sv04nfin" name="sv04nfin" value="">
+            <input class="form-control" type="text" id="sv04nfin" name="sv04nfin" required="">
           </div>
         </div>
             <div class="form-group row">
@@ -209,7 +208,7 @@ if(isset ($_SESSION['sv07cdtp'])) {
                  <div class="form-group row">
              <label for="example-text-input" class="col-xs-1 col-form-label">Topografo:</label>
           <div class="col-xs-3">
-            <input class="form-control" type="text" id="sv07cdtp" name="sv07cdtp" value="">
+            <input class="form-control" type="text" id="sv07cdtp" name="sv07cdtp" value="<?php echo $_SESSION['sv07cdtp'];?>">
           </div>
         </div>
     <div class="form-group row"><br>
@@ -220,7 +219,7 @@ if(isset ($_SESSION['sv07cdtp'])) {
        <button type="submit" class="btn btn-success">Agregar</button>
       </div>
       <div class="col-xs-5">&nbsp;&nbsp;&nbsp;
-        <a href="" class="btn btn-danger" data-dismiss="modal">Close</a>
+        <a href="" class="btn btn-danger" data-dismiss="modal">Cancelar</a>
       </div>
     </div>
     </div>

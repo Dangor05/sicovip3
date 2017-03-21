@@ -247,7 +247,7 @@ if(isset ($_SESSION['sv07cdtp'])) {
             <div class="form-group">
               <label class="control-label col-md-3">Cedula</label>
               <div class="col-md-9">
-                <input class="form-control" type="text" value="" id="sv01cdtpc" name="sv01cdtpc">
+                <input class="form-control" type="text" value="" id="sv01cdtpc" name="sv01cedc">
               </div>
             </div>
             

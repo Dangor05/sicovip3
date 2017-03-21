@@ -19,7 +19,7 @@ if(isset ($_SESSION['sv07cdtp'])) {
 	</head>
 	<body>
 	<?php 
-	   session_start();
+	  
      if ($_SESSION['sv05codu'] == 1) {
      include "php/navbarconcli.php"; 
       }else if ($_SESSION['sv05codu'] == 2) {

@@ -17,10 +17,10 @@ $sv06codp=$_POST['sv06codp'];
 			$query = $con->query($sql);
 			if($query!=null){
 				mysqli_close($con);
-				print "<script>alert(\"Actualizado exitosamente.\");window.location='../verp.php';</script>";
+				print "<script>alert(\"Actualizado exitosamente.\");window.location='../PropietarioMostrar.php';</script>";
 			}else{
 				mysqli_close($con);
-				print "<script>alert(\"No se pudo actualizar.\");window.location='../verp.php';</script>";
+				print "<script>alert(\"No se pudo actualizar.\");window.location='../PropietarioMostrar.php';</script>";
 
 			}
 		
