@@ -7,12 +7,16 @@
     <meta name="author" content="denker">
 
     <title> Resetear contraseña </title>
-<link rel="stylesheet" type="text/css" href="public/css/stylesheet.css">
-<link rel="stylesheet" type="text/css" href="public/bootstrap/css/bootstrap.min.css">
-<script src="public/js/jquery-1.11.0.min.js"></script>
-<script src="public/js/jquery-1.11.3.min.js"></script>
-<script src="public/js/jquery-ui.js"></script>
-<script type="text/javascript" src="public\bootstrap\bootstrap\js/bootstrap.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="public/css/stylesheet.css">
+    <link rel="stylesheet" type="text/css" href="public/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/datatables.min.css">
+    <script src="public/js/jquery-1.11.0.min.js"></script>
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="assets/css/bootstrap-theme.min.css" />
+    <link rel="stylesheet" href="assets/js/jquery-ui/jquery-ui.min.css" />
+    <link rel="stylesheet" href="assets/js/jquery-ui/jquery-ui.theme.min.css" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <script src="js/jquery.min.js"></script>
 
   </head>
 
@@ -29,17 +33,7 @@
     </button>
   
     <a class="navbar-brand" href="./"><b>SICOVIP</b></a>
-     <ul class="nav navbar-nav">
-
-      <li><a href="./vercli.php">Proceso de visado</a></li>
-    </ul>
-
-  </div>
- <div class="collapse navbar-collapse navbar-ex1-collapse">
-
-  
-      </div><!-- /.navbar-collapse -->
-</div>
+   </div>
 </nav>
     <div class="container" role="main">
       <br/><br/><br/><br/><br/><br/><br/>

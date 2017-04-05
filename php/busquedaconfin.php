@@ -1,11 +1,12 @@
 <?php
-function fecha($fchv){
+function fecha($fchv, $id, $dc){
 	$datetime1 = new DateTime($fchv);
 	$datetime2 = new DateTime("now");
 	$interval = date_diff($datetime1, $datetime2);
 	$dias=$interval->format('%R%a días');
 if ($dias<=5) {?>
-		<p class='alert alert-danger'>Por favor realice los cambios respectivos y sirvase a reenviar el correo o presentar en las oficinas para la debida reinspeccion</p>
+<div class='alert alert-warning'>
+		<p>Estimado Señor, sus documentos no cumplen con los requisitos para obtener el sello APT, por favor sirvase a descargar la minuta y hacer los cambios respetivos para la </p> <a href="reinspeccion.php?id=<?php echo $id;?>&dn=<?php echo $dc; ?>">reinspeccion</a></div>
 		
 	<?php } else {?>
 		<p class='alert alert-info'>Sus documentos no cumplen con  los debidos requisitos para el visado atp</p>
@@ -16,7 +17,7 @@ if ($dias<=5) {?>
 include "conexion.php";
 
 $user_id=null;
-	$sql1= "SELECT b.sv03cedp,b.sv03nomp, b.sv03apdp, c.sv04apln,e.sv02code,d.sv09mnt
+	$sql1= "SELECT b.sv03cedp,b.sv03nomp, b.sv03apdp, c.sv04apln,e.sv02code,d.sv09mnt, d.sv09fvdp
 FROM sv03ptario b, sv04reqtos c, sv09vsdo d, sv08trmte e
  WHERE c.sv04nfin=d.sv04nfin
   AND b.sv03cedp=e.sv03cedp
@@ -42,6 +43,8 @@ $query = $con->query($sql1);
 <?php while ($r=$query->fetch_array()):?>
 	<?php $fchv=$r["sv09fvdp"];
 	$std=$r["sv02code"];
+	$id=$r["sv08conse"];
+	$dc=$r["sv04nfin"];
 	?>
 
 <tr>
@@ -58,7 +61,7 @@ $query = $con->query($sql1);
 </div>
 </div>
 <?php if ($std==6) {
-	fecha($fchv);
+	fecha($fchv, $id, $dc);
 } ?>
 <?php else:?>
 	<p class="alert alert-warning">No hay resultados</p>

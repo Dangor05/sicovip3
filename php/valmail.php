@@ -10,7 +10,7 @@
 
 		$resultado = $con->query($sql);
 		if($resultado){
-			$enlace = $_SERVER["SERVER_NAME"].':8080/sicovip/Restablecer.php?idusuario='.sha1($idusuario).'&token='.$token;
+			$enlace = $_SERVER["SERVER_NAME"].'/sicovip/Restablecer.php?idusuario='.sha1($idusuario).'&token='.$token;
 			return $enlace;
 		}
 		else
@@ -19,9 +19,9 @@
 
 	function enviarEmail( $email, $link ){
 		$msg = null;
+		$nombre=null;
 
 		$asunto="Restablecer contraseña";
-		$nombre=null;
 		$mensaje = '<html>
 		<head>
  			<title>Restablece tu contraseña</title>
@@ -81,25 +81,26 @@
 	}
 	
 	$email = $_POST['email'];
-	$respuesta = new stdClass();
+	//$respuesta = new stdClass();
 
 	if( $email != "" ){   
    		include ("conexion.php");
-   		$sql = " SELECT sv07cdtp sv07emt FROM sv07tpgfo WHERE sv07emt = '$email' ";
+   		$sql = " SELECT sv07cdtp, sv07emt FROM sv07tpgfo WHERE sv07emt = '$email' ";
    		$resultado = $con->query($sql);
 
    		if($resultado->num_rows > 0){
       		$usuario = $resultado->fetch_assoc();
-      		$linkTemporal = generarLinkTemporal($usuario['sv07cdtp']);
+			$linkTemporal = generarLinkTemporal( $usuario['sv07cdtp']);
       		if($linkTemporal){
         		enviarEmail( $email, $linkTemporal );
-        		$respuesta->mensaje = '<div class="alert alert-info"> Un correo ha sido enviado a su cuenta de email con las instrucciones para restablecer la contraseña </div>';
-        		print "<script>alert(\"Un correo ha sido enviado a su cuenta de email con las instrucciones para restablecer la contraseña.\");window.location='../index.php';</script>";
+        		header("location:../mjsSi.html");
+        		
       		}
    		}
-   		else
-   			$respuesta->mensaje = '<div class="alert alert-warning"> No existe una cuenta asociada a ese correo. </div>';
-	}
-	else
+   		else{
+   			header("location:../mjsNo.html");
+   		}}
+	else{
    		$respuesta->mensaje= "Debes introducir el email de la cuenta";
- 	echo json_encode( $respuesta );
+	}
+ 	

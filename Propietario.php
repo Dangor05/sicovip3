@@ -19,6 +19,7 @@ if(isset ($_SESSION['sv07cdtp'])) {
     <script src="js/jquery-1.11.3.min.js"></script>
     <script src="js/jquery-ui.js"></script>
     <script src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="public/JS/validaciones.js"></script>
     <script>
           $(document).ready(function(){   
         $( "#ced" ).autocomplete({
@@ -40,6 +41,10 @@ if(isset ($_SESSION['sv07cdtp'])) {
                  
       });
         </script>
+                <script type="text/javascript">
+             //onkeypress="return Num(event)"
+            //onkeypress="return Letras(event)"
+        </script>
   </head>
   <body>
   <?php        if ($_SESSION['sv05codu'] == 1) {
@@ -56,19 +61,19 @@ if(isset ($_SESSION['sv07cdtp'])) {
   <div class="form-group">
 
    <label for="cedp">Cedula</label>&nbsp
-   <input type='text' class="form-control" name='cedp' maxlength="10" required></div>
+   <input type='number' class="form-control" name='cedp' maxlength="10" onkeypress="return Numeros(event)" required></div>
 <div  class="form-group">
 	  <label for="nomp">Nombre</label>&nbsp
-    <input type='text' class="form-control" name='nomp' maxlength="15" required></div>
+    <input type='text' class="form-control" name='nomp' maxlength="15" required onkeypress="return Letras(event)" required></div>
 <div class="form-group">
     <label for="apdp">Apellidos</label>&nbsp
-    <input type='text' class="form-control" name='apelp' maxlength="25" required></div>
+    <input type='text' class="form-control" name='apelp' maxlength="25" required onkeypress="return Letras(event)" required></div>
 <div class="form-group">
     <label for="emp">Email</label>&nbsp
-   <input type='email' class="form-control" name='emap' maxlength="20" required></div>
+   <input type='email' class="form-control" name='emap' maxlength="20" required ></div>
 <div class="form-group">
     <label for="telp">Telefono</label>&nbsp
-   <input type='text'class="form-control" name='telp' maxlength="10" required=""></div>
+   <input type='tel'class="form-control" name='telp' maxlength="10" onkeypress="return Numeros(event)" required=""></div>
 <div class="form-group">
     <label for="sv06codp">Tipo Usuario</label>
     <select name="tipro" class="form-control" name="tipro" >
@@ -76,7 +81,8 @@ if(isset ($_SESSION['sv07cdtp'])) {
     <option value="2">Juridico</option></select></div>
 
 <br>
-  <a href="Cliente.php" class="btn btn-default"><span class="glyphicon glyphicon-circle-arrow-left"></span> &nbsp;Volver</a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+  &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
+   &nbsp&nbsp&nbsp&nbsp&nbsp
 <button type="submit" class="btn btn-default">Continuar</button>
     
   </form>

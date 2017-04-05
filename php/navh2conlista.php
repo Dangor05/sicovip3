@@ -51,7 +51,7 @@
 <li class="dropdown" class="active"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"><i class="glyphicon glyphicon-cog"></i><span class="caret"></span></a> 
 <ul class="dropdown-menu">
 <li><a href="./config.php">Configuraciones</a></li>
-<li> <a href="index.php" class="btn btn-defult"> Cerrar sesion</a></li>
+<li> <a href="php/logout.php" class="btn btn-defult"> Cerrar sesion</a></li>
 </ul>
 </ul> 
 

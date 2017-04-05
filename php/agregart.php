@@ -9,10 +9,11 @@ include "conexion.php";
      $sv07nomt=$_POST['sv07nomt'];
      $sv07apdt=$_POST['sv07apdt'];
      $sv07estd=$_POST['sv07estd'];
-     $sv07pass=$_POST['sv07pass'];
+     $pass=$_POST['sv07pass'];
      $sv07emt=$_POST['sv07emt'];
      $sv05codu=$_POST['sv05codu'];
 
+     $sv07pass=sha1($pass);
        $sql =  "INSERT INTO sv07tpgfo (sv07cdtp,sv07cedt,sv07nomt,sv07apdt,sv07estd,sv07pass,sv07emt,sv05codu) values 
         ('$sv07cdtp','$sv07cedt','$sv07nomt','$sv07apdt','$sv07estd','$sv07pass','$sv07emt','$sv05codu')";
 

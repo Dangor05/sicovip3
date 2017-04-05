@@ -27,7 +27,7 @@
     <li class="dropdown" class="active"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">Tramite<span class="caret"></span></a> 
 <ul class="dropdown-menu">
 <li><a href="./Cliente.php">Nuevo Tramite</a></li>
-<li><a href="./vertram.php">Tramites</a></li>
+<li><a href="./Tramites.php">Tramites</a></li>
 </ul>
 </ul> 
 <ul class="nav navbar-nav">
@@ -50,15 +50,9 @@
 <li class="dropdown" class="active"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button"><i class="glyphicon glyphicon-cog"></i><span class="caret"></span></a> 
 <ul class="dropdown-menu">
 <li><a href="./config.php">Configuraciones</a></li>
-<li> <a href="index.php" class="btn btn-defult"> Cerrar sesion</a></li>
+<li> <a href="php/logout.php" class="btn btn-defult"> Cerrar sesion</a></li>
 </ul>
 </ul> 
-<form class="navbar-form navbar-left" role="search" action="./buscar.php">
-      <div class="form-group">
-        <input type="text" name="s" class="form-control" placeholder="Buscar">
-      </div>
-      <button type="submit" class="btn btn-default">&nbsp;<i class="glyphicon glyphicon-search"></i>&nbsp;</button>
-    </form>
       </div><!-- /.navbar-collapse -->
 
 </div>

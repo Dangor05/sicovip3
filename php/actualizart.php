@@ -9,13 +9,14 @@ if(!empty($_POST)){
      $sv07nomt=$_POST['sv07nomt'];
      $sv07apdt=$_POST['sv07apdt'];
      $sv07estd=$_POST['sv07estd'];
-     $sv07pass=$_POST['sv07pass'];
+     $pass=$_POST['sv07pass'];
      $sv05codu=$_POST['sv05codu'];
      $sv07emt=$_POST['sv07emt'];
      $pass2=$_POST['pass2'];
 
-     if ($sv07pass=$pass2) {
+     if ($pass==$pass2) {
 
+     	$sv07pass=sha1($pass);
      		include "conexion.php";
 			
 			$sql="UPDATE `sv07tpgfo` SET `sv07cedt`='$sv07cedt',`sv07nomt`='$sv07nomt',`sv07apdt`='$sv07apdt',`sv07estd`='$sv07estd',`sv07pass`='$sv07pass',sv07emt='$sv07emt',`sv05codu`='$sv05codu' WHERE `sv07cdtp`='$sv07cdtp'";

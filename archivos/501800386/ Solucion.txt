@@ -1,0 +1,100 @@
+--Ejercicio 1
+
+create table TablaTrigger(
+Id int identity  primary key	,
+fecha datetime ,
+usuario varchar(25),
+nombre varchar(50),
+apellido1 varchar(50),
+apellido2 varchar(50),
+UsuarioResponsable varchar(20)
+)
+
+--Forma 1
+create trigger Tr_ActualizaUsuario
+on MDEJUSU
+for update
+as
+insert 	TablaTrigger 
+select GETDATE(),inserted.IDUSU,MUSU.NOMBRE,MUSU.APE1,MUSU.APE2,USER
+from  inserted, MUSU, deleted
+where MUSU.IDUSU=inserted.IDUSU 
+
+--Forma 2
+
+create trigger Tr_ActualizaUsuario
+on MDEJUSU for update
+as
+begin
+	declare @Id varchar(25), 
+	        @Nom varchar(50),  
+	        @Apel1 varchar(50), 
+	        @Apel2 varchar(50),
+	        @fecha datetime
+	set @fecha = getdate()
+	set @Id = (select IDUSU from inserted)
+	set @Nom = (select NOMBRE from MUSU where IDUSU = @Id)
+	set @Apel1 = (select APE1 from MUSU where IDUSU = @Id)
+	set @Apel2 = (select APE2 from MUSU where IDUSU = @Id)
+	insert into TablaTrigger (fecha, usuario,Nombre, Apellido1, Apellido2, UsuarioResponsable)
+	values (@fecha,@Id, @Nom,@Apel1, @Apel2, user)
+end
+go
+
+--Ejercicio 2
+
+create table TABLACURSOR
+(
+Id int identity  primary key,
+CODJUEZ varchar(25),
+CODDEJ varchar(4),
+FECDES datetime
+)
+go
+
+
+BEGIN
+  declare @Coddej varchar(4)
+  declare @Idusu varchar(25)
+  declare @Codjuez varchar(25)
+  declare @Fecdes datetime
+  declare @Nombre varchar(50)
+  declare @Apellido1 varchar(50)
+  declare @Apellido2 varchar(50)
+
+   DECLARE Cursor_Examen CURSOR
+   for 
+   select MDEJUSU.CODDEJ, MDEJUSU.IDUSU, MDEJUSU.CODJUEZ, MDEJUSU.FECDES, MUSU.NOMBRE, MUSU.APE1, MUSU.APE2
+   from MDEJUSU, MUSU
+   where MDEJUSU.IDUSU = MUSU.IDUSU
+     AND MDEJUSU.CODJUEZ IS NOT NULL 
+     AND MDEJUSU.FECHAS is null 
+
+   OPEN Cursor_Examen
+   fetch Cursor_Examen into @Coddej,@Idusu, @Codjuez, @Fecdes,@Nombre,@Apellido1,@Apellido2
+
+   WHILE (@@FETCH_STATUS=0)
+   Begin
+     insert into TABLACURSOR (CODJUEZ,CODDEJ,FECDES)
+     values (@Codjuez,@Coddej, @Fecdes)
+     fetch Cursor_Examen into @Coddej,@Idusu, @Codjuez, @Fecdes,@Nombre,@Apellido1,@Apellido2
+   End
+   Close Cursor_Examen
+   Deallocate Cursor_Examen
+END
+
+
+
+---Ejercicio 3
+
+CREATE procedure SP_Juez_Activos(@CODDEJ VARCHAR(4), @CODCUERPO VARCHAR(2))
+ AS
+ SELECT MDEJUSU.IDUSU AS USUARIO,KJUE.CODJUE AS JUEZ, KJUE.DESCRIP AS DESCRIPCION, KJUE.CODDEJ AS CODDEJ, MUSU.NOMBRE AS NOMBRE, MUSU.APE1 AS APELLIDO1, MUSU.APE2 AS APELLIDO2
+ FROM MDEJUSU,KJUE,MUSU
+ WHERE 
+ MDEJUSU.CODDEJ = @CODDEJ
+ AND MDEJUSU.CODCUERPO = @CODCUERPO
+ AND MDEJUSU.CODJUEZ = KJUE.CODJUE
+ AND MDEJUSU.IDUSU = MUSU.IDUSU
+ AND MDEJUSU.FECHAS IS NULL
+ GO

@@ -1,0 +1,75 @@
+<canvas id="myCanvas" style="border:solid 0px" width="900px" height="550px">
+</canvas>
+<script>
+	var myCanvas=document.getElementById("myCanvas").getContext("2d");
+	
+	var margenX=50;
+	var margenY=50;
+	// Dibuja eje vertical y horizontal
+	myCanvas.moveTo(margenX,0); myCanvas.lineTo(margenX,550-margenY);
+	myCanvas.moveTo(margenX,550-margenY); myCanvas.lineTo(900,550-margenY);	
+
+	// Variables de entrada (quemadas mienstras tanto)
+	var m=[];
+	var B=[];
+	m[0]=-1.5; 	B[0]=60; // Valores para la primera recta
+	m[1]=-0.5;  B[1]=40; // Valores para la segunda recta
+	var cantidad=2;
+	
+	
+	// Intersecciones en los ejes y escala
+	var a=[];
+	var b=[];
+	for(var i=0; i<cantidad; i++){
+		a[i]=B[i];        // a es la interseccion en el eje vertical
+		b[i]=-a[i]/m[i];  // b es la interseccion en el eje horizontal
+	}
+    // Encontrar mayor a y b para calculo de scalaX y scalaY
+	var mayorA=a[0];
+	var mayorB=b[0];
+	for(var i=1; i<cantidad; i++){
+		if(b[i]>mayorB) mayorB=b[i];
+		if(a[i]>mayorA) mayorA=a[i];
+	}
+	var scalaX=(900-margenX)/mayorB;
+    var scalaY=(550-margenY)/mayorA;
+	
+	// reasignar todos los a y b en la escala
+	for(var i=0; i<cantidad; i++){
+		a[i]=a[i]*scalaY;
+		b[i]=b[i]*scalaX;
+	}
+
+	// dibujar las rectas con escala
+	var _a=[];
+	var _b=[];
+	for(var i=0; i<cantidad; i++){
+	   _a[i]=550-margenY-a[i]; // _a es a adaptado al eje
+	   _b[i]=b[i]+margenX;    // _b es a adaptado al eje
+	   myCanvas.moveTo(margenX,_a[i]); myCanvas.lineTo(_b[i],550-margenY);
+	}
+
+	// Dibujo de las marcas en el eje vertical (son 10 marcas)
+	myCanvas.font="bold italic 12px arial";
+	var longitud=(550-margenY)/10;
+    var unidadA=mayorA/10;
+	for(var i=1; i<=10; i++){
+		myCanvas.moveTo(margenX,longitud*i);
+		myCanvas.lineTo(margenX-10,longitud*i);
+		var valor=(10-i)*unidadA;
+        myCanvas.fillText(valor+"",margenX-20,longitud*i);
+	}
+	var longitudX=(900-margenX)/10;
+    var unidadB=mayorB/10;
+
+	for(var i=1; i<=10; i++)
+	{
+		myCanvas.moveTo(longitudX*i,500);
+		myCanvas.lineTo(longitudX*i,500+10);
+		var valor=(0+i)*unidadB;
+        myCanvas.fillText(valor+"",longitudX*i,500+20);
+	}
+	
+	myCanvas.stroke();	
+	myCanvas.strokeText();
+</script>

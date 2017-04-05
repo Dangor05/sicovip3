@@ -1,18 +1,9 @@
 <?php
 session_start();
 if(isset ($_SESSION['sv07cdtp'])) {
-include("php/conexion.php");
-$last="SELECT MAX(sv10codcon), sv10fech FROM sv10ctlcon;";
-$resp = $con->query($last);
-$cons=null;
-if ($resp->num_rows>=0) {
-  while ($r=$resp->fetch_array()) {
 
-    $cons=$r[0].$r[1]=date("dmY");
-    
-  }
-}
-     
+  include("php/expli.php");
+   
      $Cedt = $_SESSION['Cedt'];
      $Cedp = $_SESSION['Cedp'];
      $mail= $_SESSION['mail'];
@@ -33,6 +24,7 @@ if ($resp->num_rows>=0) {
 <script src="public/js/jquery-1.11.3.min.js"></script>
 <script src="public/js/jquery-ui.js"></script>
     <script src="js/jquery.min.js"></script>
+    <script type="text/javascript" src="public/JS/validaciones.js"></script>
   </head>
   <body>
     <?php 
@@ -61,23 +53,23 @@ if ($resp->num_rows>=0) {
 
   <div class="form-group"> 
  <label for="sv03ptario">Nº Finca:</label>&nbsp
-<input type="text" class="form-control" name="fin" placeholder="Nº Finca" required></div>
+<input type="text" class="form-control" name="fin" placeholder="Nº Finca" required onkeypress="return Numeros(event)"></div>
 
   <div class="form-group"> 
  <label for="sv03ptario">Plano:</label>&nbsp
-  <input type="file"  name="pla" placeholder="Plano" ></div>
+  <input type="file" class="form-control-file" name="pla" placeholder="Plano"required ></div>
 
   <div class="form-group"> 
  <label for="sv03ptario">Cartas de Agua:</label>&nbsp
- <input type="file" name="car" placeholder="Cartas de Agua" ></div>
+ <input type="file" class="form-control-file" name="car" placeholder="Cartas de Agua" required></div>
 
   <div class="form-group"> 
- <label for="sv03ptario">AutoCat:</label>&nbsp
- <input type="file" name="dib" placeholder="Autocat" ></div>
+ <label for="sv03ptario">AutoCad:</label>&nbsp
+ <input type="file" class="form-control-file" name="dib" placeholder="Autocat" required></div>
    <div class="form-group"> 
  <input type="hidden" class="form-control" value="<?php echo $GLOBALS['mail'];?>" name="mail"></div>
-     <a href="Propietario.php" class="btn btn-default"><span class="glyphicon glyphicon-circle-arrow-left"></span> &nbsp;Volver</a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp 
-  <button type="submit" class="btn btn-default">Finalizar Tramite</button>
+     &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp 
+  <button type="submit" class="btn btn-success">Finalizar Tramite</button>
   
   </form>
 <?php else:?>

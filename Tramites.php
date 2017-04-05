@@ -9,20 +9,22 @@ if(isset ($_SESSION['sv07cdtp'])) {
         
         <meta charset="utf-8" />
         <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
-<link href="public\Bootstrap\bootstrap\css\bootstrap.min.css" rel="stylesheet" media="screen">
-<link href="public\Bootstrap\css\bootstrap\bootstrap-theme.min.css" rel="stylesheet" media="screen">
+<link href="public\bootstrap\bootstrap\css\bootstrap.min.css" rel="stylesheet" media="screen">
+<link href="public\bootstrap\bootstrap\css\bootstrap-theme.min.css" rel="stylesheet" media="screen">
 <link href="assets/datatables.min.css" rel="stylesheet" type="text/css">
 <script type="text/javascript" src="assets/jquery-1.11.3-jquery.min.js"></script>
 <script type="text/javascript" src="public\JS\jquery-3.1.0.min.js"></script>
-<script type="text/javascript" src="public\bootstrap\bootstrap\js/bootstrap.min.js"></script>
+
+<script type="text/javascript" src="public/JS/validaciones.js"></script>
     </head>
     <body>
       <?php    
+        
      if ($_SESSION['sv05codu'] == 1) {
-      include('php/nav.php');  
+      include "php/navbar.php"; 
       }else if ($_SESSION['sv05codu'] == 2) {
-        include('php/nav2.php');
-      } 
+        include('php/navh2.php');
+      }
 
         include ("php/getTramite.php");
         if($query->num_rows>0):?>
@@ -39,6 +41,7 @@ if(isset ($_SESSION['sv07cdtp'])) {
         <th>Ced Prop</th>
         <th>N Fin</th>
         <th>Estado</th>
+        <th></th>
         </tr>
         </thead>
         <tbody>
@@ -55,7 +58,7 @@ if(isset ($_SESSION['sv07cdtp'])) {
              <td><?php echo $r["sv01cedc"]; ?></td>
              <td><?php echo $r["sv03cedp"]; ?></td>
              <td><?php echo $r["sv04nfin"]; ?></td>
-             <td><?php if($r["sv02code"]==5){echo 'Aprobado';}elseif($r["sv02code"]==6){echo 'Rechazado';}else{echo 'En proceso';} ?></td>
+             <td><?php if($r["sv02code"]==5){echo 'Aprobado';}elseif($r["sv02code"]==6){echo 'Rechazado';}elseif($r["sv02code"]==8){echo 'Oficio';}else{echo 'En proceso';} ?></td>
             <!--variable de sesion-->
             
            <td align="center"> 
@@ -109,7 +112,8 @@ if(isset ($_SESSION['sv07cdtp'])) {
                         </div><!-- /.modal-content -->
                       </div><!-- /.modal-dialog -->
                     </div><!-- /.modal -->
-
+<script type="text/javascript" src="public\js\bootstrap.min.js"></script>
+<script type="text/javascript" src="assets/datatables.min.js"></script>
 <script type="text/javascript" charset="utf-8">
 $(document).ready(function() {
     $('#example').DataTable();

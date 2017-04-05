@@ -19,10 +19,10 @@ if(isset ($_SESSION['sv07cdtp'])) {
 	</head>
 	<body>
 	<?php 	  
-     if ($_SESSION['sv05codu'] == 1) {
-      include "php/navbarconvis.php";  
+       if ($_SESSION['sv05codu'] == 1) {
+      include "php/navbar.php"; 
       }else if ($_SESSION['sv05codu'] == 2) {
-        include('php/navh2convis.php');
+        include('php/navh2.php');
       } ?>
 	
 <div class="container">
@@ -35,8 +35,10 @@ if(isset ($_SESSION['sv07cdtp'])) {
     
 
 	 <div class="Form-group" class="col-sm-10">
-	  	   <h4>Codigo IT</h4><input type="text"  name="S" class="form-control" placeholder="Buscar">
-		 <div id="next_button" align="left"><button  type="submit" class="btn btn-default" >&nbsp;<i class="glyphicon glyphicon-search"></i>&nbsp;</button> </div>
+	  	   <h4>Codigo IT</h4><input type="text"  name="S" class="form-control" placeholder="Buscar">   <div class="Form-group" 
+		 <div id="next_button" align="left">
+		 <button  type="submit" class="btn btn-default" >&nbsp;<i class="glyphicon glyphicon-search"></i>&nbsp;&nbsp;Buscar</button> 
+		 </div>
      
 	 </div>
 	 

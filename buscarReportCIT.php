@@ -30,15 +30,13 @@
 	</head>
 	<body>
 	<?php
-	   session_start();
+   session_start();
      if ($_SESSION['sv05codu'] == 1) {
-      include "php/navbarconvis.php";  
+      include "php/navbar.php"; 
       }else if ($_SESSION['sv05codu'] == 2) {
-        include('php/navh2convis.php');
-      }   ?>
+        include('php/navh2.php');
+      } ?>
 <div class="container">
-<!--<a href="exportar.php" class="btn" >Imprimir</a>-->
-<!--<button id="exportar">Imprimir</button>-->
 <div class="row">
 <div class="col-md-12">
 <a href="verReportCIT.php"> 	
@@ -54,6 +52,23 @@
 </div>
 </div>
 
-<script src="bootstrap/js/bootstrap.min.js"></script>
+<script src="public/Bootstrap/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="assets/datatables.min.js"></script>
+<script type="text/javascript" charset="utf-8">
+$(document).ready(function() {
+    $('#example').DataTable();
+
+    $('#example')
+    .removeClass( 'display' )
+    .addClass('table table-bordered');
+});
+</script>
+    <script type="text/javascript" charset="utf-8">
+    $(document).ready(function() {
+        setInterval(function () {
+        $('#example').ajax.reload(null, false);
+        }, 2000);
+    });
+    </script>
 	</body>
 </html>

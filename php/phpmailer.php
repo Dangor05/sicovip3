@@ -35,17 +35,17 @@ $msg = null;
         
           $mail->Subject = $asunto;
         
-          $mail->addAddress($email, $nombre);
+          $mail->addAddress($eml, $nombre);
         
           $mail->MsgHTML($mensaje);  
         
           if($mail->Send())
         {
-    $msg= "En hora buena el mensaje ha sido enviado con exito a $email";
+    $msg= "En hora buena el mensaje ha sido enviado con exito a $eml";
     }
         else
         {
-    $msg = "Lo siento, ha habido un error al enviar el mensaje a $email";
+    $msg = "Lo siento, ha habido un error al enviar el mensaje a $eml";
     }
  
 ?>

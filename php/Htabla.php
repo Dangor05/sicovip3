@@ -20,6 +20,7 @@ $query = $con->query($sql1);
 	<th>Cartas de Agua</th>
 	<th>Autocat</th>
 	<th>Estado</th>
+	<th></th>
 </thead>
 <?php while ($r=$query->fetch_array()):?>
 <tr>
@@ -42,7 +43,7 @@ $query = $con->query($sql1);
 </div>
 </div>
 <?php else:?>
-	<p class="alert alert-warning">No hay resultados</p>-->
+	<p class="alert alert-warning">No hay resultados</p>
 <?php endif; mysqli_close($con);?>
 
 <script src="public/Bootstrap/bootstrap/js/bootstrap.min.js"></script>

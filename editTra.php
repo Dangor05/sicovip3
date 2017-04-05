@@ -48,7 +48,7 @@ while ($r=$query->fetch_object()){
 <form role="form" method="post" action="php/upTramite.php" enctype="multipart/form-data">
   <div class="form-group">
     <label for="sv08conse">Consecutivo</label>
-    <input type="hidden" value="<?php echo $pr ;?>">
+    <input type="hidden" value="<?php echo $pr ;?> " name="cedp">
     <p><?php echo $ex;?></p>
     </div>
   <div class="form-group">
@@ -58,15 +58,15 @@ while ($r=$query->fetch_object()){
   </div>
   <div class="form-group">
     <label for="sv08fchs">Plano Agrimensura</label>
-    <input type="file" value="<?php echo $person->sv04apln; ?>" name="pln" required>
+    <input type="file" value="<?php echo $person->sv04apln; ?>" name="pln" >
   </div>
   <div class="form-group">
     <label for="sv08fumt">Carta de Agua</label>
-    <input type="file" value="<?php echo $person->sv04aact; ?>" name="aact" required>
+    <input type="file" value="<?php echo $person->sv04aact; ?>" name="aact">
   </div>
   <div class="form-group">
-    <label for="sv01cedc">Autocat</label>
-    <input type="file" value="<?php echo $person->sv04acta; ?>" name="acta" required>
+    <label for="sv01cedc">AutocaD</label>
+    <input type="file" value="<?php echo $person->sv04acta; ?>" name="acta">
   </div>
   <input type="hidden" name="id" value="<?php echo $person->sv04nfin; ?>">
   <button type="submit" class="btn btn-default">Actualizar</button>

@@ -17,20 +17,37 @@
   <head>
     <meta name="author" content="denker">
     <title> Restablecer contraseña </title>
-<link rel="stylesheet" type="text/css" href="public/css/stylesheet.css">
-<link rel="stylesheet" type="text/css" href="public/bootstrap/css/bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href="assets/datatables.min.css">
-<link rel="stylesheet" href="assets/css/bootstrap.min.css" />
-<link rel="stylesheet" href="assets/css/bootstrap-theme.min.css" />
-<link rel="stylesheet" href="assets/js/jquery-ui/jquery-ui.min.css" />
-<link rel="stylesheet" href="assets/js/jquery-ui/jquery-ui.theme.min.css" />
-<link rel="stylesheet" href="assets/css/style.css" />
-<script src="public/js/jquery-1.11.0.min.js"></script>
-<script src="public/js/jquery-1.11.3.min.js"></script>
-<script src="public/js/jquery-ui.js"></script>
+    <link rel="stylesheet" type="text/css" href="public/css/stylesheet.css">
+    <link rel="stylesheet" type="text/css" href="public/bootstrap/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/datatables.min.css">
+    <script src="public/js/jquery-1.11.0.min.js"></script>
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css" />
+    <link rel="stylesheet" href="assets/css/bootstrap-theme.min.css" />
+    <link rel="stylesheet" href="assets/js/jquery-ui/jquery-ui.min.css" />
+    <link rel="stylesheet" href="assets/js/jquery-ui/jquery-ui.theme.min.css" />
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <link href="css/bootstrap.min.css" rel="stylesheet">
+    <link href="css/bootstrap-theme.min.css" rel="stylesheet">
+    <link href="css/style.css" rel="stylesheet">
   </head>
 
   <body>
+  <header>
+      <nav class="navbar navbar-inverse" role="navigation">
+<div class="container">
+  <!-- Brand and toggle get grouped for better mobile display -->
+  <div class="navbar-header">
+    <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-ex1-collapse">
+      <span class="sr-only">Toggle navigation</span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+      <span class="icon-bar"></span>
+    </button>
+  
+    <a class="navbar-brand" href="./"><b>SICOVIP</b></a>
+   </div>
+</nav>
+  </header>
     <div class="container" role="main">
       <div class="col-md-4"></div>
       <div class="col-md-4">

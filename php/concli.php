@@ -6,7 +6,7 @@ $user_id=null;
 $sql1= "SELECT DISTINCT b.sv03cedp,b.sv03nomp,b.sv03apdp,
                 d.`sv08conse`, 
                 c.sv04nfin,c.sv04apln,c.sv04aact,c.sv04acta,
-                d.`sv02code`,d.sv09mnt
+                e.`sv02code`,d.sv09mnt
 
  FROM sv03ptario b, sv04reqtos c, sv09vsdo d, sv08trmte e
 
@@ -28,11 +28,9 @@ $query = $con->query($sql1);
 	<th>Plano</th>
 	<th>Autocat</th>
 	<th>CartaAgua</th>
-	<th>Estado Impuestos</th>
-	<th>Estado CartasAgua</th>
 	<th>Estado visado</th>
 	<th>Minuta</th>
-	<th></th>
+	
 </thead>
 <?php while ($r=$query->fetch_array()):?>
 <tr>
@@ -43,9 +41,7 @@ $query = $con->query($sql1);
 	<td><a href="php/plan.php?id=<?php echo $r['sv03cedp']?>&plan=<?php echo $r['sv04apln']?>"><?php echo $r["sv04apln"];?></a></td>
 	<td><a href="php/aut.php?id=<?php echo $r['sv03cedp']?>&aut=<?php echo $r['sv04aact']?>"><?php echo $r["sv04aact"];?></a></td>
 	<td><a href="php/cta.php?id=<?php echo $r['sv03cedp']?>&cta=<?php echo $r['sv04acta']?>"><?php echo $r["sv04acta"];?></a></td>
-	<td><?php echo $r["sv02code"]== 1 ? 'Al dia' : 'Retrasado' ; ?></td>
-	<td><?php echo $r["sv02code"]== 1 ? 'Presenta' : 'No Presenta' ; ?></td>
-	<td><?php if($r["sv02code"]==5){echo 'Aprobado';}elseif($r["sv02code"]==6){echo 'Rechazado';}else{echo 'En proceso';} ?></td>
+		<td><?php if($r["sv02code"]==5){echo 'Aprobado';}elseif($r["sv02code"]==6){echo 'Rechazado';}elseif($r["sv02code"]==8){echo 'Oficio';}else{echo 'En proceso';} ?></td>
 	<td><a href="php/mnt.php?id=<?php echo $r['sv03cedp']?>&mnt=<?php echo $r['sv09mnt']?>"><?php echo $r["sv09mnt"]; ?></a></td>
 		
 	</td>

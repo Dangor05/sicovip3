@@ -1,22 +1,9 @@
 <?php
-include ('php/conexion.php');
+
 session_start();
 $cit=$_SESSION['sv07cdtp'];
 $codu=$_SESSION['sv05codu'];
-
-
-$user_id=null;
-$sql1= "select sv08conse, sv01cedc, sv03cedp, sv04nfin from sv08trmte where sv08conse = ".$_GET['conse'];
-$query = $con->query($sql1);
-$person = null;
-if($query->num_rows>0){
-while ($r=$query->fetch_object()){
-  $person=$r;
-  break;
-}
-
-  }
-
+include ('php/obtvisado.php');
 ?>
 <html>
   <head>
@@ -34,37 +21,45 @@ while ($r=$query->fetch_object()){
 <script src="public/js/jquery-ui.js"></script>
   </head>
   <body>
-  <?php include "php/navbar.php"; ?>
+  <?php    
+     if ($_SESSION['sv05codu'] == 1) {
+      include "php/navbar.php"; 
+      }else if ($_SESSION['sv05codu'] == 2) {
+        include('php/navh2.php');
+      } ?>
 <div class="container">
 <div class="row">
-<div class="col-md-6">
+<div class="col-md-4">
     <h2>Inspeccion</h2>
 <?php if($person!=null):?>
 
 <form role="form" method="post" action="php/addVisado.php" enctype="multipart/form-data">
   <div class="form-group">
-  <a href="./verlista.php"></a>
-   <input type="hidden" class="form-control" value="<?php echo $person->sv08conse; ?>" name="conse" required>
+  <label for="">Consecutivo</label>
+   <input type="text" class="form-control" value="<?php echo $person->sv08conse; ?>" name="conse" required>
   </div>
   <div class="form-group">
-  <input type="hidden" class="form-control" value="<?php echo $person->sv01cedc; ?>" name="cedc" required>
+  <label for="">Topografo</label>
+  <input type="text" class="form-control" value="<?php echo $person->sv01cedc; ?>" name="cedc" required>
   </div>
   <div class="form-group">
-   <input type="hidden" class="form-control" value="<?php echo $person->sv03cedp; ?>" name="cedp" required>
+  <label for="">Propietario</label>
+   <input type="text" class="form-control" value="<?php echo $person->sv03cedp; ?>" name="cedp" required>
   </div>
   <div class="form-group">
-   <input type="hidden" class="form-control" value="<?php echo $person->sv04nfin; ?>" name="nfin" required>
+  <label for="">N° Finca</label>
+   <input type="text" class="form-control" value="<?php echo $person->sv04nfin; ?>" name="nfin" required>
   </div>
   <div class="form-group">
     <label for="">Nº Plano</label>
-    <input type="text" class="form-control" name="nplan">
+    <input type="text" class="form-control" name="npln">
   </div>
   <div class="form-group">
     <label for="">Nº Folio</label>
     <input type="text" class="form-control" name="nfol">
   </div>
   <div class="form-group">
-    <label for="">Nº Predio</label>
+    <label for="">Localizacion Municipal</label>
     <input type="text" class="form-control" name="npred">
   </div>
     <div class="form-group">
@@ -85,6 +80,7 @@ while ($r=$query->fetch_object()){
     <div class="form-group">
     <label for="">Estado</label>
  <select name="std" class="form-control" name="std" >
+ <option value="8">Oficio</option>
   <option value="5">Aprobado</option>
  <option value="6">Rechazado</option>
  </select>
@@ -98,7 +94,7 @@ while ($r=$query->fetch_object()){
 </form>
 <?php else:?>
   <p class="alert alert-danger">404 No se encuentra</p>
-<?php endif; mysqli_close($con);?>
+<?php endif;?>
 
 </div>
 </div>

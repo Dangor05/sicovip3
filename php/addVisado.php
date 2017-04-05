@@ -1,9 +1,9 @@
 <?php
 include('conexion.php');
 if(!empty($_POST)){
-	if(isset($_POST['npln']) && isset($_POST['nfol']) && isset($_POST['npre']) && isset($_POST['fch']) && isset($_POST['conse']) && isset($_POST['cedc']) && isset($_POST['cedp']) && isset($_POST['nfin']) && isset($_POST['impu'])&& isset($_POST['cit']) && isset($_POST['codu']) && isset($_POST['std']))
+	if(isset($_POST['npln']) && isset($_POST['nfol']) && isset($_POST['npred']) && isset($_POST['fch']) && isset($_POST['conse']) && isset($_POST['cedc']) && isset($_POST['cedp']) && isset($_POST['nfin']) && isset($_POST['impu'])&& isset($_POST['cit']) && isset($_POST['codu']) && isset($_POST['std']))
 	{
-$npln=$_POST['nplan'];   
+$npln=$_POST['npln'];   
 $nfol=$_POST['nfol'];   
 $npre=$_POST['npred'];   
 $mnt=$_FILES['mnt'];    
@@ -32,13 +32,16 @@ $dir ='C:\apache\htdocs\SICOVIP\archivos/'.$cedp.'/';
 		
 		mysqli_close($con);
 
-	header("Location:../ver.php");
+	header("Location:../Home.php");
 			}else{
 				mysqli_close($con);
-				print "<script>alert(\"No se pudo agregar.\");window.location='../ver.php';</script>";
+				print "<script>alert(\"No se pudo agregar.\");window.location='../Home.php';</script>";
 
 			}
 		/*}*/
+	}
+	else{
+		echo "ay";
 	}
 }
 

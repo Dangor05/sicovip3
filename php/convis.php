@@ -5,7 +5,7 @@ include "conexion.php";
 $user_id=null;
 $sql1= " SELECT DISTINCT  a.sv03cedp, a.sv03nomp, a.sv03apdp,
                          b.sv04nfin,b.sv04apln,b.sv04aact,b.sv04acta, DATE_FORMAT(d.sv08fchs,'%d-%m-%Y') AS sv08fchs,
-                         e.`sv08conse`,e.sv09npln,e.sv09nfol,e.sv09npre,DATE_FORMAT(e.sv09fvdp,'%d-%m-%Y') AS sv09fvdp,e.sv09mnt,e.sv02code,e.sv07cdtp
+                         e.`sv08conse`,e.sv09npln,e.sv09nfol,e.sv09npre,DATE_FORMAT(e.sv09fvdp,'%d-%m-%Y') AS sv09fvdp,e.sv09mnt,d.sv02code,e.sv07cdtp
  
  FROM sv03ptario a, sv04reqtos b, sv06tipprop c, sv08trmte d,sv09vsdo e, `sv05tipusu` u
   
@@ -32,10 +32,9 @@ $query = $con->query($sql1);
 	<th>Predio</th>
 	<th>Fecha</th>
 	<th>Minuta</th>
-	<th>Impuestos</th>
-	<th>CartasAgua</th>
 	<th>Estado</th>
 	<th>CIT</th>
+	<th></th>
 		</thead>
 <?php while ($r=$query->fetch_array()):?>
 <tr>
@@ -44,16 +43,14 @@ $query = $con->query($sql1);
 	<td><a href="php/plan.php?id=<?php echo $r['sv03cedp']?>&plan=<?php echo $r['sv04apln']?>"><?php echo $r["sv04apln"];?></a></td>
 	<td><?php echo $r["sv08fchs"]; ?></td>
 	<td><?php echo $r["sv08conse"]; ?></td>
-	<td><?php echo $r["sv09npln"]; ?></td>
+	<td style="width:99px;"><?php echo $r["sv09npln"]; ?></td>
 	<td><?php echo $r["sv09nfol"]; ?></td>
 	<td><?php echo $r["sv09npre"]; ?></td>
 	<td><?php echo $r["sv09fvdp"]; ?></td>
-	<td><a href="php/mnt.php?id=<?php echo $r['sv03cedp']?>&mnt=<?php echo $r['sv09mnt']?>"><?php echo $r["sv09mnt"]; ?></a>
-	<td><?php echo $r["sv02code"]== 1 ? 'Al dia' : 'Retrasado' ; ?></td>
-	<td><?php echo $r["sv02code"]== 1 ? 'Presenta' : 'No Presenta' ; ?></td>
+	<td><a href="php/mnt.php?id=<?php echo $r['sv03cedp']?>&mnt=<?php echo $r['sv09mnt']?>"><?php echo $r["sv09mnt"]; ?></a></td>
 	<td><?php if($r["sv02code"]==5){echo 'Aprobado';}elseif($r["sv02code"]==6){echo 'Rechazado';}else{echo 'En proceso';} ?></td>
 	<td><?php echo $r["sv07cdtp"]; ?></td>
-	<td style="width:150px;">
+	<td style="width:50px;">
 	<a href="./editar.php?sv09npln=<?php echo $r["sv09npln"];?>" class="btn btn-sm btn-warning">Editar</a>
 	</td>
 	</td>

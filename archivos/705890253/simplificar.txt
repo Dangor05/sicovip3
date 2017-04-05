@@ -1,0 +1,235 @@
+<style>
+	table {
+		border-collapse:collapse;
+	}
+	td {
+		border: solid 2px;		
+		width: 50px;
+		text-align: center;
+	}
+	input{
+		text-align: center;
+	}
+</style>
+
+TABLA CON VALORES DE ENTRADA
+<table>
+	<tr >
+		<td><input type='text' id='txt00' value=''></td>
+		<td><input type='text' id='txt01' value='Z'></td>
+		<td><input type='text' id='txt02' value='X'></td>
+		<td><input type='text' id='txt03' value='Y'></td>
+		<td><input type='text' id='txt04' value='S1'></td>
+		<td><input type='text' id='txt05' value='S2'></td>
+		<td><input type='text' id='txt06' value='Resultado'></td>		
+	</tr>
+	<tr>
+		<td><input type='text' id='txt10' value='Z'></td>
+		<td><input type='text' id='txt11' value='1'></td>
+		<td><input type='text' id='txt12' value='-50'></td>
+		<td><input type='text' id='txt13' value='-40'></td>
+		<td><input type='text' id='txt14' value='0'></td>
+		<td><input type='text' id='txt15' value='0'></td>
+		<td><input type='text' id='txt16' value='0'></td>		
+	</tr>
+	<tr>
+		<td><input type='text' id='txt20' value='S1'></td>
+		<td><input type='text' id='txt21' value='0'></td>
+		<td><input type='text' id='txt22' value='2'></td>
+		<td><input type='text' id='txt23' value='3'></td>
+		<td><input type='text' id='txt24' value='1'></td>
+		<td><input type='text' id='txt25' value='0'></td>
+		<td><input type='text' id='txt26' value='1500'></td>		
+	</tr>
+	<tr>
+		<td><input type='text' id='txt30' value='S2'></td>
+		<td><input type='text' id='txt31' value='0'></td>
+		<td><input type='text' id='txt32' value='2'></td>
+		<td><input type='text' id='txt33' value='1'></td>
+		<td><input type='text' id='txt34' value='0'></td>
+		<td><input type='text' id='txt35' value='1'></td>
+		<td><input type='text' id='txt36' value='1000'></td>		
+	</tr>
+</table>
+<br><input type="button" value="EJECUTAR PASO 1" onclick="calcular()">
+
+<br><br>PASO 1: ENCONTRAR CELDA PIVOTE<br>
+<table>
+	<tr>
+		<td id='td00'>-</td>
+		<td id='td01'>Z</td>
+		<td id='td02'>X</td>
+		<td id='td03'>Y</td>
+		<td id='td04'>S1</td>
+		<td id='td05'>S2</td>
+		<td id='td06'>Resultado</td>	
+		<td id='td07'>Calculo</td>		
+	</tr>
+	<tr>
+		<td id='td10'>Z</td>
+		<td id='td11'> </td>
+		<td id='td12'> </td>
+		<td id='td13'> </td>
+		<td id='td14'> </td>
+		<td id='td15'> </td>
+		<td id='td16'> </td>
+		<td id='td17'> </td>
+	</tr>
+	<tr>
+		<td id='td20'>S1</td>
+		<td id='td21'> </td>
+		<td id='td22'> </td>
+		<td id='td23'> </td>
+		<td id='td24'> </td>
+		<td id='td25'> </td>
+		<td id='td26'> </td>
+		<td id='td27'> </td>
+	</tr>
+	<tr>
+		<td id='td30'>S2</td>
+		<td id='td31'> </td>
+		<td id='td32'> </td>
+		<td id='td33'> </td>
+		<td id='td34'> </td>
+		<td id='td35'> </td>
+		<td id='td36'> </td>
+		<td id='td37'> </td>		
+	</tr>
+</table>
+
+<script>
+
+	//En esta parte puede agregar las funciones vistas en la clase
+	// como la de MCD, simplificar y producto 
+	
+	// La siguiente es la funcion que podria modificar
+
+
+	function calcular(){ 
+    
+		var val11=document.getElementById("txt11").value;
+		var val12=document.getElementById("txt12").value;
+		var val13=document.getElementById("txt13").value;
+		var val14=document.getElementById("txt14").value;
+		var val15=document.getElementById("txt15").value;
+		var val16=document.getElementById("txt16").value;
+		var val21=document.getElementById("txt21").value;
+		var val22=document.getElementById("txt22").value;
+		var val23=document.getElementById("txt23").value;
+		var val24=document.getElementById("txt24").value;
+		var val25=document.getElementById("txt25").value;
+		var val26=document.getElementById("txt26").value;
+		var val31=document.getElementById("txt31").value;
+		var val32=document.getElementById("txt32").value;
+		var val33=document.getElementById("txt33").value;
+		var val34=document.getElementById("txt34").value;
+		var val35=document.getElementById("txt35").value;
+		var val36=document.getElementById("txt36").value;
+
+		td11.innerHTML=val11;
+		td12.innerHTML=val12;
+		td13.innerHTML=val13;
+		td14.innerHTML=val14;
+		td15.innerHTML=val15;
+		td16.innerHTML=val16;
+		
+		td21.innerHTML=val21;
+		td22.innerHTML=val22;
+		td23.innerHTML=val23;
+		td24.innerHTML=val24;
+		td25.innerHTML=val25;
+		td26.innerHTML=val26;
+
+		td31.innerHTML=val31;
+		td32.innerHTML=val32;
+		td33.innerHTML=val33;
+		td34.innerHTML=val34;
+		td35.innerHTML=val35;
+		td36.innerHTML=val36;
+
+        alert("La columna pivote se marca en color naranja");
+   
+    var menor = Math.min(val11,val12,val13,val14,val15);
+
+     if(menor == val11){
+     	document.getElementById("td11").style.backgroundColor="ORANGE";
+     	var res1=val16/val11;
+     	td17.innerHTML=res1; 
+
+        var res2=val26/val21;
+     	td27.innerHTML=res2;
+
+     	var res3=val36/val31;
+     	td37.innerHTML=res3;
+     	} else {
+     	if(menor == val12){
+     		document.getElementById("td12").style.backgroundColor="ORANGE";  
+        res1=val16/val12;
+     	td17.innerHTML=res1; 
+
+        res2=val26/val22;
+     	td27.innerHTML=res2;
+
+     	res3=val36/val32;
+     	td37.innerHTML=res3;
+
+     	if( res1 < res2 && res1 < res3){
+     		document.getElementById("td17").style.backgroundColor="GREEN";  
+     	}else{
+     		if( res2 < res1 && res2 < res3){
+     			document.getElementById("td27").style.backgroundColor="GREEN";  
+     		}else{
+     			if( res3 < res1 && res3 < res2){
+     				document.getElementById("td37").style.backgroundColor="GREEN";  
+     			}
+     		}
+     	}
+
+     	} else{
+     		if(menor == val13){
+     			document.getElementById("td13").style.backgroundColor="ORANGE";
+
+     			res1=val16/val13;
+     	td17.innerHTML=res1; 
+
+        res2=val26/val23;
+     	td27.innerHTML=res2;
+
+     	res3=val36/val33;
+     	td37.innerHTML=res3;
+
+     		} else {
+     			if(menor == val14){
+     				document.getElementById("td14").style.backgroundColor="ORANGE";
+
+     	res1=val16/val14;
+     	td17.innerHTML=res1; 
+
+        res2=val26/val24;
+     	td27.innerHTML=res2;
+
+     	res3=val36/val34;
+     	td37.innerHTML=res3;
+
+     			}else{
+     				if(menor == val15){
+     					document.getElementById("td15").style.backgroundColor="ORANGE";
+
+        res1=val16/val15;
+     	td17.innerHTML=res1; 
+
+        res2=val26/val25;
+     	td27.innerHTML=res2;
+
+     	res3=val36/val35;
+     	td37.innerHTML=res3;
+
+     				}
+     			}
+     		}
+     	}
+     }
+}
+
+
+</script>

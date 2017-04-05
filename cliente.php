@@ -22,6 +22,7 @@ if(isset ($_SESSION['sv07cdtp'])) {
 <script src="js/jquery-ui.js"></script>
 <script src="js/jquery.min.js"></script>
 <script type="text/javascript" src="public\bootstrap\bootstrap\js/bootstrap.min.js"></script>
+<script type="text/javascript" src="public/JS/validaciones.js"></script>
        <script>
           $(document).ready(function(){   
         $( "#ced" ).autocomplete({
@@ -54,34 +55,34 @@ if(isset ($_SESSION['sv07cdtp'])) {
   <div class="container">
   <div  class="row">
 <div  class="col-md-4">
-     <form role="form-inline" action="php/addCliente.php" method="POST" > 
+     <form role="form-inline" action="php/addCliente.php" method="POST" onsubmit="return valciente()" > 
      <div = class="group">
  
   <center><h3>Registro Cliente</h3></center>  
   <div class="form-group" >
   <label for="sv01cedc">Cedula</label>&nbsp
-   <input type='text' class="form-control" id="ced" name='cedt' maxlength="10" required></div>
+   <input type='text' class="form-control" id="ced" name='cedt' maxlength="10" onkeypress="return Numeros(event)" required></div>
   <div class="form-group"> 
  <label for="sv01cdtpc">Codigo IT</label>&nbsp
    <input type='text' class="form-control" name='cit' maxlength="6" required></div>
 
   <div class="form-group">
   <label for="sv01nomc">Nombre</label>&nbsp
-    <input type='text' class="form-control" name='nomt' maxlength="12"></div>
+    <input type='text' class="form-control" name='nomt' maxlength="12" onkeypress="return Letras(event)" required></div>
 
   <div class="form-group">
   <label for="sv01apdc">Apellidos</label>&nbsp
-  <input type='text'class="form-control" name='apelt' maxlength="20"></div>
+  <input type='text'class="form-control" name='apelt' maxlength="20" onkeypress="return Letras(event)" required></div>
 
    <div class="form-group">
    <label for="sv01emc">Email</label>&nbsp
-   <input type='email'class="form-control" name='emat'></div>
+   <input type='email'class="form-control" name='emat' required></div>
 
    <div class="form-group">
    <label for="sv01telc">Telefono</label>
-   <input type='number' class="form-control" name='telt'></div>
+   <input type='text' class="form-control" name='telt' onkeypress="return Numeros(event)" required></div>
    </div>
-<a class="btn btn-default" href="Home.php"><span class="glyphicon glyphicon-circle-arrow-left"></span> &nbsp;Volver</a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<button type="submit" class="btn btn-default text-right">Continuar</button>
+<a class="btn btn-danger" href="Home.php"><span class="glyphicon glyphicon-circle-arrow-left"></span> &nbsp;Volver</a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<button type="submit" class="btn btn-default text-right">Continuar</button>
     
   </form>
 

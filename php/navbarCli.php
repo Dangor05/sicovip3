@@ -9,9 +9,6 @@
       <span class="icon-bar"></span>
     </button>
     <a class="navbar-brand" href="./"><b>SICOVIP</b></a>
-	 <ul class="nav navbar-nav">
-      <li><a href="./vercli.php">Proceso de visado</a></li>
-    </ul>
   </div>
  <div class="collapse navbar-collapse navbar-ex1-collapse">
  <ul class="nav navbar-nav">

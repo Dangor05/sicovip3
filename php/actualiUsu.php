@@ -7,12 +7,12 @@ if(!empty($_POST)){
      $sv07cedt=mysqli_real_escape_string($con,$_POST['sv07cedt']);
      $sv07nomt=mysqli_real_escape_string($con,$_POST['sv07nomt']);
      $sv07apdt=mysqli_real_escape_string($con,$_POST['sv07apdt']);
-     $sv07pass=mysqli_real_escape_string($con,$_POST['sv07pass']);
+     $pass=mysqli_real_escape_string($con,$_POST['sv07pass']);
      $sv07emt=$_POST['sv07emt'];
      $pass2=$_POST['valpass'];
 
-     if ($pass2==$sv07pass) {
-          
+     if ($pass2==$pass) {
+          $sv07pass=sha1($pass);
           $sql="UPDATE sv07tpgfo SET sv07nomt='$sv07nomt',sv07apdt='$sv07apdt',sv07pass='$sv07pass', sv07emt='$sv07emt' WHERE sv07cdtp='$sv07cdtp';";
                      
                $query = $con->query($sql);

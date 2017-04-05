@@ -63,16 +63,10 @@ while ($r=$query->fetch_object()){
  <option value="2">Retrasado</option>
  </select>
 </div>
- <div class="form-group">
-    <label for="sv02code">Estado Cartas</label>
-    <select name="sv02code" class="form-control" value="<?php echo $person->sv02code; ?>"  name="sv02code" >
-  <option value="1">Presenta</option>
- <option value="2">No Presenta</option>
-  </select>
-</div>
   <div class="form-group">
     <label for="sv02code">Estado Visado</label>
     <select name="sv02code" class="form-control" value="<?php echo $person->sv02code; ?>"  name="sv02code" >
+    <option value="8">Oficio</option>
   <option value="1">Aprobado</option>
  <option value="2">Rechazado</option>
  <option value="3">En proceso</option>
@@ -82,14 +76,7 @@ while ($r=$query->fetch_object()){
     <label for="sv07cdtp">Cod Topografo</label>
     <input type="text" class="form-control" value="<?php echo $person->sv07cdtp; ?>"  name="sv07cdtp" >
   </div>
-  <div class="form-group">
-    <label for="sv05codu">Tip Usuario</label>
-    <select name="sv05codu" class="form-control" value="<?php echo $person->sv05codu; ?>"  name="sv05codu" >
-    <option value="1">Administrador</option>
-    <option value="2">Usuario-Top</option>
-     </select>
-</div>
- 
+
 <input type="hidden" name="id" value="<?php echo $person->sv09npln; ?>">
   <button type="submit" class="btn btn-default">Actualizar</button>
 </form>

@@ -1,7 +1,7 @@
 
 <html>
 	<head>
-		<title>.: Busqueda propietario :.</title>
+		<title>Busqueda Propietario</title>
 		<link rel="stylesheet" type="text/css" href="public/css/stylesheet.css">
 <link rel="stylesheet" type="text/css" href="public/bootstrap/css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="assets/datatables.min.css">
@@ -18,6 +18,7 @@
 <link href="assets/datatables.min.css" rel="stylesheet" type="text/css">
 <script type="text/javascript" src="assets/jquery-1.11.3-jquery.min.js"></script>
 <script type="text/javascript" src="public\JS\jquery-3.1.0.min.js"></script>
+<script type="text/javascript" src="public\bootstrap\bootstrap\js/bootstrap.min.js"></script>
 	</head>
 	<body>
 	<?php

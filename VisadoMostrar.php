@@ -11,18 +11,17 @@ if(isset ($_SESSION['sv07cdtp'])) {
 <link href="public\Bootstrap\css\bootstrap\bootstrap-theme.min.css" rel="stylesheet" media="screen">
 <link href="assets/datatables.min.css" rel="stylesheet" type="text/css">
 <script type="text/javascript" src="assets/jquery-1.11.3-jquery.min.js"></script>
-<script type="text/javascript" src="public\JS\jquery-3.1.0.min.js"></script> 
-<script type="text/javascript" src="public\bootstrap\bootstrap\js/bootstrap.min.js"></script>  
+<script type="text/javascript" src="public\JS\jquery-3.1.0.min.js"></script>
 </head>
 <body>
 <?php     if ($_SESSION['sv05codu'] == 1) {
-      include "php/navbarp.php"; 
+           include('php/navbar.php');  
       }else if ($_SESSION['sv05codu'] == 2) {
-        include('php/navh2p.php');
+        include('php/navh2.php');
       } 
       include ("php/getvisados.php");
       if($query->num_rows>0):?>
-      <div class="container">
+      <div class="container-fluid">
 
            <button class="btn btn-success" id="btnAgregar" type="button"  data-toggle="modal" data-target="#modal-1"> <span class="glyphicon glyphicon-pencil"></span> &nbsp; Nuevo Visado</button>
      <br><br>
@@ -42,10 +41,10 @@ if(isset ($_SESSION['sv07cdtp'])) {
         <th>Propietario</th>
         <th>N°Finca</th>
         <th>Impuestos</th>
-        <th>Cartas Agua</th>
         <th>Estado</th>
         <th>Topografo</th>
         <th>EDITAR</th>
+        <th></th>
         
         </tr>
         </thead>
@@ -63,9 +62,8 @@ if(isset ($_SESSION['sv07cdtp'])) {
     <td><?php echo $r["sv08conse"]; ?></td>
     <td><?php echo $r["sv03cedp"]; ?></td>
     <td><?php echo $r["sv04nfin"]; ?></td>
-    <td><?php echo $r["sv02code"]== 1 ? 'Al dia' : 'Retrasado' ; ?></td>
-    <td><?php echo $r["sv02code"]== 1 ? 'Presenta' : 'No Presenta' ; ?></td>
-    <td><?php if($r["sv02code"]==5){echo 'Aprobado';}elseif($r["sv02code"]==6){echo 'Rechazado';}else{echo 'En proceso';} ?></td>
+    <td><?php echo $r["impu"]== 1 ? 'Al dia' : 'Retrasado' ; ?></td>
+    <td><?php if($r["estado"]==5){echo 'Aprobado';}elseif($r["estado"]==6){echo 'Rechazado';}elseif($r["estado"]==8){echo 'Oficio';}else{echo 'En proceso';} ?></td>
     <td><?php echo $r["sv07cdtp"]; ?></td>
          <!--variable de sesion-->
             
@@ -87,40 +85,16 @@ if(isset ($_SESSION['sv07cdtp'])) {
 <br />
     <div class="container">
     <div class="modal fade" id="modal-1" role="dialog">
-      <div class="modal-dialog modal-lg">
+      <div class="modal-dialog">
         <div class="modal-content">
            <div class="modal-header">
             <button type 1="button" class="close" data-dismiss="modal">&times;</button>
             <h3 class="modal-title">Visado</h3>
            </div>
            <div class="modal-body ">
-    <form name="Diagnostico" method="POST" action="php/agregar.php">
+    <form name="Diagnostico" method="POST"  action="php/agregar.php" enctype="multipart/form-data">
     <div class="container">
 
-  <div class="form-group row">
-  <label for="example-text-input" class="col-xs-1 col-form-label">Consecutivo:</label>
-  <div class="col-xs-2">
-   <input type="text" class="form-control" id="sv08conse" name="sv08conse" required>
-  </div>
-  </div>
-  <div class="form-group row">
-  <label for="example-text-input" class="col-xs-1 col-form-label">Cliente:</label>
-  <div class="col-xs-2">
-  <input type="text" class="form-control" id="cedc" name="sv01cedc" required>
-  </div>
-  </div>
-  <div class="form-group row">
-  <label for="example-text-input" class="col-xs-1 col-form-label">Propietario:</label>
-  <div class="col-xs-2">
-   <input type="text" class="form-control" id="cedp" name="sv03cedp" required>
-  </div>
-  </div>
-  <div class="form-group row">
-  <label for="example-text-input" class="col-xs-1 col-form-label">N° Finca:</label>
-  <div class="col-xs-2">
-   <input type="text" class="form-control" id="nfin" name="sv04nfin" required>
-  </div>
-  </div>
           <div class="form-group row">
          <label for="example-text-input" class="col-xs-1 col-form-label">N° Plano:</label>
              <div class="col-xs-2">
@@ -198,6 +172,7 @@ if(isset ($_SESSION['sv07cdtp'])) {
              <label for="example-text-input" class="col-xs-1 col-form-label">Estado:</label>
           <div class="col-xs-3">
             <select name="sv02code" class="form-control" name="sv02code" >
+            <option value="8">Oficio</option>
             <option value="1">Aprobado</option>
             <option value="2">Rechazado</option>
             <option value="3">En proceso</option>
@@ -215,13 +190,13 @@ if(isset ($_SESSION['sv07cdtp'])) {
       
     </div>
     <div class="form-group row">
-     <div class="col-xs-5">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+     <div class="col-xs-5">
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
        <button type="submit" class="btn btn-success">Agregar</button>
-      </div>
-      <div class="col-xs-5">&nbsp;&nbsp;&nbsp;
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         <a href="" class="btn btn-danger" data-dismiss="modal">Cancelar</a>
       </div>
-    </div>
+      </div>
     </div>
     </form>
 
@@ -234,14 +209,14 @@ if(isset ($_SESSION['sv07cdtp'])) {
 
 <div class="container">
         <div class="modal fade" id="modal-2" role="dialog">
-            <div class="modal-dialog modal-lg">
+            <div class="modal-dialog">
                 <div class="modal-content">
                      <div class="modal-header">
                         <button type 1="button" class="close" data-dismiss="modal">&times;</button>
                         <h3 class="modal-title">Modificar Visado</h3>
                      </div>
                      <div class="modal-body ">
-        <form name="Diagnostico" method="POST" action="">
+        <form name="Diagnostico" method="post" action="php/actualizar.php" enctype="multipart/form-data">
         <div class="container">
         
          
@@ -309,22 +284,14 @@ if(isset ($_SESSION['sv07cdtp'])) {
  </select>
           </div>
         </div>
-                     <div class="form-group row">
-             <label for="example-text-input" class="col-xs-1 col-form-label">Cartas de agua:</label>
-          <div class="col-xs-3">
-                <select name="sv02code" class="form-control" name="sv02code" >
-                <option value="1">Presenta</option>
-                <option value="2">No Presenta</option>
-                </select>
-          </div>
-        </div>
                <div class="form-group row">
              <label for="example-text-input" class="col-xs-1 col-form-label">Estado:</label>
           <div class="col-xs-3">
             <select name="sv02code" class="form-control" name="sv02code" >
             <option value="1">Aprobado</option>
             <option value="2">Rechazado</option>
-            <option value="3">En proceso</option>
+            <option value="7">En proceso</option>
+            <option value="8"></option>
             </select>
 
           </div>
@@ -332,20 +299,21 @@ if(isset ($_SESSION['sv07cdtp'])) {
                  <div class="form-group row">
              <label for="example-text-input" class="col-xs-1 col-form-label">Topografo:</label>
           <div class="col-xs-3">
-            <input class="form-control" type="text" id="sv07cdtp" name="sv07cdtp" value="">
+            <input class="form-control" type="text" id="sv07cdtp" name="sv07cdtp" value="<?php echo $_SESSION['sv07cdtp'];?>">
           </div>
         </div>
-        <div class="form-group row"><br>
-          
-        </div>
+
+        <div class="form-group row"><br></div>
         <div class="form-group row">
-         <div class="col-xs-5">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+         <div class="col-xs-5">
+         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           <button type="submit" class="btn btn-success">Modificar</button>
-          </div>
-          <div class="col-xs-5">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
             <button type="button" class="btn btn-danger" data-dismiss="modal">Cancelar</button>
           </div>
-        </div>
+          </div>
         </div>
         </form>
 
@@ -385,7 +353,7 @@ if(isset ($_SESSION['sv07cdtp'])) {
             <div class="col-xs-5">
            
             </div>
-                <a href="" class="btn btn-default" data-dismiss="modal">Close</a>
+                <a href="" class="btn btn-default" data-dismiss="modal">Cancelar</a>
               <button id="enviar" name="enviar" type="submit" class="btn btn-success">Eliminar     </button>
       </div>
       </form>
@@ -399,9 +367,8 @@ if(isset ($_SESSION['sv07cdtp'])) {
             </div><!-- /.modal -->
     
 
-<script src="/public/Bootstrap/bootstrap/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="assets/datatables.min.js"></script>
-
+<script type="text/javascript" src="public\js\bootstrap.min.js"></script>
+<script type="text/javascript" src="assets/datatables.min.js"></script> 
 <script type="text/javascript" charset="utf-8">
 $(document).ready(function() {
     $('#example').DataTable();

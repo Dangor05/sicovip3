@@ -20,9 +20,9 @@ if(isset ($_SESSION['sv07cdtp'])) {
 	<body>
 	<?php 	  
      if ($_SESSION['sv05codu'] == 1) {
-      include "php/navbarconvis.php";  
+      include "php/navbar.php"; 
       }else if ($_SESSION['sv05codu'] == 2) {
-        include('php/navh2convis.php');
+        include('php/navh2.php');
       } ?>
 	
 <div class="container">
@@ -35,10 +35,17 @@ if(isset ($_SESSION['sv07cdtp'])) {
     
 
 	 <div class="Form-group" class="col-sm-10">
-	  	   <h4>Desde</h4><input type="date"  name="S" class="form-control" placeholder="AAAA/MM/DD">
-		     
-		   <h4>Hasta</h4><input type="date" name="FS" class="form-control" placeholder="AAAA/MM/DD">
-		 <div id="next_button" align="left"><button  type="submit" class="btn btn-default" >&nbsp;<i class="glyphicon glyphicon-search"></i>&nbsp;</button> </div>
+	  	   <h4>Desde</h4><input type="date"  name="S" class="form-control" placeholder="AAAA/MM/DD"required>
+		    
+		   <div class="Form-group" 
+		 <div id="next_button" align="left">
+		 <button  type="submit" class="btn btn-default" >&nbsp;<i class="glyphicon glyphicon-search"></i>&nbsp;&nbsp;Buscar</button> 
+		 </div>  
+
+		   <h4>Hasta</h4><input type="date" name="FS" class="form-control" placeholder="AAAA/MM/DD" required>
+
+		    
+	 </div>
      
 	 </div>
 	 

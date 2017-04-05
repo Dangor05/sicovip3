@@ -8,14 +8,15 @@
 <link href="assets/datatables.min.css" rel="stylesheet" type="text/css">
 <script type="text/javascript" src="assets/jquery-1.11.3-jquery.min.js"></script>
 <script type="text/javascript" src="public\JS\jquery-3.1.0.min.js"></script>
+
     
 </head>
 <body>
  <?php      session_start();
      if ($_SESSION['sv05codu'] == 1) {
-      include "php/navbarp.php"; 
+      include "php/navbar.php"; 
       }else if ($_SESSION['sv05codu'] == 2) {
-        include('php/navh2p.php');
+        include('php/navh2.php');
       } 
       include ("php/getPropietario.php");
       if($query->num_rows>0):
@@ -23,7 +24,7 @@
 	<div class="container">
      <button class="btn btn-success" id="btnAgregar" type="button"  data-toggle="modal" data-target="#modal-1"> <span class="glyphicon glyphicon-pencil"></span> &nbsp; Nuevo Propietario</button>
      <br><br>
-      <br/>
+     
 	<div class="well well-sm text-lefh">
    
     
@@ -39,6 +40,8 @@
         <th>Email</th>
         <th>Telefono</th>
         <th>Tipo Propietario</th>
+        <th></th>
+        <th></th>
 
         </tr>
         </thead>
@@ -77,7 +80,7 @@
 
     <div class="container">
     <div class="modal fade" id="modal-1" role="dialog">
-      <div class="modal-dialog modal-lg">
+      <div class="modal-dialog ">
         <div class="modal-content">
            <div class="modal-header">
             <button type 1="button" class="close" data-dismiss="modal">&times;</button>
@@ -107,8 +110,7 @@
           </div>
           </div>
         <div class="form-group row">
-            <div class="form-group row">
-        <label for="example-text-input" class="col-xs-1 col-form-label">Email:</label>
+         <label for="example-text-input" class="col-xs-1 col-form-label">Email:</label>
           <div class="col-xs-2">
             <input class="form-control" type="text" id="eml" name="sv03emp" required>
           </div>
@@ -132,12 +134,14 @@
       
     </div>
     <div class="form-group row">
-     <div class="col-xs-5">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+     <div class="col-xs-5">
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
        <button type="submit" class="btn btn-success">Agregar</button>
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+       <a href="" class="btn btn-danger" data-dismiss="modal">Cancelar</a>
       </div>
-      <div class="col-xs-5"><a href="" class="btn btn-danger" data-dismiss="modal">Close</a>
       </div>
-    </div>
     </div>
     </form>
 
@@ -149,7 +153,7 @@
 
         <div class="container">
         <div class="modal fade" id="modal-2" role="dialog">
-            <div class="modal-dialog modal-lg">
+            <div class="modal-dialog">
                 <div class="modal-content">
                      <div class="modal-header">
                         <button type 1="button" class="close" data-dismiss="modal">&times;</button>
@@ -192,23 +196,20 @@
              </div>
              </div>
              <div class="form-group row">
-            <label for="example-text-input" class="col-xs-1 col-form-label">Tipo:</label>
-             <div class="col-xs-2">
-                 <select name="sv06codp" class="form-control" id="impu" name="sv06codp" required>
-                 <option value="1">Fisico</option>
-                 <option value="2">Juridico</option>
-              </select>
-             </div>
+           <input type="hidden" name="sv06codp">
         </div>          
        <div class="form-group row"><br>
           
         </div>
         <div class="form-group row">
-         <div class="col-xs-5">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+         <div class="col-xs-5">
+         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           <button type="submit" class="btn btn-success">Modificar</button>
+          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="" class="btn btn-danger" data-dismiss="modal">Cancelar</a>
+          </div>      
           </div>
-          <a href="" class="btn btn-danger" data-dismiss="modal">Close</a>
-                       </div>
         </div>
         </div>
         </form>
@@ -243,7 +244,7 @@
             <div class="col-xs-5">
            
             </div>
-                <a href="" class="btn btn-default" data-dismiss="modal">Close</a>
+                <a href="" class="btn btn-default" data-dismiss="modal">Cancelar</a>
               <button id="enviar" name="enviar" type="submit" class="btn btn-success">Eliminar     </button>
       </div>
       </form>
@@ -256,7 +257,7 @@
               </div><!-- /.modal-dialog -->
             </div><!-- /.modal -->
 
-<script src="public/Bootstrap/bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="public\js\bootstrap.min.js"></script>
 <script type="text/javascript" src="assets/datatables.min.js"></script>
 <script type="text/javascript" src="assets/crud.js"></script>
 
