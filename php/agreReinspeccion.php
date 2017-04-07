@@ -20,8 +20,8 @@ if (!empty($_FILES) && !empty($_POST)) {
 		$aact=$_FILES['aact']['name'];
 
 		if ($opcion==1) {
-			$stm=$con->prepare("UPDATE sv04reqtos SET sv04apl=?, sv04aact=?, sv04acta=? WHERE sv04nfin=?");
-			$stm->bind_param("ssss",$sv04nfin, $apl, $aact, $acta);
+			$stm=$con->prepare("UPDATE sv04reqtos SET sv04apln=?, sv04aact=?, sv04acta=? WHERE sv04nfin=?");
+			$stm->bind_param("ssss", $apl, $aact, $acta,$sv04nfin);
 			$stm->execute();
 			if ($stm->error) {
 			print "<script>alert(\"Jodase!!\");window.location='../Home.php';</script>";
@@ -31,7 +31,7 @@ if (!empty($_FILES) && !empty($_POST)) {
 		move_uploaded_file($sv04aact['tmp_name'],$path.$aact);
 		$stm->close();
 		$con->close();
-		//print "<script>alert(\"Agregado exitosamente.\");window.location='../inicio.php';</script>";
+		print "<script>alert(\"Agregado exitosamente.\");window.location='../inicio.php';</script>";
 		}
 		}
 		elseif ($opcion==2) {
@@ -49,7 +49,7 @@ if (!empty($_FILES) && !empty($_POST)) {
 
 			}
 					}
-		elseif ($opcion==3) {
+		elseif ($opcion==4) {
 					$sql1 = "UPDATE sv04reqtos SET sv04aact='$aact' WHERE sv04nfin='$sv04nfin'";
 			$query1=$con->query($sql1);
 				if($query1!=null){
@@ -64,7 +64,7 @@ if (!empty($_FILES) && !empty($_POST)) {
 
 			}
 		}
-		elseif ($opcion==4) {
+		elseif ($opcion==3) {
 			$sql1 = "UPDATE sv04reqtos SET sv04acta='$acta' WHERE sv04nfin='$sv04nfin'";
 			$query1=$con->query($sql1);
 			if($query1!=null){

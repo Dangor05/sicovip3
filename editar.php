@@ -25,7 +25,7 @@
 	 ?>
 <div class="container">
 <div class="row">
-<div class="col-md-6">
+<div class="col-md-4">
 		<h2>EDITAR</h2>
 
 <?php include "php/formulario.php";?>

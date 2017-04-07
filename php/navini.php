@@ -9,7 +9,15 @@
       <span class="icon-bar"></span>
     </button>
     <a class="navbar-brand" href="./inicio.php"><b>SICOVIP</b></a>
-	
+	   <ul class="nav navbar-nav">
+      <li><a href="./Propiet.php">Nuevo Tramite</a></li>
+    </ul>
+    <ul class="nav navbar-nav">
+    <li class="dropdown" class="active"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">Reportes<span class="caret"></span></a> 
+<ul class="dropdown-menu">
+<li><a href="./verReportClient.php">Codigo IT</a></li>
+</ul>
+</ul>
   </div>
  <div class="collapse navbar-collapse navbar-ex1-collapse">
  <ul class="nav navbar-nav navbar-right">
@@ -19,11 +27,6 @@
 <li> <a href="php/logout.php" class="btn btn-defult"> Cerrar sesion</a></li>
 </ul>
 </ul> 
-<form class="navbar-form navbar-left" role="search" action="./Propiet.php">
-       <button type="submit" class="btn btn-defult">&nbsp;Nuevo Tramite&nbsp;<i class="glyphicon glyphicon-pencil"></i>&nbsp;</button>
-    </form>
-
-
       </div><!-- /.navbar-collapse -->
 </div>
 </nav>

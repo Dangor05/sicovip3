@@ -37,14 +37,13 @@ if(isset ($_SESSION['sv07cdtp'])) {
         <table cellspacing="0" width="100%" id="example" class="table table-striped table-hover table-responsive">
         <thead>
         <tr>
+          <th>Propietario</th>
          <th>Consecutivo</th>
-         <th>Fecha</th>
-         <th>Topografo</th>
-         <th>Propietario</th>
-         <th>N° Finca</th>
+          <th>N° Finca</th>
+          <th>Solicitud</th>       
          <th>Plano Agrimensura</th>
          <th>Cartas de Agua</th>
-         <th>AutocaD</th>
+         <th>AUTOCAD</th>
          <th>Estado</th>
          <th></th>
          <th></th>
@@ -55,19 +54,20 @@ if(isset ($_SESSION['sv07cdtp'])) {
       while ($elementos=$query->fetch_array()):?>
 
 			<tr>
-			<td><?php echo $elementos["sv08conse"]; ?></td>
-			<td><?php echo $elementos["sv08fchs"]; ?></td>
-			<td><?php echo $elementos["sv01cedc"]; ?></td>
-			<td><?php echo $elementos["sv03cedp"]; ?></td>
-			<td><?php echo $elementos["sv04nfin"]; ?></td>
-			<td><a href="php/plan.php?id=<?php echo $elementos['sv03cedp']?>&plan=<?php echo $elementos['sv04apln']?>"><?php echo $elementos["sv04apln"];?></a></td>
-			<td><a href="php/aut.php?id=<?php echo $elementos['sv03cedp']?>&aut=<?php echo $elementos['sv04aact']?>"><?php echo $elementos["sv04aact"]?></a></td>
-			<td><a href="php/cta.php?id=<?php echo $elementos['sv03cedp']?>&cta=<?php echo $elementos['sv04acta']?>"><?php echo $elementos["sv04acta"]?></a></td>
-			<td><?php if($elementos["sv02code"] == 7){echo 'En Proceso';}?></td>
-			<!--variable de sesion-->
-			
-			<td align="center">
-      <a href="Visado.php?conse=<?php echo $elementos["sv08conse"];?>" class="btn btn-info"><span class="glyphicon glyphicon-edit"></span> &nbsp;Visar</a>
+      <td><?php echo $elementos["sv03cedp"]; ?></td>
+      <td><?php echo $elementos["sv08conse"]; ?></td>
+      <td><?php echo $elementos["sv04nfin"]; ?></td>
+      <td><?php echo $elementos["sv08fchs"]; ?></td>
+      
+      
+      <td><a href="php/plan.php?id=<?php echo $elementos['sv03cedp']?>&plan=<?php echo $elementos['sv04apln']?>"><?php echo $elementos["sv04apln"];?></a></td>
+      <td><a href="php/aut.php?id=<?php echo $elementos['sv03cedp']?>&aut=<?php echo $elementos['sv04aact']?>"><?php echo $elementos["sv04aact"]?></a></td>
+      <td><a href="php/cta.php?id=<?php echo $elementos['sv03cedp']?>&cta=<?php echo $elementos['sv04acta']?>"><?php echo $elementos["sv04acta"]?></a></td>
+      <td><?php if($elementos["sv02code"] == 7){echo 'En Proceso';}?></td>
+      <!--variable de sesion-->
+      
+      <td align="center">
+      <a href="Visado.php?conse=<?php echo $elementos["sv08conse"];?>" class="btn btn-info"><span class="glyphicon glyphicon-edit"></span> &nbsp;Procesar</a>
                     <td align="center"> 
             <button class="btn btn-sm btn-warning" id="btnModi" type="button" onclick="seleccionarTabla()" data-toggle="modal" data-target="#modal-4"> <span class="glyphicon glyphicon-trash-align-center"></span>Editar</button></td>
 			</tr>
@@ -297,15 +297,18 @@ $(document).ready(function() {
     var _trEdit = null;
     $(document).on('click', '#btnModi',function(){
         _trEdit = $(this).closest('tr');
-        var _con = $(_trEdit).find('td:eq(0)').text();
-        var _fch = $(_trEdit).find('td:eq(1)').text();
-        var _cedc = $(_trEdit).find('td:eq(2)').text();
-        var _cedp = $(_trEdit).find('td:eq(3)').text();
-        var _nfin = $(_trEdit).find('td:eq(4)').text();
-        var _pln = $(_trEdit).find('td:eq(5)').text();
-        var _cta = $(_trEdit).find('td:eq(6)').text();
-        var _aut = $(_trEdit).find('td:eq(7)').text();
-        var _std = $(_trEdit).find('td:eq(8)').text();
+        var _cedp = $(_trEdit).find('td:eq(0)').text();
+        var _con = $(_trEdit).find('td:eq(1)').text();
+        var _nfin = $(_trEdit).find('td:eq(2)').text();
+        var _fch = $(_trEdit).find('td:eq(3)').text();
+        var _pln = $(_trEdit).find('td:eq(4)').text();
+        var _cta = $(_trEdit).find('td:eq(5)').text();
+        var _aut = $(_trEdit).find('td:eq(6)').text();
+        var _std = $(_trEdit).find('td:eq(7)').text();
+        var _cedc = $(_trEdit).find('td:eq(8)').text();
+        
+        
+
         
          $('input[name="conse"]').val(_con);
         $('input[name=""]').val(_fch);

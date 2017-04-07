@@ -1,11 +1,12 @@
 <?php 
+include("conexion.php");
 if (isset($_POST['sv01cdtpc']) && isset($_POST['sv01cedc']) && isset($_POST['sv01nomc']) && isset($_POST['sv01apdc']) && isset($_POST['sv01telc']) && isset($_POST['sv01emc']) && isset($_POST['sv01pass']) && isset($_POST['valpass']) ) {
 	
 	$ced=$_POST['sv01cedc'];
 	$cit=$_POST['sv01cdtpc'];
 	$nom=$_POST['sv01nomc'];
 	$apl=$_POST['sv01apdc'];
-	$tel=$_POST]['sv01telc'];
+	$tel=$_POST['sv01telc'];
 	$eml=$_POST['sv01emc'];
 	$pass=$_POST['sv01pass'];
 	$passw=$_POST['valpass'];

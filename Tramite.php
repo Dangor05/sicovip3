@@ -40,16 +40,16 @@ if(isset ($_SESSION['sv07cdtp'])) {
 <div class="form-group">
  <label for="sv03cedp">Nº Ced Propietario</label>&nbsp
  <!--<p><?php// echo $_SESSION['Cedp']; ?></p>-->
-  <input type="text" class="form-control" value="<?php echo $GLOBALS['Cedp'];?>" name ="Cedpr"></div>
+  <input type="text" class="form-control" value="<?php echo $GLOBALS['Cedp'];?>" readonly name ="Cedpr"></div>
 
 <div class="form-group"> 
  <label for="sv01cedt">Nº Ced Topografo</label>&nbsp
  <!--<p><?php //echo $_SESSION['Cedt']; ?></p>-->
- <input type="text" class="form-control" value="<?php echo $GLOBALS['Cedt'];?>" name="cedc"></div>
+ <input type="text" class="form-control" value="<?php echo $GLOBALS['Cedt'];?>" readonly name="cedc"></div>
 
   <div class="form-group"> 
  <label for="sv03ptario">Nº consecutivo:</label>&nbsp
- <input type="text" class="form-control" value="<?php echo $cons; ?>" name="conse" required></div>
+ <input type="text" class="form-control" value="<?php echo $cons; ?>" readonly="" name="conse" required></div>
 
   <div class="form-group"> 
  <label for="sv03ptario">Nº Finca:</label>&nbsp
@@ -57,15 +57,15 @@ if(isset ($_SESSION['sv07cdtp'])) {
 
   <div class="form-group"> 
  <label for="sv03ptario">Plano:</label>&nbsp
-  <input type="file" class="form-control-file" name="pla" placeholder="Plano"required ></div>
+  <input type="file" class="form-control-file" name="pla" placeholder="Plano"></div>
 
   <div class="form-group"> 
  <label for="sv03ptario">Cartas de Agua:</label>&nbsp
  <input type="file" class="form-control-file" name="car" placeholder="Cartas de Agua" required></div>
 
   <div class="form-group"> 
- <label for="sv03ptario">AutoCad:</label>&nbsp
- <input type="file" class="form-control-file" name="dib" placeholder="Autocat" required></div>
+ <label for="sv03ptario">AUTOCAD:</label>&nbsp
+ <input type="file" class="form-control-file" name="dib" placeholder="AUTOCAD" required></div>
    <div class="form-group"> 
  <input type="hidden" class="form-control" value="<?php echo $GLOBALS['mail'];?>" name="mail"></div>
      &nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp 

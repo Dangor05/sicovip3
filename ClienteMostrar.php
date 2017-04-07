@@ -29,7 +29,7 @@ if(isset ($_SESSION['sv07cdtp'])) {
        <button class="btn btn-success" id="btnAgregar" type="button"  data-toggle="modal" data-target="#modal-1"> <span class="glyphicon glyphicon-pencil"></span> &nbsp; Nuevo Topografo</button>
      <br><br>
       <br/>
-	<div class="well well-sm text-right">
+	<div class="well well-sm text-left">
     
     <div class="content-loader">
         
@@ -37,14 +37,12 @@ if(isset ($_SESSION['sv07cdtp'])) {
         <thead>
         <tr>
         <th>Cedula</th>
-        <th>Codigo</th>
         <th>Nombre</th>
         <th>Apellido</th>
+        <th>Codigo</th>
         <th>Email</th>
         <th>Telefono</th>
         <th></th>
-        <th></th>
-
         </tr>
         </thead>
         <tbody>
@@ -53,16 +51,14 @@ if(isset ($_SESSION['sv07cdtp'])) {
 
             <tr>
             <td><?php echo $r['sv01cedc']; ?></td>
-            <td><?php echo $r['sv01cdtpc']; ?></td>
             <td><?php echo $r['sv01nomc']; ?></td>
             <td><?php echo $r['sv01apdc']; ?></td>
+            <td><?php echo $r['sv01cdtpc']; ?></td>
             <td><?php echo $r['sv01emc']; ?></td>
             <td><?php echo $r['sv01telc'];?></td>
             <!--variable de sesion-->
             <td align="center">
              <button class="btn btn-info" id="btnModi" type="button" onclick="seleccionarTabla()" data-toggle="modal" data-target="#modal-2"> <span class="glyphicon glyphicon-edit"></span> &nbsp;Modificar</button></td>
-            <td align="center"> 
-            <button class="btn btn-danger" id="btnModi" type="button" onclick="seleccionarTabla()" data-toggle="modal" data-target="#modal-4"> <span class="glyphicon glyphicon-trash-align-center"></span>Eliminar</button></td>
             </tr>
             <?php
         endwhile;
@@ -186,13 +182,13 @@ if(isset ($_SESSION['sv07cdtp'])) {
 <div class="form-group row">
          <label for="example-text-input" class="col-xs-1 col-form-label">Cedula:</label>
              <div class="col-xs-2">
-                <input class="form-control" type="text" id="ced" name="sv01cedc" value="">
+                <input class="form-control" type="text" id="ced" readonly="" name="sv01cedc" value="">
              </div>
 </div>
 <div class="form-group row">
           <label for="example-text-input" class="col-xs-1 col-form-label">CIT:</label>
             <div class="col-xs-2">
-            <input class="form-control" required="required" type="text" id="cit" name="sv01cdtpc"  value="">
+            <input class="form-control" required="required" readonly="" type="text" id="cit" name="sv01cdtpc"  value="">
             </div>
 </div>
 <div class="form-group row">
@@ -302,9 +298,9 @@ $(document).ready(function() {
     $(document).on('click', '#btnModi',function(){
         _trEdit = $(this).closest('tr');
         var _ced = $(_trEdit).find('td:eq(0)').text();
-        var _cit = $(_trEdit).find('td:eq(1)').text();
-        var _nom = $(_trEdit).find('td:eq(2)').text();
-        var _apl = $(_trEdit).find('td:eq(3)').text();
+        var _nom = $(_trEdit).find('td:eq(1)').text();
+        var _apl = $(_trEdit).find('td:eq(2)').text();
+        var _cit = $(_trEdit).find('td:eq(3)').text();
         var _eml = $(_trEdit).find('td:eq(4)').text();
         var _tel = $(_trEdit).find('td:eq(5)').text();
         

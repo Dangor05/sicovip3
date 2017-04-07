@@ -34,7 +34,7 @@ if(isset ($_SESSION['tp'])) {
     <input type='text' class="form-control" name='nomp' maxlength="15" required onkeypress="return Letras(event)"></div>
 <div class="form-group">
     <label for="apdp">Apellidos</label>&nbsp
-    <input type='text' class="form-control" name='apelp' maxlength="25" required onkeypress="return Letras(event)"></div>
+    <input type='text' class="form-control" name='apelp' maxlength="25" onkeypress="return Letras(event)"></div>
 <div class="form-group">
     <label for="emp">Email</label>&nbsp
    <input type='email' class="form-control" name='emap' maxlength="50" required ></div>

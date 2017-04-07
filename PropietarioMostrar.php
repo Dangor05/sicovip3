@@ -41,8 +41,6 @@
         <th>Telefono</th>
         <th>Tipo Propietario</th>
         <th></th>
-        <th></th>
-
         </tr>
         </thead>
         <tbody>
@@ -61,8 +59,6 @@
             
             <td align="center">
              <button class="btn btn-info" id="btnModi" type="button" onclick="seleccionarTabla()" data-toggle="modal" data-target="#modal-2"> <span class="glyphicon glyphicon-edit"></span> &nbsp; Modificar</button></td>
-            <td align="center"> 
-            <button class="btn btn-danger" id="btnModi" type="button" onclick="seleccionarTabla()" data-toggle="modal" data-target="#modal-4"> <span class="glyphicon glyphicon-trash-align-center"></span>Eliminar</button></td>
             </tr>
             <?php
          endwhile;        
@@ -167,7 +163,7 @@
           <div class="form-group row">
          <label for="example-text-input" class="col-xs-1 col-form-label">Cedula:</label>
              <div class="col-xs-2">
-                <input class="form-control" type="text" id="ced" name="sv03cedp" value="">
+                <input class="form-control" type="text" id="ced" readonly="" name="sv03cedp" value="">
              </div>
            </div>
            <div class="form-group row">

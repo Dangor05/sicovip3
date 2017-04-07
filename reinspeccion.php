@@ -57,13 +57,13 @@ if (isset($_SESSION['cd'])) {
     <div class="form-group row">
     <label for="sv08fumt" class="col-xs-1 col-form-label" >Carta de Agua</label>
     <div class="col-xs-2">
-    <input type="file" class="form-control-file" value="<?php echo $person->sv04aact; ?>" name="aact">
+    <input type="file" class="form-control-file" value="<?php echo $person->sv04acta; ?>" name="acta">
     </div>
   </div>
   <div class="form-group row">
     <label for="sv01cedc" class="col-xs-1 col-form-label" >AUTOCAD</label>
     <div class="col-xs-2">
-    <input type="file"  class="form-control-file"value="<?php echo $person->sv04acta; ?>" name="acta">
+    <input type="file"  class="form-control-file" value="<?php echo $person->sv04aact; ?>" name="aact">
   </div>
   </div>
    <button type="submit" class="btn btn-default">Actualizar</button>

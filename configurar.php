@@ -17,7 +17,7 @@
 	<div class="row">
 	<div class="col-md-4">
   <?php if($person!=null):?>
-	<form role="form" method="post" action="php/actualiUsu.php">
+	<form role="form" method="post" action="php/actualiCli.php">
   <div class="form-group">
     <label for="sv01cdtpc">Codigo IT</label>
      <p><?php echo $person->sv01cdtpc; ?></p>

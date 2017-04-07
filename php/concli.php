@@ -1,4 +1,4 @@
-<?php
+"<?php
 
 include "conexion.php";
 
@@ -24,9 +24,9 @@ $query = $con->query($sql1);
 	<th>Cedula propietario</th>
 	<th>Nombre</th>
 	<th>Apellidos</th>
-	<th>NFinca</th>
+	<th>N°Finca</th>
 	<th>Plano</th>
-	<th>Autocat</th>
+	<th>AUTOCAD</th>
 	<th>CartaAgua</th>
 	<th>Estado visado</th>
 	<th>Minuta</th>

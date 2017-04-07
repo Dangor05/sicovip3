@@ -17,44 +17,48 @@ while ($r=$query->fetch_object()){
 
 <form role="form" method="post" action="php/actualizar.php" enctype="multipart/form-data">
   <div class="form-group">
- <label for="sv09npln">Numero plano</label>
+ <label for="sv09npln">N° Minuta</label>
     <input type="text" class="form-control" value="<?php echo $person->sv09npln; ?>" name="sv09npln" >
   </div>
   <div class="form-group">
-    <label for="sv09nfol">Numero Folio</label>
+    <label for="sv09nfol">N° Folio Real</label>
     <input type="text" class="form-control" value="<?php echo $person->sv09nfol; ?>" name="sv09nfol" >
   </div>
   <div class="form-group">
-    <label for="sv09npre">Numero predio</label>
-    <input type="text" class="form-control" value="<?php echo $person->sv09nfol; ?>" name="sv09npre" >
+    <label for="sv09npre">Localizacion Municipal</label>
+    <input type="text" class="form-control" value="<?php echo $person->sv09npre; ?>" name="sv09npre" >
   </div>
   <div class="form-group">
-    <label for="sv09mnt">Minuta</label>
+    <label for="sv09mnt">Oficio</label>
     <input type="file"  value="<?php echo $person->sv09mnt; ?>" name="sv09mnt" >
   </div>
   <div class="form-group">
-    <label for="sv09fvdp">Fecha visado</label>
+    <label for="sv09fvdp">Revisado</label>
     <input type="text" class="form-control" value="<?php echo $person->sv09fvdp; ?>" name="sv09fvdp" >
   </div>
   <div class="form-group">
-    <label for="sv09fumv">Fecha UM</label>
-    <input type="text" class="form-control" value="<?php echo $person->sv09fumv; ?>" name="sv09fumv" >
+    <label for="sv09fumv">Modificado</label>
+    <input type="text" class="form-control" readonly value="<?php echo $person->sv09fumv; ?>" name="sv09fumv" >
   </div>
   <div class="form-group">
     <label for="sv08conse">Consecutivo</label>
-    <input type="text" class="form-control" value="<?php echo $person->sv08conse; ?>" name="sv08conse" >
+    <input type="text" class="form-control" value="<?php echo $person->sv08conse; ?>" name="sv08conse" readonly >
   </div>
   <div class="form-group">
     <label for="sv01cedc">Ced Cliente-Top</label>
-    <input type="text" class="form-control" value="<?php echo $person->sv01cedc; ?>" name="sv01cedc" >
+    <input type="text" class="form-control" readonly value="<?php echo $person->sv01cedc; ?>" name="sv01cedc" readonly>
   </div>
   <div class="form-group">
     <label for="sv03cedp">Ced Propietario</label>
-    <input type="text" class="form-control" value="<?php echo $person->sv03cedp; ?>" name="sv03cedp" >
+    <input type="text" class="form-control" value="<?php echo $person->sv03cedp; ?>" name="sv03cedp" readonly >
   </div>
   <div class="form-group">
-    <label for="sv04nfin">N Finca</label>
-    <input type="text" class="form-control" value="<?php echo $person->sv04nfin; ?>" name="sv04nfin" >
+    <label for="sv04nfin">N° Finca</label>
+    <input type="text" class="form-control" value="<?php echo $person->sv04nfin; ?>" name="sv04nfin" readonly>
+  </div>
+  <div class="form-group"> 
+ <label for="sv03ptario">Plano:</label>&nbsp
+  <input type="file" class="form-control-file" name="sv04plan" placeholder="Plano" >
   </div>
    <div class="form-group">
     <label for="sv02code">Estado Impuestos</label>
@@ -65,7 +69,7 @@ while ($r=$query->fetch_object()){
 </div>
   <div class="form-group">
     <label for="sv02code">Estado Visado</label>
-    <select name="sv02code" class="form-control" value="<?php echo $person->sv02code; ?>"  name="sv02code" >
+    <select name="sv02std" class="form-control" value="<?php echo $person->sv02code; ?>"  name="sv02std" >
     <option value="8">Oficio</option>
   <option value="1">Aprobado</option>
  <option value="2">Rechazado</option>
@@ -74,10 +78,9 @@ while ($r=$query->fetch_object()){
 </div>
   <div class="form-group">
     <label for="sv07cdtp">Cod Topografo</label>
-    <input type="text" class="form-control" value="<?php echo $person->sv07cdtp; ?>"  name="sv07cdtp" >
+    <input type="text" class="form-control" readonly value="<?php echo $person->sv07cdtp; ?>"  name="sv07cdtp" >
   </div>
 
-<input type="hidden" name="id" value="<?php echo $person->sv09npln; ?>">
   <button type="submit" class="btn btn-default">Actualizar</button>
 </form>
 <?php else:?>

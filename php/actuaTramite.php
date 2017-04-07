@@ -17,7 +17,7 @@ if (!empty($_FILES) && !empty($_POST)) {
 
 		if ($opcion==1) {
 			$stm=$con->prepare("UPDATE sv04reqtos SET sv04apln=?, sv04aact=?, sv04acta=? WHERE sv04nfin=?");
-			$stm->bind_param("ssss",$sv04nfin, $apl, $aact, $acta);
+			$stm->bind_param("ssss", $apl, $aact, $acta,$sv04nfin);
 			$stm->execute();
 			if ($stm->error) {
 			print "<script>alert(\"Jodase!!\");window.location='../Home.php';</script>";

@@ -28,7 +28,7 @@ if(isset ($_SESSION['sv07cdtp'])) {
          <h2>Visados</h2>
          <div class="col-md-12">
              <form method="post" class="navbar-form navbar-left" role="search" action="./buscarvis.php">
-     <h3>Cedula</h3>
+     <h3>Busque por:</h3>
      <div class="form-group row">
      <select name="vis" class="form-control" name="vis" >
     <option value="1">Cedula</option>

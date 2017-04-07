@@ -98,3 +98,20 @@ function valrequi()
         return false;
     }
 }
+
+function valpropie()
+{
+    var ced=document.getElementById('ced').value;
+    var nom=document.getElementById('nom').value;
+    var apl=document.getElementById('apl').value;
+    var eml=document.getElementById('eml').value;
+    var tel=document.getElementById('tel').value;
+    var tip=document.getElementById('tip').value;
+
+    if (tip===1) {
+        if (ced==="" || nom==="" || apl==="" || eml==="" tel==="") {
+            alert("todos los espacios son obligatorios");
+            return false;
+        }
+    }
+}

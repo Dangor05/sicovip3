@@ -8,7 +8,7 @@ if(!empty($_POST))
 		$cedcli=mysqli_escape_string($con,$_POST['cedc']);
 		$conse=mysqli_escape_string($con,$_POST['conse']);
 		$nfin=mysqli_escape_string($con,$_POST['fin']);
-		$eml=mysqli_escape_string($con,$_POST['mail']);
+		$email=mysqli_escape_string($con,$_POST['mail']);
 		$plano=$_FILES['pla'];
 		$carta=$_FILES['car'];
 		$autC=$_FILES['dib'];

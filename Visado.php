@@ -30,7 +30,7 @@ include ('php/obtvisado.php');
 <div class="container">
 <div class="row">
 <div class="col-md-4">
-    <h2>Inspeccion</h2>
+    <h2>Visado</h2>
 <?php if($person!=null):?>
 
 <form role="form" method="post" action="php/addVisado.php" enctype="multipart/form-data">
@@ -51,11 +51,11 @@ include ('php/obtvisado.php');
    <input type="text" class="form-control" value="<?php echo $person->sv04nfin; ?>" name="nfin" required>
   </div>
   <div class="form-group">
-    <label for="">Nº Plano</label>
+    <label for="">Nº Minuta</label>
     <input type="text" class="form-control" name="npln">
   </div>
   <div class="form-group">
-    <label for="">Nº Folio</label>
+    <label for="">Nº Folio Real</label>
     <input type="text" class="form-control" name="nfol">
   </div>
   <div class="form-group">
@@ -63,12 +63,16 @@ include ('php/obtvisado.php');
     <input type="text" class="form-control" name="npred">
   </div>
     <div class="form-group">
-    <label for="">Minuta</label>
-    <input type="file" name="mnt">
+    <label for="">Oficio</label>
+    <input type="file" class="form-control-file" name="mnt">
   </div>
   <div class="form-group">
     <label for="">Fecha</label>
     <input type="date" class="form-control" value="<?php echo date("Y-m-d");?>" name="fch">
+  </div>
+      <div class="form-group">
+    <label for="">Plano Visado</label>
+    <input type="file" class="form-control-file" name="pln">
   </div>
   <div class="form-group">
     <label for="">Impuestos</label>

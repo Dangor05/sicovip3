@@ -67,10 +67,10 @@ if(isset ($_SESSION['sv07cdtp'])) {
     <input type='text' class="form-control" name='nomp' maxlength="15" required onkeypress="return Letras(event)" required></div>
 <div class="form-group">
     <label for="apdp">Apellidos</label>&nbsp
-    <input type='text' class="form-control" name='apelp' maxlength="25" required onkeypress="return Letras(event)" required></div>
+    <input type='text' class="form-control" name='apelp' maxlength="25" required onkeypress="return Letras(event)"></div>
 <div class="form-group">
     <label for="emp">Email</label>&nbsp
-   <input type='email' class="form-control" name='emap' maxlength="20" required ></div>
+   <input type='email' class="form-control" name='emap' maxlength="50" required ></div>
 <div class="form-group">
     <label for="telp">Telefono</label>&nbsp
    <input type='tel'class="form-control" name='telp' maxlength="10" onkeypress="return Numeros(event)" required=""></div>

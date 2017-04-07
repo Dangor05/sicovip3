@@ -24,8 +24,8 @@ if(isset ($_SESSION['sv07cdtp'])) {
 <script type="text/javascript" src="public\bootstrap\bootstrap\js/bootstrap.min.js"></script>
 <script type="text/javascript" src="public/JS/validaciones.js"></script>
        <script>
-          $(document).ready(function(){   
-        $( "#ced" ).autocomplete({
+ $(document).ready(function(){   
+        /*$( "#ced" ).autocomplete({
               source: function(resquest, response){
                 $.ajax({
                   url:"srchClient.php",
@@ -40,7 +40,21 @@ if(isset ($_SESSION['sv07cdtp'])) {
               select:function(event ui){
                 alert("selecciono: "+ ui.item.label);
               }
-          });
+          });*/
+        $( "#ced" ).keyup(function(){
+            if($( "#ced" ).val()){
+              $.ajax({
+                  method:"post",
+                  url:"php/autClient.php",
+                  dataType:"json",
+                  data:{q:$(this).val()},
+                  done:function(data){
+                    var jsonobj=JSON.parse(data);
+                    console.info(jsonobj);
+                  }
+                });
+            }
+        });
                  
       });
         </script>

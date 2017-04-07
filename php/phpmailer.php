@@ -3,7 +3,19 @@
 $msg = null;
      
     $asunto = "Visado de Planos, favor no responder este mensaje";
-      $mensaje = "Consecutivo: ".$conse."\n Propietarion: ".$cedpr."\n N° Finca: ".$nfin;
+      $mensaje = '<html>
+    <head>
+      <title>Solicitud de Tramite</title>
+    </head>
+    <body>
+      <p>Hemos recibido su solicitud visado.</p>
+      <p>Para ver el resultado de su solicitud puede hacerlo en la pagina de la <a href="http://www.santacruz.go.cr/">Municipalidad Santa Cruz</a>. Mediante los siguientes datos:</p>
+      <p><strong>Consecutivo:&nbsp;</strong>"'.$conse.'"</p>
+      <p><strong>Cedula del Propietario:&nbsp;</strong>"'.$cedpr.'"</p>
+      <p><strong>Numero de Finca:&nbsp;</strong>"'.$nfin.'"</p>
+      
+    </body>
+    </html>';
         
         require "phpmailer/class.phpmailer.php";
     
@@ -31,11 +43,11 @@ $msg = null;
        
           $mail->From = "tuemail@gmail.com";
         
-          $mail->FromName = "Administrador";
+          $mail->FromName = "Municipalidad de Santa Cruz";
         
           $mail->Subject = $asunto;
         
-          $mail->addAddress($eml, $nombre);
+          $mail->addAddress($email, $nombre);
         
           $mail->MsgHTML($mensaje);  
         

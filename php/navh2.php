@@ -8,10 +8,10 @@
       <span class="icon-bar"></span>
       <span class="icon-bar"></span>
     </button>
-    <a class="navbar-brand" href="./verLista.php"><b>SICOVIP</b></a>
+    <a class="navbar-brand" href="./Home.php"><b>SICOVIP</b></a>
   </div>
  <div class="collapse navbar-collapse navbar-ex1-collapse">
-<ul class="nav navbar-nav">
+    <ul class="nav navbar-nav">
     <li><a href="./ClienteMostrar.php">Cliente-Top</a></li>
       <!--<li><a href="./verct.php">Cliente-Top</a></li>-->
     </ul>
@@ -20,22 +20,26 @@
      <li><a href="./PropietarioMostrar.php">Propietario</a></li>
     </ul>
     <ul class="nav navbar-nav">
-      <!--<li><a href="./ver.php">Visado</a></li>-->
+    <li class="dropdown" class="active"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">Visados<span class="caret"></span></a>
+    <ul class="dropdown-menu">
       <li><a href="./VisadoMostrar.php">Visado</a></li>
+      <li><a href="./verLista.php">Reinspeccion</a></li>
+    </ul>
+      
     </ul>
     <ul class="nav navbar-nav">
     <li class="dropdown" class="active"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">Tramite<span class="caret"></span></a> 
 <ul class="dropdown-menu">
 <li><a href="./Cliente.php">Nuevo Tramite</a></li>
-<li><a href="./Tramites.php">Tramites</a></li>
+<!--<li><a href="./Tramites.php">Tramites</a></li>-->
 </ul>
 </ul> 
 <ul class="nav navbar-nav">
     <li class="dropdown" class="active"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">Consulta<span class="caret"></span></a> 
 <ul class="dropdown-menu">
-<li><a href="./verClient.php">Proceso de visado</a></li>
+<li><a href="./verClient.php">Archivos Visados</a></li>
 <li><a href="./verVisado.php">Visados</a></li>
-<li><a href="./verLista.php">Planos entrantes</a></li>
+
 </ul>
 </ul>
     <ul class="nav navbar-nav">

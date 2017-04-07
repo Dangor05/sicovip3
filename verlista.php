@@ -29,7 +29,7 @@ if(isset ($_SESSION['sv07cdtp'])) {
 <div class="container-fluid">
 <div class="row">
 <div class="col-md-12">
-		<h2>Planos a Visar</h2>
+		<h2>Planos de reisnpeccion</h2>
 
 <br><br>
 

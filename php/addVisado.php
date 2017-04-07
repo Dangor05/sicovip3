@@ -16,20 +16,25 @@ $impu=$_POST['impu'];
 $cdtp=$_POST['cit']; 
 $codu=$_POST['codu'];
 $code=$_POST['std'];
+$sv04apln=$_FILES['pln'];
 
 $dir ='C:\apache\htdocs\SICOVIP\archivos/'.$cedp.'/';
+
 
 			$sql = "INSERT INTO sv09vsdo (sv09npln,sv09nfol,sv09npre,sv09mnt,sv09fvdp,sv09fumv,sv08conse,sv01cedc,sv03cedp,sv04nfin,sv02code,sv07cdtp,sv05codu) 
 			values ('$npln','$nfol','$npre','".$mnt['name']."','$fvdp',NOW(),'$conse','$cedc','$cedp','$nfin','$impu','$cdtp','$codu')";
 
 			$consu = "UPDATE sv08trmte SET sv02code ='$code' WHERE  sv08conse='$conse'";
+			
 
-
-			$query=$con->query($sql);
-			$senten=$con->query($consu);
-			if($query!=null && $senten!=null){
+if ($sv04apln!=null) {
+	$stm ="UPDATE sv04reqtos SET sv04apln='".$sv04apl['name']."' WHERE sv04nfin='$nfin'";
+		$query=$con->query($sql);
+		$senten=$con->query($consu);
+		$exec=$con->query($stm);
+			if($query!=null && $senten!=null && $exec!=null){
 		move_uploaded_file($sv09mnt['tmp_name'],$dir.$sv09mnt['name']);
-		
+		move_uploaded_file($sv04apln['tmp_name'],$dir.$sv04apln['name']);		
 		mysqli_close($con);
 
 	header("Location:../Home.php");
@@ -38,6 +43,21 @@ $dir ='C:\apache\htdocs\SICOVIP\archivos/'.$cedp.'/';
 				print "<script>alert(\"No se pudo agregar.\");window.location='../Home.php';</script>";
 
 			}
+		}else{
+					$query=$con->query($sql);
+					$senten=$con->query($consu);
+		if($query!=null && $senten!=null){
+		move_uploaded_file($sv09mnt['tmp_name'],$dir.$sv09mnt['name']);
+				mysqli_close($con);
+
+	header("Location:../Home.php");
+		}else{
+				mysqli_close($con);
+				print "<script>alert(\"No se pudo agregar.\");window.location='../Home.php';</script>";
+
+			}
+
+
 		/*}*/
 	}
 	else{
@@ -45,4 +65,14 @@ $dir ='C:\apache\htdocs\SICOVIP\archivos/'.$cedp.'/';
 	}
 }
 
-?>
+?>					
+					$exec=$con->query($stm);
+					if($query!=null){
+						
+						mysqli_close($con);
+						print "<script>alert(\"Exito!!.\");window.location='../Home.php';</script>";
+			}else{
+				mysqli_close($con);
+				print "<script>alert(\"A la Verga!!.\");window.location='../Home.php';</script>";
+
+			}

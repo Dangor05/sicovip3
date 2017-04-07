@@ -9,7 +9,7 @@ if (!empty($_FILES['pln']) && !empty($_FILES['car']) && !empty($_FILES['dib']) &
 		$cedpr=$_POST['pr'];
 		$cedcli=$_POST['cedc'];
 		$nfin=$_POST['fin'];
-		$eml=$_POST['mail'];
+		$email=$_POST['mail'];
 		$pln=$_FILES['pln']['name'];
 		$apln=$_FILES['pln'];
 		$car=$_FILES['car']['name'];

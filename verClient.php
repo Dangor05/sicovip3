@@ -23,7 +23,7 @@ if(isset ($_SESSION['sv07cdtp'])) {
 <div class="container">
 <div class="row">
 <div class="col-md-12">
-		<h2>Consulta Visados</h2>
+		<h2>Archivos Visados</h2>
 <!-- Button trigger modal -->
   <!--<a data-toggle="modal" href="#myModal" class="btn btn-default">Agregar</a>-->
 <br><br>

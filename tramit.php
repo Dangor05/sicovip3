@@ -3,6 +3,7 @@ session_start();
 if (isset($_SESSION['tp'])) {
 $cedp=$_SESSION['pr'];
 $cedt=$_SESSION['cd'];
+$eml=$_SESSION['em'];
  ?>
  <?php
  include("php/expli.php");
@@ -30,14 +31,14 @@ $cedt=$_SESSION['cd'];
 	  <div class="form-group">
 	  <label for="sv03cedp">Nº Ced Propietario</label>&nbsp
 	  <!--<p><?php// echo $_SESSION['Cedp']; ?></p>-->
-	  <input type="text" class="form-control" value="<?php echo $cedp;?>" name ="pr"></div>
+	  <input type="text" class="form-control" readonly value="<?php echo $cedp;?>" name ="pr"></div>
 	  <div class="form-group"> 
 	  <label for="sv01cedt">Nº Ced Topografo</label>&nbsp
 	  <!--<p><?php //echo $_SESSION['Cedt']; ?></p>-->
-	  <input type="text" class="form-control" value="<?php echo $cedt;?>" name="cedc"></div>
+	  <input type="text" class="form-control" value="<?php echo $cedt;?>" readonly="" name="cedc"></div>
 	  <div class="form-group">
 	  <label for="sv03ptario">Nº consecutivo:</label>&nbsp
-	  <input type="text" class="form-control" value="<?php echo $cons; ?>" name="conse" required></div>
+	  <input type="text" class="form-control" readonly="" value="<?php echo $cons; ?>" name="conse" required></div>
 	  <div class="form-group">
 	  <label for="sv03ptario">Nº Finca:</label>&nbsp
 	  <input type="text" class="form-control" name="fin" placeholder="Nº Finca" required onkeypress="return Numeros(event)"></div>
@@ -51,7 +52,7 @@ $cedt=$_SESSION['cd'];
 	  <label for="sv03ptario">AUTOCAD:</label>&nbsp
 	  <input type="file" name="dib" placeholder="Autocat" ></div>
 	  <div class="form-group">
-	  <input type="hidden" class="form-control" value="<?php echo $GLOBALS['mail'];?>" name="mail"></div>
+	  <input type="hidden" class="form-control" value="<?php echo $eml;?>" name="mail"></div>
 	  <a href="Propietario.php" class="btn btn-danger"><span class="glyphicon glyphicon-remove-circle"></span> &nbsp;Volver</a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp
 	  <button type="submit" class="btn btn-primary">Finalizar Tramite</button>
 	  </form>
