@@ -18,12 +18,13 @@ if (isset($_SESSION['cd'])) { ?>
 <div class="container">
 <div class="row">
 <div class="col-md-12">
-<a href="buscarpro	.php"> 	
+<a href="Inicio.php"> 	
 <button type="button" class="btn btn-default" ><span class="glyphicon glyphicon-circle-arrow-left"></span> &nbsp;Volver</button> </a>
 		<h2>Buscar propietario</h2>
 		<div class="alert alert-info">
 			<strong><p class="text-lefh text-white">Ingrese el numero de cedula del propietario que desea agregar a la solicitud de tramite</p></strong>
 		</div>
+		
 
 		<form class="navbar-form navbar-left" role="search" action="./buscarp.php">
       <div class="form-group">
@@ -34,9 +35,35 @@ if (isset($_SESSION['cd'])) { ?>
     <br>
     <br>
     <br>
+<div class="container">
+<div class="well well-sm text-lefh">
+<div class="content-loader">
+<table cellspacing="0" width="100%" id="example" class="table-responsive">
+	<thead>
+	 <th>Cedula</th>
+	<th>Nombre</th>
+	<th>Apellido</th>
+	<th>Email</th>
+	<th>Telefono</th>
+	<th>Tipo propietario</th>
+	<th></th>
+	</thead>
+	<tbody>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+		<td></td>
+	</tbody>
+</table>
+	
+</div>
+</div>
+</div>
 
 
-<?php include "php/busquedap.php"; ?>
 </div>
 </div>
 </div>

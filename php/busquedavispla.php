@@ -2,7 +2,7 @@
 
 include "conexion.php";
 
-$user_id=null;
+$id=$_POST['s'];
 $sql1= " SELECT DISTINCT DATE_FORMAT(d.sv08fchs,'%d-%m-%Y') AS sv08fchs,  a.sv03cedp, a.sv03nomp, a.sv03apdp,b.sv04apln,b.sv04aact,b.sv04acta,
   e.sv09npln,e.sv09nfol,d.sv02code, e.sv09mnt,DATE_FORMAT(e.sv09fvdp,'%d-%m-%Y') AS sv09fvdp,e.sv08conse,e.sv09npre,
                         e.sv07cdtp
@@ -14,7 +14,7 @@ $sql1= " SELECT DISTINCT DATE_FORMAT(d.sv08fchs,'%d-%m-%Y') AS sv08fchs,  a.sv03
  AND e.sv08conse= d.sv08conse
  AND  u.sv05codu= e.sv05codu
  AND b.sv04nfin = e.sv04nfin
- AND  d.sv09npln=".$_POST['s'];
+ AND  e.sv09npln='$id'";
 
 $query = $con->query($sql1);
 ?>

@@ -3,13 +3,13 @@
 if(!empty($_POST)){
 
 		include "conexion.php";
-     $sv01cedc=$_POST['sv01cedc'];
-     $sv01cdtpc=$_POST['sv01cdtpc'];
-     $sv01nomc=$_POST['sv01nomc'];
-     $sv01apdc=$_POST['sv01apdc'];
-     $sv01emc=$_POST['sv01emc'];
-     $sv01telc=$_POST['sv01telc'];
-     $pass=$_POST['sv01pass'];
+     $sv01cedc=$_POST['svcedc'];
+     $sv01cdtpc=$_POST['svcdtpc'];
+     $sv01nomc=$_POST['svnomc'];
+     $sv01apdc=$_POST['svapdc'];
+     $sv01emc=$_POST['svemc'];
+     $sv01telc=$_POST['svtelc'];
+     $pass=$_POST['svpass'];
      $passw=$_POST['valpass'];
 
      	$sch="SELECT sv01cedc, sv01cdtpc FROM sv01clnte WHERE sv01cedc='$sv01cedc' and sv01cdtpc='$sv01cdtpc'";

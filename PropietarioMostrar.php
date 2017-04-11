@@ -8,8 +8,33 @@
 <link href="assets/datatables.min.css" rel="stylesheet" type="text/css">
 <script type="text/javascript" src="assets/jquery-1.11.3-jquery.min.js"></script>
 <script type="text/javascript" src="public\JS\jquery-3.1.0.min.js"></script>
+<script type="text/javascript">
+    function Letras(e) {
+    key = e.keyCode || e.which;
+    tecla = String.fromCharCode(key).toString();
+    letras = " áéíóúabcdefghijklmnñopqrstuvwxyzÁÉÍÓÚABCDEFGHIJKLMNÑOPQRSTUVWXYZ";
+    especiales = [8, 37, 39, 46, 6];
+    tecla_especial = false
+    for(var i in especiales) {
+        if(key == especiales[i]) {
+            tecla_especial = true;
+            break;
+        }
+    }
 
-    
+    if(letras.indexOf(tecla) == -1 && !tecla_especial){
+        return false;
+      }
+}
+</script>
+<script type="text/javascript">
+function Numeros(e)
+{
+var key = window.Event ? e.which : e.keyCode
+return ((key >= 48 && key <= 57) || (key==8))
+}
+</script>
+
 </head>
 <body>
  <?php      session_start();
@@ -83,44 +108,44 @@
             <h3 class="modal-title">Propietario</h3>
            </div>
            <div class="modal-body ">
-    <form name="Diagnostico" method="POST" action="php/agregarp.php">
-    <div class="container">
+    <form name="Diagnostico" method="POST" action="php/agregarp.php" onsubmit="return validar();">
+    
     
      
           <div class="form-group row">
-         <label for="example-text-input" class="col-xs-1 col-form-label">Cedula:</label>
-             <div class="col-xs-2">
-                <input class="form-control" type="text" id="ced" name="sv03cedp" required>
+         <label for="example-text-input" class="col-xs-3 col-form-label">Cedula:</label>
+             <div class="col-xs-7">
+                <input class="form-control" type="text" id="ced" name="svcedp" required>
              </div>
            </div>
            <div class="form-group row">
-          <label for="example-text-input" class="col-xs-1 col-form-label">Nombre:</label>
-            <div class="col-xs-2">
-            <input class="form-control" required="required" type="text" id="nom" name="sv03nomp" required>
+          <label for="example-text-input" class="col-xs-3 col-form-label">Nombre:</label>
+            <div class="col-xs-7">
+            <input class="form-control" required="required" onkeypress="return Letras(Event)" type="text" id="nom" name="svnomp" required>
             </div>
             </div>
             <div class="form-group row">
-            <label for="example-text-input" class="col-xs-1 col-form-label">Apellidos:</label>
-          <div class="col-xs-2">
-            <input class="form-control" type="text" id="apl" name="sv03apdp" required>
+            <label for="example-text-input" class="col-xs-3 col-form-label">Apellidos:</label>
+          <div class="col-xs-7">
+            <input class="form-control" type="text" onkeypress="return Letras(Event)" id="apl" name="svapdp" required>
           </div>
           </div>
         <div class="form-group row">
-         <label for="example-text-input" class="col-xs-1 col-form-label">Email:</label>
-          <div class="col-xs-2">
-            <input class="form-control" type="text" id="eml" name="sv03emp" required>
+         <label for="example-text-input" class="col-xs-3 col-form-label">Email:</label>
+          <div class="col-xs-7">
+            <input class="form-control" type="text" id="eml" name="svemp" required>
           </div>
           </div>
           <div class="form-group row">
-              <label for="example-text-input" class="col-xs-1 col-form-label">Telefono:</label>
-             <div class="col-xs-2">
-                <input class="form-control" type="text" id="tel" name="sv03telp" required>
+              <label for="example-text-input" class="col-xs-3 col-form-label">Telefono:</label>
+             <div class="col-xs-7">
+                <input class="form-control" type="text" onkeypress="return Numeros(Event)" id="tel" name="svtelp" required>
              </div>
              </div>
              <div class="form-group row">
-            <label for="example-text-input" class="col-xs-1 col-form-label">Tipo:</label>
-             <div class="col-xs-2">
-              <select name="sv06codp" class="form-control" id="impu" name="sv06codp" required>
+            <label for="example-text-input" class="col-xs-3 col-form-label">Tipo:</label>
+             <div class="col-xs-7">
+              <select name="svcodp" class="form-control" id="tip" name="svcodp" required>
                  <option value="1">Fisico</option>
                  <option value="2">Juridico</option>
               </select>
@@ -130,7 +155,7 @@
       
     </div>
     <div class="form-group row">
-     <div class="col-xs-5">
+     <div class="col-xs-9">
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
        <button type="submit" class="btn btn-success">Agregar</button>
@@ -138,7 +163,7 @@
        <a href="" class="btn btn-danger" data-dismiss="modal">Cancelar</a>
       </div>
       </div>
-    </div>
+    
     </form>
 
     </div>
@@ -156,39 +181,39 @@
                         <h3 class="modal-title">Modificar Propietario</h3>
                      </div>
                      <div class="modal-body ">
-        <form name="Propietario" method="POST" action="php/actualizarp.php">
-        <div class="container">
+        <form name="Propietario" method="POST" action="php/actualizarp.php" onsubmit="return validar();">
+   
         
          
           <div class="form-group row">
-         <label for="example-text-input" class="col-xs-1 col-form-label">Cedula:</label>
-             <div class="col-xs-2">
+         <label for="example-text-input" class="col-xs-3 col-form-label">Cedula:</label>
+             <div class="col-xs-7">
                 <input class="form-control" type="text" id="ced" readonly="" name="sv03cedp" value="">
              </div>
            </div>
            <div class="form-group row">
-          <label for="example-text-input" class="col-xs-1 col-form-label">Nombre:</label>
-            <div class="col-xs-2">
-            <input class="form-control" required="required" type="text" id="nom" name="sv03nomp" value="">
+          <label for="example-text-input" class="col-xs-3 col-form-label">Nombre:</label>
+            <div class="col-xs-7">
+            <input class="form-control" required="required" onkeypress="return Letras(Event)" type="text" id="nom" name="sv03nomp" value="">
             </div>
             </div>
             <div class="form-group row">
-            <label for="example-text-input" class="col-xs-1 col-form-label">Apellidos:</label>
-          <div class="col-xs-2">
-            <input class="form-control" type="text" id="apl" name="sv03apdp" value="">
+            <label for="example-text-input" class="col-xs-3 col-form-label">Apellidos:</label>
+          <div class="col-xs-7">
+            <input class="form-control" type="text" id="apl" onkeypress="return Letras(Event)" name="sv03apdp" value="">
           </div>
           </div>
 
            <div class="form-group row">
-        <label for="example-text-input" class="col-xs-1 col-form-label">Email:</label>
-          <div class="col-xs-2">
+        <label for="example-text-input" class="col-xs-3 col-form-label">Email:</label>
+          <div class="col-xs-7">
             <input class="form-control" type="text" id="eml" name="sv03emp" value="">
           </div>
           </div>
           <div class="form-group row">
-              <label for="example-text-input" class="col-xs-1 col-form-label">Telefono:</label>
-             <div class="col-xs-2">
-                <input class="form-control" type="text" id="tel" name="sv03telp" value="">
+              <label for="example-text-input" class="col-xs-3 col-form-label">Telefono:</label>
+             <div class="col-xs-7">
+                <input class="form-control" type="text" id="tel" onkeypress="return Numeros(Event)" name="sv03telp" value="">
              </div>
              </div>
              <div class="form-group row">
@@ -198,7 +223,7 @@
           
         </div>
         <div class="form-group row">
-         <div class="col-xs-5">
+         <div class="col-xs-9">
          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           <button type="submit" class="btn btn-success">Modificar</button>
@@ -206,7 +231,7 @@
             <a href="" class="btn btn-danger" data-dismiss="modal">Cancelar</a>
           </div>      
           </div>
-        </div>
+        
         </div>
         </form>
 
@@ -253,9 +278,9 @@
               </div><!-- /.modal-dialog -->
             </div><!-- /.modal -->
 
-<script type="text/javascript" src="public\js\bootstrap.min.js"></script>
+<script type="text/javascript" src="public\bootstrap\js\bootstrap.js"></script>
 <script type="text/javascript" src="assets/datatables.min.js"></script>
-<script type="text/javascript" src="assets/crud.js"></script>
+<script type="text/javascript" src="public\JS\valpro.js"></script>
 
 <script type="text/javascript" charset="utf-8">
 $(document).ready(function() {

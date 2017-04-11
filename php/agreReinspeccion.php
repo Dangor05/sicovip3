@@ -19,6 +19,17 @@ if (!empty($_FILES) && !empty($_POST)) {
 		$sv04aact=$_FILES['aact'];
 		$aact=$_FILES['aact']['name'];
 
+				$stmt="SELECT sv04apln, sv04aact, sv04acta FROM sv04reqtos WHERE sv04nfin='$sv04nfin'";
+		$exec=$con->query($stmt);
+		if($exec->num_rows>0) {
+			while ($r=$exec->fetch_array()) {
+				$cart=$r['sv04acta'];
+				$dib=$r['sv04aact'];
+				$pln=$r['sv04apln'];
+				break;				
+			}
+		}
+
 		if ($opcion==1) {
 			$stm=$con->prepare("UPDATE sv04reqtos SET sv04apln=?, sv04aact=?, sv04acta=? WHERE sv04nfin=?");
 			$stm->bind_param("ssss", $apl, $aact, $acta,$sv04nfin);
@@ -36,7 +47,7 @@ if (!empty($_FILES) && !empty($_POST)) {
 		}
 		elseif ($opcion==2) {
 			echo $apl;
-					$sql ="UPDATE sv04reqtos SET sv04apln='$apl' WHERE sv04nfin='$sv04nfin'";
+					$sql ="UPDATE sv04reqtos SET sv04apln='$apl', sv04aact='$dib', sv04acta='$cart' WHERE sv04nfin='$sv04nfin'";
 					$query=$con->query($sql);
 					if($query!=null){
 						move_uploaded_file($sv04apl['tmp_name'],$path.$apl);
@@ -50,7 +61,7 @@ if (!empty($_FILES) && !empty($_POST)) {
 			}
 					}
 		elseif ($opcion==4) {
-					$sql1 = "UPDATE sv04reqtos SET sv04aact='$aact' WHERE sv04nfin='$sv04nfin'";
+					$sql1 = "UPDATE sv04reqtos SET sv04apln='$pln', sv04aact='$aact', sv04acta='$cart' WHERE sv04nfin='$sv04nfin'";
 			$query1=$con->query($sql1);
 				if($query1!=null){
 		move_uploaded_file($sv04aact['tmp_name'],$path.$aact);
@@ -65,7 +76,7 @@ if (!empty($_FILES) && !empty($_POST)) {
 			}
 		}
 		elseif ($opcion==3) {
-			$sql1 = "UPDATE sv04reqtos SET sv04acta='$acta' WHERE sv04nfin='$sv04nfin'";
+			$sql1 = "UPDATE sv04reqtos SET sv04apln='$pln', sv04aact='$dib', sv04acta='$acta' WHERE sv04nfin='$sv04nfin'";
 			$query1=$con->query($sql1);
 			if($query1!=null){
 				move_uploaded_file($sv04acta['tmp_name'],$path.$acta);

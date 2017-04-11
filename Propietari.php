@@ -78,12 +78,11 @@ return ((key >= 48 && key <= 57) || (key==8))
 <div class="container">
 <div  class="row">
 <div  class="col-md-4">
-
-<form class="form-inline" method="GET" class="navbar-form navbar-left" role="search" action="Propietario.php">
+<form class="form-inline" method="GET" class="navbar-form navbar-left" role="search" action="Propietari.php">
     
 
    <div class="Form-group" class="col-sm-10">
-         <h4>Buscar</h4><input type="text"  name="ced" class="form-control" placeholder="5-000-000">   <div class="Form-group" >
+         <h4>Buscar</h4><input type="text"  name="cedp" class="form-control" placeholder="Buscar">   <div class="Form-group" >
      <div id="next_button" align="left">
      <button  type="submit" class="btn btn-default" >&nbsp;<i class="glyphicon glyphicon-search"></i>&nbsp;Buscar</button> 
      </div>
@@ -91,14 +90,15 @@ return ((key >= 48 && key <= 57) || (key==8))
    </div>
    
       </form>
-        <?php include("php/buscapro.php"); ?>
+<?php include("php/buscapro.php"); ?>
+       
 <form Class="form" action="php/addPropie.php" method="POST" onsubmit="return validar();" > 
      <center><h3>Registro Propietario</h3></center>
-   <div class="form-group">
+  <div class="form-group">
    <label for="ced">Cedula</label>&nbsp
    <input type='text' class="form-control" id="ced" name='cedp' value="<?php echo $ced; ?>" maxlength="15" onkeypress="return Numeros(event)" required></div>
 <div  class="form-group">
-    <label for="nom">Nombre</label>&nbsp
+	  <label for="nom">Nombre</label>&nbsp
     <input type='text' class="form-control" id="nom" name='nomp' value="<?php echo $nom; ?>" maxlength="25" required onkeypress="return Letras(event)" required></div>
 <div class="form-group">
     <label for="apl">Apellidos</label>&nbsp

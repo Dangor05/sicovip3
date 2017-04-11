@@ -44,13 +44,13 @@ $eml=$_SESSION['em'];
 	  <input type="text" class="form-control" name="fin" placeholder="Nº Finca" required onkeypress="return Numeros(event)"></div>
 	  <div class="form-group">
 	  <label for="sv03ptario">Plano Agrimensura:</label>&nbsp
-	  <input type="file"  name="pln" placeholder="Plano" ></div>
+	  <input type="file"  name="pln" placeholder="Plano" required="" ></div>
 	  <div class="form-group">
 	  <label for="sv03ptario">Carta de Agua:</label>&nbsp
-	  <input type="file" name="car" placeholder="Cartas de Agua" ></div>
+	  <input type="file" name="car" placeholder="Cartas de Agua" required="" ></div>
 	  <div class="form-group">
 	  <label for="sv03ptario">AUTOCAD:</label>&nbsp
-	  <input type="file" name="dib" placeholder="Autocat" ></div>
+	  <input type="file" name="dib" placeholder="AUTOCAD" required="" ></div>
 	  <div class="form-group">
 	  <input type="hidden" class="form-control" value="<?php echo $eml;?>" name="mail"></div>
 	  <a href="Propietario.php" class="btn btn-danger"><span class="glyphicon glyphicon-remove-circle"></span> &nbsp;Volver</a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp

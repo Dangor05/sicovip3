@@ -13,7 +13,7 @@ if(!empty($_POST))
 			$vps=$_POST['vpass'];
 			include('conexion.php');
 
-			$sch="SELECT sv01cedc FROM sv01clnte WHERE sv01cedc='$cedt'";
+			$sch="SELECT sv01cedc, sv01cdtpc FROM sv01clnte WHERE sv01cedc='$cedt' AND sv01cdtpc='$cod'";
 			$stm=$con->query($sch);
 			if ($stm->num_rows>0) {
 				print "<script>alert(\"El usuario ya esta registrado.\");window.location='../registro.php';</script>";

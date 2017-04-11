@@ -20,14 +20,15 @@ $query = $con->query($sql1);
 
 <?php if($query->num_rows>0):?>
 	<div class="container-fluid">
-<div class="well well-sm text-lefh">
-<table cellspacing="0" width="100%" id="example" class="table table-striped table-hover table-responsive">
+	<div class="table-responsive ">
+<div style="width: 93%" class="well well-sm text-lefh">
+<table align="CENTER" cellspacing="0" style="width: 90%" id="example" class="table table-striped table-hover">
 
 <thead>
 	<th>Cedula</th> 
 	<th>Nombre Apellidos</th>
 	<th>Consecutivo</th>
-	<th>Solitud</th>
+	<th>Solicitud</th>
 	<th>Revision</th>
 	<th>Estado</th>
 	<th>CIT</th>
@@ -37,17 +38,18 @@ $query = $con->query($sql1);
 </thead>
 <?php while ($r=$query->fetch_array()):?>
 <tr>
-	<td><?php echo $r["sv03cedp"]; ?></td>
-	<td><?php echo $r["sv03nomp"];?> <?php echo $r["sv03apdp"]; ?></td>
-	<td><?php echo $r["sv08conse"]; ?></td>
-    <td><?php echo $r["sv08fchs"]=date("d-m-Y"); ?></td>	
-	<td><?php echo $r["sv09fvdp"]; ?></td>
-	<td><?php if($r["sv02code"]==5){echo 'Aprobado';}elseif($r["sv02code"]==6){echo 'Rechazado';}else{echo 'En proceso';} ?></td>
+	<td style="width: 15%"><?php echo $r["sv03cedp"]; ?></td>
+	<td style="width: 30%"><?php echo $r["sv03nomp"];?> <?php echo $r["sv03apdp"]; ?></td>
+	<td style="width: 5%"><?php echo $r["sv08conse"]; ?></td>
+    <td style="width: 5%"><?php echo $r["sv08fchs"]; ?></td>	
+	<td style="width: 5%"><?php echo $r["sv09fvdp"]; ?></td>
+	<td style="width: 5%"><?php if($r["sv02code"]==5){echo 'Aprobado';}elseif($r["sv02code"]==6){echo 'Rechazado';}else{echo 'En proceso';} ?></td>
 	<td><?php echo $r["sv07cdtp"]; ?></td>
 
 </tr>
 <?php endwhile; mysqli_close($con);?>
 </table>
+</div>
 </div>
 </div>
 

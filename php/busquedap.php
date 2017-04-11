@@ -1,18 +1,22 @@
 <?php
 
 include "conexion.php";
-
-$user_id=null;
+if (isset($_GET['s'])) {
+	$user=$_GET['s'];
 $sql1= "select * from sv03ptario
-        where sv03cedp like '%$_GET[s]%' ";
+        where sv03cedp= '$user' ";
 $query = $con->query($sql1);
+}else{
+	$query=null;
+}
+
 ?>
 
 <?php if($query->num_rows>0):?>
-<div class="container-fluid">
+<div class="container">
 		<div class="well well-sm text-lefh">
  <div class="content-loader">
-<table cellspacing="0" width="60%" id="example" class="table table-striped table-hover table-responsive">
+<table cellspacing="0" width="100%" id="example" class="table table-responsive">
 <thead>
 	 <th>Cedula</th>
 	<th>Nombre</th>
@@ -21,30 +25,21 @@ $query = $con->query($sql1);
 	<th>Telefono</th>
 	<th>Tipo propietario</th>
 	<th></th>
+	
+
 </thead>
 <?php while ($r=$query->fetch_array()):?>
+	<?php $_SESSION['pr']=$r["sv03cedp"]; ?>
 <tr>
 	<td><?php echo $r["sv03cedp"]; ?></td>
 	<td><?php echo $r["sv03nomp"]; ?></td>
 	<td><?php echo $r["sv03apdp"]; ?></td>
 	<td><?php echo $r["sv03emp"]; ?></td>
 	<td><?php echo $r["sv03telp"]; ?></td>
-	<td><?php echo $r["sv06codp"]; ?></td>
+	<td><?php if($r["sv06codp"]==1){echo "Fisico";}else{echo "Juridico";} ; ?></td>
 	<td style="width:150px;">
-		<a href="./editar.php?sv03cedp=<?php echo $r["sv03cedp"];?>" class="btn btn-sm btn-warning">Editar</a>
-		<a href="#" id="del-<?php echo $r["sv03cedp"];?>" class="btn btn-sm btn-danger">Eliminar</a>
-		<script>
-		$("#del-"+<?php echo $r["sv03cedp"];?>).click(function(e){
-			e.preventDefault();
-			p = confirm("Estas seguro?");
-			if(p){
-				window.location="./php/eliminarp.php?sv03cedp="+<?php echo $r["sv03cedp"];?>;
-
-			}
-
-		});
-		</script>
-	</td>
+		<a href="./tramit.php" class="btn btn-sm btn-primary">Tramitar</a>
+		</td>
 </tr>
 <?php endwhile;?>
 </table>

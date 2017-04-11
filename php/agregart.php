@@ -4,14 +4,14 @@ if(!empty($_POST)){
 
 include "conexion.php";
      
-     $sv07cdtp=$_POST['sv07cdtp'];
-     $sv07cedt=$_POST['sv07cedt'];
-     $sv07nomt=$_POST['sv07nomt'];
-     $sv07apdt=$_POST['sv07apdt'];
-     $sv07estd=$_POST['sv07estd'];
+     $sv07cdtp=$_POST['svcdtp'];
+     $sv07cedt=$_POST['svcedt'];
+     $sv07nomt=$_POST['svnomt'];
+     $sv07apdt=$_POST['svapdt'];
+     $sv07estd=$_POST['svestd'];
      $pass=$_POST['sv07pass'];
-     $sv07emt=$_POST['sv07emt'];
-     $sv05codu=$_POST['sv05codu'];
+     $sv07emt=$_POST['svemt'];
+     $sv05codu=$_POST['svcodu'];
 
      $sv07pass=sha1($pass);
        $sql =  "INSERT INTO sv07tpgfo (sv07cdtp,sv07cedt,sv07nomt,sv07apdt,sv07estd,sv07pass,sv07emt,sv05codu) values 

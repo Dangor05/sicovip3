@@ -57,7 +57,7 @@ if(isset ($_SESSION['sv07cdtp'])) {
 
   <div class="form-group"> 
  <label for="sv03ptario">Plano:</label>&nbsp
-  <input type="file" class="form-control-file" name="pla" placeholder="Plano"></div>
+  <input type="file" class="form-control-file" name="pla" placeholder="Plano" required=""></div>
 
   <div class="form-group"> 
  <label for="sv03ptario">Cartas de Agua:</label>&nbsp

@@ -15,6 +15,33 @@ if(isset ($_SESSION['sv07cdtp'])) {
 
 <script type="text/javascript" src="public/JS/validaciones.js"></script>      
 </head>
+<script type="text/javascript">
+    function Letras(e) {
+    key = e.keyCode || e.which;
+    tecla = String.fromCharCode(key).toString();
+    letras = " áéíóúabcdefghijklmnñopqrstuvwxyzÁÉÍÓÚABCDEFGHIJKLMNÑOPQRSTUVWXYZ";
+    especiales = [8, 37, 39, 46, 6];
+    tecla_especial = false
+    for(var i in especiales) {
+        if(key == especiales[i]) {
+            tecla_especial = true;
+            break;
+        }
+    }
+
+    if(letras.indexOf(tecla) == -1 && !tecla_especial){
+        return false;
+      }
+}
+</script>
+<script type="text/javascript">
+function Numeros(e)
+{
+var key = window.Event ? e.which : e.keyCode
+return ((key >= 48 && key <= 57) || (key==8))
+}
+</script>
+
 <body>
     <?php include "php/navbar.php"; 
     include ("php/getTopo.php");
@@ -24,8 +51,9 @@ if(isset ($_SESSION['sv07cdtp'])) {
      <br><br>
       <br/>
 	<div class="well well-sm text-right">
+  <div class="table-responsive">
         <div class="content-loader">
-        <table cellspacing="0" width="100%" id="example" class="table table-striped table-hover table-responsive">
+        <table cellspacing="0" width="100%" id="example" class="table table-striped table-hover ">
         <thead>
         <tr>
         <th>Codigo IT</th>
@@ -66,7 +94,7 @@ if(isset ($_SESSION['sv07cdtp'])) {
         ?>
         </tbody>
         </table>
-        
+        </div>
         </div>
 </div>
 <?php else:?>
@@ -87,64 +115,63 @@ if(isset ($_SESSION['sv07cdtp'])) {
            </div>
            <div class="modal-body ">
     <form name="Diagnostico" method="POST" action="php/agregart.php">
-    <div class="container">
-    
+      
      
           <div class="form-group row">
-         <label for="example-text-input" class="col-xs-1 col-form-label">CIT:</label>
-             <div class="col-xs-2">
-                <input class="form-control" type="text" id="sv07cdtp" name="sv07cdtp" required>
+         <label for="example-text-input" class="col-xs-2 col-form-label">CIT:</label>
+             <div class="col-xs-7">
+                <input class="form-control" type="text" id="sv07cdtp" name="svcdtp" required>
              </div>
            </div>
            <div class="form-group row">
-          <label for="example-text-input" class="col-xs-1 col-form-label">Cedula:</label>
-            <div class="col-xs-2">
-            <input class="form-control" required="required" type="text" id="sv07cedt" name="sv07cedt">
+          <label for="example-text-input" class="col-xs-2 col-form-label">Cedula:</label>
+            <div class="col-xs-7">
+            <input class="form-control" required="required" type="text" id="sv07cedt" name="svcedt">
             </div>
             </div>
             <div class="form-group row">
-            <label for="example-text-input" class="col-xs-1 col-form-label">Nombre:</label>
-          <div class="col-xs-2">
-            <input class="form-control" type="text" id="sv07nomt" name="sv07nomt" required>
+            <label for="example-text-input" class="col-xs-2 col-form-label">Nombre:</label>
+          <div class="col-xs-7">
+            <input class="form-control" type="text" id="sv07nomt" onkeypress="return Letras(event)" name="svnomt" required>
           </div>
           </div>
         <div class="form-group row">
-        <label for="example-text-input" class="col-xs-1 col-form-label">Apellidos:</label>
-        <div class="col-xs-2">
-        <input class="form-control" type="text" id="sv07apdt" name="sv07apdt" required>
+        <label for="example-text-input" class="col-xs-2 col-form-label">Apellidos:</label>
+        <div class="col-xs-7">
+        <input class="form-control" type="text" id="sv07apdt" onkeypress="return Letras(event)" name="svapdt" required>
           </div>
           </div>
        <div class="form-group row">
-       <label for="example-text-input" class="col-xs-1 col-form-label">Estado:</label>
-       <div class="col-xs-2">
-       <select name="sv07estd" class="form-control" id="impu" name="sv07estd" required>
+       <label for="example-text-input" class="col-xs-2 col-form-label">Estado:</label>
+       <div class="col-xs-7">
+       <select name="svestd" class="form-control" id="impu" name="svestd" required>
                  <option value="1">Activo</option>
                  <option value="2">Inactivo</option>
              </select>
              </div>
              </div>
              <div class="form-group row">
-            <label for="example-text-input" class="col-xs-1 col-form-label">Correo Electronico:</label>
-             <div class="col-xs-2">
-              <input class="form-control" type="email" id="sv07emt" name="sv07emt" required>
+            <label for="example-text-input" class="col-xs-2 col-form-label">Correo Electronico:</label>
+             <div class="col-xs-7">
+              <input class="form-control" type="email" id="svemt" name="svemt" required>
               </div>
         </div> 
              <div class="form-group row">
-            <label for="example-text-input" class="col-xs-1 col-form-label">Password:</label>
-             <div class="col-xs-2">
-              <input class="form-control" type="password" id="sv07pass" name="sv07pass" required>
+            <label for="example-text-input" class="col-xs-2 col-form-label">Password:</label>
+             <div class="col-xs-7">
+              <input class="form-control" type="password" id="sv07pass" name="svpass" required>
               </div>
         </div> 
          <div class="form-group row">
-            <label for="example-text-input" class="col-xs-1 col-form-label">Repetir password:</label>
-             <div class="col-xs-2">
+            <label for="example-text-input" class="col-xs-2 col-form-label">Repetir password:</label>
+             <div class="col-xs-7">
               <input class="form-control" type="password" id="pass2" name="pass2" required>
               </div>
         </div> 
           <div class="form-group row">
-              <label for="example-text-input" class="col-xs-1 col-form-label">Tipo:</label>
-             <div class="col-xs-2">
-              <select name="sv05codu" class="form-control" id="impu" name="sv05codu" required>
+              <label for="example-text-input" class="col-xs-2 col-form-label">Tipo:</label>
+             <div class="col-xs-7">
+              <select name="svcodu" class="form-control" id="impu" name="svcodu" required>
                  <option value="1">Administrador</option>
                  <option value="2">Usuario</option>
                  </select>
@@ -154,7 +181,7 @@ if(isset ($_SESSION['sv07cdtp'])) {
       
     </div>
     <div class="form-group row">
-     <div class="col-xs-5">
+     <div class="col-xs-9">
      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
        <button type="submit" class="btn btn-success">Agregar</button>
@@ -162,7 +189,7 @@ if(isset ($_SESSION['sv07cdtp'])) {
        <a href="" class="btn btn-danger" data-dismiss="modal">Cancelar</a>
       </div>
       </div>
-    </div>
+   
     </form>
 
     </div>
@@ -183,36 +210,35 @@ if(isset ($_SESSION['sv07cdtp'])) {
                      </div>
                      <div class="modal-body ">
         <form name="Propietario" method="POST" action="php/actualizart.php">
-        <div class="container">
-        
+             
          
           <div class="form-group row">
-         <label for="example-text-input" class="col-xs-1 col-form-label">CIT:</label>
-             <div class="col-xs-2">
-                <input class="form-control" type="text" id="sv07cdtp" name="sv07cdtp" value="" required>
+         <label for="example-text-input" class="col-xs-2 col-form-label">CIT:</label>
+             <div class="col-xs-7">
+                <input class="form-control" type="text" id="sv07cdtp" readonly="" name="sv07cdtp" value="" required>
              </div>
            </div>
            <div class="form-group row">
-          <label for="example-text-input" class="col-xs-1 col-form-label">Cedula:</label>
-            <div class="col-xs-2">
-            <input class="form-control" required="required" type="text" id="sv07cedt" name="sv07cedt" value="">
+          <label for="example-text-input" class="col-xs-2 col-form-label">Cedula:</label>
+            <div class="col-xs-7">
+            <input class="form-control" required="required" readonly="" type="text" id="sv07cedt" name="sv07cedt" value="">
             </div>
             </div>
             <div class="form-group row">
-            <label for="example-text-input" class="col-xs-1 col-form-label">Nombre:</label>
-          <div class="col-xs-2">
-            <input class="form-control" type="text" id="sv07nomt" name="sv07nomt" required>
+            <label for="example-text-input" class="col-xs-2 col-form-label">Nombre:</label>
+          <div class="col-xs-7">
+            <input class="form-control" type="text" id="sv07nomt" onkeypress="return Letras(event)" name="sv07nomt" required>
           </div>
           </div>
         <div class="form-group row">
-        <label for="example-text-input" class="col-xs-1 col-form-label">Apellidos:</label>
-          <div class="col-xs-2">
-            <input class="form-control" type="text" id="sv07apdt" name="sv07apdt" required>
+        <label for="example-text-input" class="col-xs-2 col-form-label">Apellidos:</label>
+          <div class="col-xs-7">
+            <input class="form-control" type="text" id="sv07apdt" onkeypress="return Letras(event)" name="sv07apdt" required>
           </div>
           </div>
           <div class="form-group row">
-              <label for="example-text-input" class="col-xs-1 col-form-label">Estado:</label>
-             <div class="col-xs-2">
+              <label for="example-text-input" class="col-xs-2 col-form-label">Estado:</label>
+             <div class="col-xs-7">
               <select name="sv07estd" class="form-control" id="impu" name="sv07estd" required>
                  <option value="1">Activo</option>
                  <option value="2">Inactivo</option>
@@ -220,26 +246,26 @@ if(isset ($_SESSION['sv07cdtp'])) {
              </div>
              </div>
              <div class="form-group row">
-            <label for="example-text-input" class="col-xs-1 col-form-label">Correo Electronico:</label>
-             <div class="col-xs-2">
+            <label for="example-text-input" class="col-xs-2 col-form-label">Correo Electronico:</label>
+             <div class="col-xs-7">
               <input class="form-control" type="email" id="sv07emt" name="sv07emt" required>
               </div>
         </div>
              <div class="form-group row">
-            <label for="example-text-input" class="col-xs-1 col-form-label">Password:</label>
-             <div class="col-xs-2">
+            <label for="example-text-input" class="col-xs-2 col-form-label">Password:</label>
+             <div class="col-xs-7">
               <input class="form-control" type="password" id="sv07pass" name="sv07pass" required>
               </div>
         </div> 
          <div class="form-group row">
-            <label for="example-text-input" class="col-xs-1 col-form-label">Repetir password:</label>
-             <div class="col-xs-2">
+            <label for="example-text-input" class="col-xs-2 col-form-label">Repetir password:</label>
+             <div class="col-xs-7">
               <input class="form-control" type="password" id="pass2" name="pass2" required>
               </div>
         </div> 
           <div class="form-group row">
-              <label for="example-text-input" class="col-xs-1 col-form-label">Tipo:</label>
-             <div class="col-xs-2">
+              <label for="example-text-input" class="col-xs-2 col-form-label">Tipo:</label>
+             <div class="col-xs-7">
               <select name="sv05codu" class="form-control" id="impu" name="sv05codu" required>
                  <option value="1">Administrador</option>
                  <option value="2">Usuario</option>
@@ -250,7 +276,7 @@ if(isset ($_SESSION['sv07cdtp'])) {
           
         </div>
         <div class="form-group row">
-         <div class="col-xs-5">
+         <div class="col-xs-9">
      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
        <button type="submit" class="btn btn-success">Modificar</button>
@@ -258,7 +284,7 @@ if(isset ($_SESSION['sv07cdtp'])) {
        <a href="" class="btn btn-danger" data-dismiss="modal">Cancelar</a>
       </div>
         </div>
-        </div>
+        
         </form>
 
         </div>

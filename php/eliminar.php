@@ -22,7 +22,7 @@ else{
 
 			
 			$sql = "DELETE FROM sv09vsdo WHERE sv09npln=".$_POST["sv09npln"];
-			$consu = "UPDATE sv08trmte SET sv02code ='6' WHERE  sv08conse=".$_POST["sv08conse"];
+			$consu = "UPDATE sv08trmte SET sv02code ='8' WHERE  sv08conse=".$_POST["sv08conse"];
 			$senten=$con->query($consu);
 			$query = $con->query($sql);
 			if($query!=null && $senten !=null){

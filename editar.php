@@ -35,5 +35,13 @@
 </div>
 
 <script src="bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="public\JS\valvis.js"></script>
+  <script type="text/javascript">
+function Numeros(e)
+{
+var key = window.Event ? e.which : e.keyCode
+return ((key >= 48 && key <= 57) || (key==8))
+}
+</script>
 	</body>
 </html>

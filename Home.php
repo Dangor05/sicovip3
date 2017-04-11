@@ -31,10 +31,10 @@ if(isset ($_SESSION['sv07cdtp'])) {
 </form>
 <br>
 
-    <div class="well well-sm text-lefh">
+    <div style="width: 90%" class="well well-sm text-lefh">
         
-        <div class="content-loader">
-        <table cellspacing="0" width="100%" id="example" class="table table-striped table-hover table-responsive">
+        <div class="table-responsive">
+        <table align="CENTER" cellspacing="0" style="width: 100%" id="example" class="table table-striped table-hover">
         <thead>
         <tr>
           <th>Propietario</th>
@@ -55,21 +55,20 @@ if(isset ($_SESSION['sv07cdtp'])) {
 
 			<tr>
       <td><?php echo $elementos["sv03cedp"]; ?></td>
-      <td><?php echo $elementos["sv08conse"]; ?></td>
-      <td><?php echo $elementos["sv04nfin"]; ?></td>
-      <td><?php echo $elementos["sv08fchs"]; ?></td>
+      <td style="width: 10%"><?php echo $elementos["sv08conse"]; ?></td>
+      <td style="width: 10%"><?php echo $elementos["sv04nfin"]; ?></td>
+      <td style="width: 5%"><?php echo $elementos["sv08fchs"]; ?></td>
       
       
-      <td><a href="php/plan.php?id=<?php echo $elementos['sv03cedp']?>&plan=<?php echo $elementos['sv04apln']?>"><?php echo $elementos["sv04apln"];?></a></td>
-      <td><a href="php/aut.php?id=<?php echo $elementos['sv03cedp']?>&aut=<?php echo $elementos['sv04aact']?>"><?php echo $elementos["sv04aact"]?></a></td>
-      <td><a href="php/cta.php?id=<?php echo $elementos['sv03cedp']?>&cta=<?php echo $elementos['sv04acta']?>"><?php echo $elementos["sv04acta"]?></a></td>
-      <td><?php if($elementos["sv02code"] == 7){echo 'En Proceso';}?></td>
+      <td style="width: 15%"><a href="php/plan.php?id=<?php echo $elementos['sv03cedp']?>&plan=<?php echo $elementos['sv04apln']?>"><?php echo $elementos["sv04apln"];?></a></td>
+      <td style="width: 15%"><a href="php/aut.php?id=<?php echo $elementos['sv03cedp']?>&aut=<?php echo $elementos['sv04aact']?>"><?php echo $elementos["sv04aact"]?></a></td>
+      <td style="width: 15%"><a href="php/cta.php?id=<?php echo $elementos['sv03cedp']?>&cta=<?php echo $elementos['sv04acta']?>"><?php echo $elementos["sv04acta"]?></a></td>
+      <td style="width: 10%"><?php if($elementos["sv02code"] == 7){echo 'En Proceso';}?></td>
       <!--variable de sesion-->
       
-      <td align="center">
+      <td align="center" style="width: 5%">
       <a href="Visado.php?conse=<?php echo $elementos["sv08conse"];?>" class="btn btn-info"><span class="glyphicon glyphicon-edit"></span> &nbsp;Procesar</a>
-                    <td align="center"> 
-            <button class="btn btn-sm btn-warning" id="btnModi" type="button" onclick="seleccionarTabla()" data-toggle="modal" data-target="#modal-4"> <span class="glyphicon glyphicon-trash-align-center"></span>Editar</button></td>
+      <td align="center"><button class="btn btn-sm btn-warning" id="btnModi" type="button" onclick="seleccionarTabla()" data-toggle="modal" data-target="#modal-4"> <span class="glyphicon glyphicon-trash-align-center"></span>Editar</button></td>
 			</tr>
 			<?php
 		endwhile;
@@ -206,15 +205,15 @@ if(isset ($_SESSION['sv07cdtp'])) {
                      </div>
                      <div class="modal-body ">
         <form name="Propietario" method="POST" action="php/actuaTramite.php" enctype="multipart/form-data">
-        <div class="container">
+       
         <p class="col-form-label">Seleccion el archivo que quiere actualizar:</p>
           <div class="form-group row">
-           <div class="col-xs-2">
+           <div class="col-xs-3">
               <select name="opcion" class="form-control" id="opci" name="opcion" required>
               <option value="1">Todos</option>
               <option value="2">Plano</option>
-              <option value="3">Cartas de Agua</option>
-              <option value="4">AutoCad</option>
+              <option value="4">Cartas de Agua</option>
+              <option value="3">AutoCad</option>
               </select>
              </div>
              </div>
@@ -224,32 +223,32 @@ if(isset ($_SESSION['sv07cdtp'])) {
           <input type="hidden" class="form-control" id="cedp" value="" name="cedp">
   </div>
   <div class="form-group row">
-         <label for="example-text-input" class="col-xs-1 col-form-label">Consecutivo:</label>
-             <div class="col-xs-2">
-                <input class="form-control" type="text" id="conse" name="conse" value="">
+         <label for="example-text-input" class="col-xs-3 col-form-label">Consecutivo:</label>
+             <div class="col-xs-7">
+                <input class="form-control" type="text" id="conse" readonly="" name="conse" value="">
              </div>
              </div>
            <div class="form-group row">
-          <label for="example-text-input" class="col-xs-1 col-form-label">N° Finca:</label>
-            <div class="col-xs-2">
-            <input class="form-control" required="required" type="text" id="nfin" name="nfin" value="">
+          <label for="example-text-input" class="col-xs-3 col-form-label">N° Finca:</label>
+            <div class="col-xs-7">
+            <input class="form-control" required="required" readonly="" type="text" id="nfin" name="nfin" value="">
             </div>
             </div>
             <div class="form-group row">
-            <label for="example-text-input" class="col-xs-1 col-form-label">Plano Agrimensura:</label>
-          <div class="col-xs-2">
+            <label for="example-text-input" class="col-xs-3 col-form-label">Plano Agrimensura:</label>
+          <div class="col-xs-7">
             <input type="file" id="pln" name="pln" value="">
           </div>
           </div>
            <div class="form-group row">
-        <label for="example-text-input" class="col-xs-1 col-form-label">Carta de Agua:</label>
-          <div class="col-xs-2">
+        <label for="example-text-input" class="col-xs-3 col-form-label">Carta de Agua:</label>
+          <div class="col-xs-3">
             <input  type="file" id="aact" name="aact" value="">
           </div>
           </div>
           <div class="form-group row">
-              <label for="example-text-input" class="col-xs-1 col-form-label">AutoCaD:</label>
-             <div class="col-xs-2">
+              <label for="example-text-input" class="col-xs-3 col-form-label">AUTOCAD:</label>
+             <div class="col-xs-7">
                 <input  type="file" id="acta" name="acta" value="">
              </div>
            </div>  
@@ -257,7 +256,7 @@ if(isset ($_SESSION['sv07cdtp'])) {
        <div class="form-group row"><br></div>
 
         <div class="form-group row">
-         <div class="col-xs-5">
+         <div class="col-xs-9">
          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
            <button type="submit" class="btn btn-success ">Modificar</button>
@@ -267,7 +266,7 @@ if(isset ($_SESSION['sv07cdtp'])) {
           </div>
 
         </div>
-        </div>
+        
         </form>
 
         </div>

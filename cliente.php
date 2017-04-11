@@ -22,7 +22,33 @@ if(isset ($_SESSION['sv07cdtp'])) {
 <script src="js/jquery-ui.js"></script>
 <script src="js/jquery.min.js"></script>
 <script type="text/javascript" src="public\bootstrap\bootstrap\js/bootstrap.min.js"></script>
-<script type="text/javascript" src="public/JS/validaciones.js"></script>
+<script type="text/javascript">
+    function Letras(e) {
+    key = e.keyCode || e.which;
+    tecla = String.fromCharCode(key).toString();
+    letras = " áéíóúabcdefghijklmnñopqrstuvwxyzÁÉÍÓÚABCDEFGHIJKLMNÑOPQRSTUVWXYZ";
+    especiales = [8, 37, 39, 46, 6];
+    tecla_especial = false
+    for(var i in especiales) {
+        if(key == especiales[i]) {
+            tecla_especial = true;
+            break;
+        }
+    }
+
+    if(letras.indexOf(tecla) == -1 && !tecla_especial){
+        return false;
+      }
+}
+</script>
+<script type="text/javascript">
+function Numeros(e)
+{
+var key = window.Event ? e.which : e.keyCode
+return ((key >= 48 && key <= 57) || (key==8))
+}
+</script>
+
        <script>
  $(document).ready(function(){   
         /*$( "#ced" ).autocomplete({
@@ -69,39 +95,54 @@ if(isset ($_SESSION['sv07cdtp'])) {
   <div class="container">
   <div  class="row">
 <div  class="col-md-4">
+  <div class="col-md-12 col-md-offset-4">
+    <form class="form-inline" method="GET" class="navbar-form navbar-left" role="search" action="Cliente.php">
+      <div class="Form-group" class="col-sm-10">
+       <h4>Buscar</h4><input type="text"  name="ced" class="form-control" placeholder="5-000-000">   <div class="Form-group" >
+    
+     <button  type="submit" class="btn btn-default" >&nbsp;<i class="glyphicon glyphicon-search"></i>&nbsp;Buscar</button> 
+    
+     </div>
+   </div>   
+      </form>
+      <?php include("php/buscacli.php"); ?>
      <form role="form-inline" action="php/addCliente.php" method="POST" onsubmit="return valciente()" > 
      <div = class="group">
  
   <center><h3>Registro Cliente</h3></center>  
   <div class="form-group" >
   <label for="sv01cedc">Cedula</label>&nbsp
-   <input type='text' class="form-control" id="ced" name='cedt' maxlength="10" onkeypress="return Numeros(event)" required></div>
+   <input type='text' class="form-control" id="ced" value="<?php echo $ced; ?>"  name='cedt' maxlength="10" onkeypress="return Numeros(event)" required></div>
   <div class="form-group"> 
  <label for="sv01cdtpc">Codigo IT</label>&nbsp
-   <input type='text' class="form-control" name='cit' maxlength="6" required></div>
+   <input type='text' class="form-control" id="cit" value="<?php echo $cit; ?>" name='cit' maxlength="6" required></div>
 
   <div class="form-group">
   <label for="sv01nomc">Nombre</label>&nbsp
-    <input type='text' class="form-control" name='nomt' maxlength="12" onkeypress="return Letras(event)" required></div>
+    <input type='text' class="form-control" id="nom" value="<?php echo $nom; ?>" name='nomt' maxlength="12" onkeypress="return Letras(event)" required></div>
 
   <div class="form-group">
   <label for="sv01apdc">Apellidos</label>&nbsp
-  <input type='text'class="form-control" name='apelt' maxlength="20" onkeypress="return Letras(event)" required></div>
+  <input type='text' class="form-control" id="ape" value="<?php echo $apl; ?>" name='apelt' maxlength="20" onkeypress="return Letras(event)" required></div>
 
    <div class="form-group">
    <label for="sv01emc">Email</label>&nbsp
-   <input type='email'class="form-control" name='emat' required></div>
+   <input type='email' Sclass="form-control" id="ema" value="<?php echo $eml; ?>" name='emat' required></div>
 
    <div class="form-group">
    <label for="sv01telc">Telefono</label>
-   <input type='text' class="form-control" name='telt' onkeypress="return Numeros(event)" required></div>
+   <input type='text' class="form-control" id="tel" value="<?php echo $tel; ?>" name='telt' onkeypress="return Numeros(event)" required></div>
    </div>
 <a class="btn btn-danger" href="Home.php"><span class="glyphicon glyphicon-circle-arrow-left"></span> &nbsp;Volver</a>&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp<button type="submit" class="btn btn-default text-right">Continuar</button>
     
   </form>
 
-
+  </div>
 </div>
+</div>
+</div>
+
+<script type="text/javascript" src="public/JS/validaciones.js"></script>
 </body>
 
 </html>

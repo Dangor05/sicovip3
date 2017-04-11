@@ -10,8 +10,15 @@
     </button>
     <a class="navbar-brand" href="./inicio.php"><b>SICOVIP</b></a>
 	   <ul class="nav navbar-nav">
-      <li><a href="./Propiet.php">Nuevo Tramite</a></li>
+      
     </ul>
+        <ul class="nav navbar-nav">
+    <li class="dropdown" class="active"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">Tramites<span class="caret"></span></a> 
+<ul class="dropdown-menu">
+<li><a href="./buscarpro.php">Propietarios Registrados</a></li>
+<li><a href="./Propiet.php">Nuevo Tramite</a></li>
+</ul>
+</ul>
     <ul class="nav navbar-nav">
     <li class="dropdown" class="active"><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button">Reportes<span class="caret"></span></a> 
 <ul class="dropdown-menu">

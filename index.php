@@ -54,9 +54,9 @@
             <br>
             
             <div class="form-group" align="center"><label>Usuario:</label>&nbsp
-            <input name="usuario" class="form-control" type="text" placeholder="" required></div>
+            <input name="usuario" class="form-control" maxlength="9" type="text" placeholder="" required></div>
             <div class="form-group" ALIGN=center><label>Contraseña:</label>&nbsp
-            <input name="password" type="password" class="form-control" placeholder="Contraseña" required></div>
+            <input name="password" type="password" minlength="5" class="form-control" placeholder="Contraseña" required></div>
             <div ALIGN=center><input name="login" class="btn btn-success btn-block btn-md" type="submit" value="login">
             <br>
             </div> 

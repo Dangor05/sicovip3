@@ -20,6 +20,14 @@ include ('php/obtvisado.php');
 <script src="public/js/jquery-1.11.3.min.js"></script>
 <script src="public/js/jquery-ui.js"></script>
   </head>
+  <script type="text/javascript">
+function Numeros(e)
+{
+var key = window.Event ? e.which : e.keyCode
+return ((key >= 48 && key <= 57) || (key==8))
+}
+</script>
+
   <body>
   <?php    
      if ($_SESSION['sv05codu'] == 1) {
@@ -33,34 +41,34 @@ include ('php/obtvisado.php');
     <h2>Visado</h2>
 <?php if($person!=null):?>
 
-<form role="form" method="post" action="php/addVisado.php" enctype="multipart/form-data">
+<form role="form" method="post" action="php/addVisado.php" onsubmit="return validar();" enctype="multipart/form-data">
   <div class="form-group">
   <label for="">Consecutivo</label>
-   <input type="text" class="form-control" value="<?php echo $person->sv08conse; ?>" name="conse" required>
+   <input type="text" class="form-control" readonly="" value="<?php echo $person->sv08conse; ?>" name="conse" required>
   </div>
   <div class="form-group">
   <label for="">Topografo</label>
-  <input type="text" class="form-control" value="<?php echo $person->sv01cedc; ?>" name="cedc" required>
+  <input type="text" class="form-control" readonly="" value="<?php echo $person->sv01cedc; ?>" name="cedc" required>
   </div>
   <div class="form-group">
   <label for="">Propietario</label>
-   <input type="text" class="form-control" value="<?php echo $person->sv03cedp; ?>" name="cedp" required>
+   <input type="text" class="form-control" readonly="" value="<?php echo $person->sv03cedp; ?>" name="cedp" required>
   </div>
   <div class="form-group">
-  <label for="">N° Finca</label>
-   <input type="text" class="form-control" value="<?php echo $person->sv04nfin; ?>" name="nfin" required>
+  <label for="">N°Finca</label>
+   <input type="text" class="form-control" readonly="" value="<?php echo $person->sv04nfin; ?>" name="nfin" required>
   </div>
   <div class="form-group">
-    <label for="">Nº Minuta</label>
-    <input type="text" class="form-control" name="npln">
+    <label for="npln">Nº Minuta</label>
+    <input type="text" id="npln" class="form-control" name="npln" required="">
   </div>
   <div class="form-group">
     <label for="">Nº Folio Real</label>
-    <input type="text" class="form-control" name="nfol">
+    <input type="text" id="fol" class="form-control" name="nfol">
   </div>
   <div class="form-group">
     <label for="">Localizacion Municipal</label>
-    <input type="text" class="form-control" name="npred">
+    <input type="text" id="pred" onkeypress="return Numeros(event)" class="form-control" name="npred">
   </div>
     <div class="form-group">
     <label for="">Oficio</label>
@@ -91,7 +99,7 @@ include ('php/obtvisado.php');
   </div>
   <div class="form-group">
     <label for="">Revisado por:</label>
-    <input type="text" class="form-control" value="<?php echo $GLOBALS['cit'];?>" name="cit">
+    <input type="text" class="form-control" readonly="" value="<?php echo $GLOBALS['cit'];?>" name="cit">
     <input type="hidden" class="form-control" value="<?php echo $GLOBALS['codu'];?>" name="codu">
   </div>
   <button type="submit" class="btn btn-default">Revisado</button>
@@ -105,5 +113,6 @@ include ('php/obtvisado.php');
 </div>
 
 <script src="bootstrap/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="public\JS\valvis.js"></script>
   </body>
 </html>

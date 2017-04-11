@@ -44,11 +44,12 @@ if ($sv04apln!=null) {
 
 			}
 		}else{
-					$query=$con->query($sql);
-					$senten=$con->query($consu);
+		$query=$con->query($sql);
+		$senten=$con->query($consu);
 		if($query!=null && $senten!=null){
+
 		move_uploaded_file($sv09mnt['tmp_name'],$dir.$sv09mnt['name']);
-				mysqli_close($con);
+		mysqli_close($con);
 
 	header("Location:../Home.php");
 		}else{
@@ -57,22 +58,7 @@ if ($sv04apln!=null) {
 
 			}
 
-
-		/*}*/
-	}
-	else{
-		echo "ay";
 	}
 }
-
-?>					
-					$exec=$con->query($stm);
-					if($query!=null){
-						
-						mysqli_close($con);
-						print "<script>alert(\"Exito!!.\");window.location='../Home.php';</script>";
-			}else{
-				mysqli_close($con);
-				print "<script>alert(\"A la Verga!!.\");window.location='../Home.php';</script>";
-
-			}
+}
+?>				

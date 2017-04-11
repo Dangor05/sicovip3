@@ -12,6 +12,32 @@ if(isset ($_SESSION['sv07cdtp'])) {
 <link href="assets/datatables.min.css" rel="stylesheet" type="text/css">
 <script type="text/javascript" src="assets/jquery-1.11.3-jquery.min.js"></script>
 <script type="text/javascript" src="public\JS\jquery-3.1.0.min.js"></script>
+<script type="text/javascript">
+    function Letras(e) {
+    key = e.keyCode || e.which;
+    tecla = String.fromCharCode(key).toString();
+    letras = " áéíóúabcdefghijklmnñopqrstuvwxyzÁÉÍÓÚABCDEFGHIJKLMNÑOPQRSTUVWXYZ";
+    especiales = [8, 37, 39, 46, 6];
+    tecla_especial = false
+    for(var i in especiales) {
+        if(key == especiales[i]) {
+            tecla_especial = true;
+            break;
+        }
+    }
+
+    if(letras.indexOf(tecla) == -1 && !tecla_especial){
+        return false;
+      }
+}
+</script>
+<script type="text/javascript">
+function Numeros(e)
+{
+var key = window.Event ? e.which : e.keyCode
+return ((key >= 48 && key <= 57) || (key==8))
+}
+</script>
 
 </head>
 <body>
@@ -28,12 +54,14 @@ if(isset ($_SESSION['sv07cdtp'])) {
 
        <button class="btn btn-success" id="btnAgregar" type="button"  data-toggle="modal" data-target="#modal-1"> <span class="glyphicon glyphicon-pencil"></span> &nbsp; Nuevo Topografo</button>
      <br><br>
-      <br/>
-	<div class="well well-sm text-left">
+     
+
+      <div class="table-responsive">
+	<div style="width: 950px" class="well well-sm text-left">
     
     <div class="content-loader">
         
-        <table cellspacing="0" width="100%" id="example" class="table table-striped table-hover table-responsive">
+        <table align="center" cellspacing="0" style="width:900px;" id="example" class="table table-bordered table-hover">
         <thead>
         <tr>
         <th>Cedula</th>
@@ -52,12 +80,12 @@ if(isset ($_SESSION['sv07cdtp'])) {
             <tr>
             <td><?php echo $r['sv01cedc']; ?></td>
             <td><?php echo $r['sv01nomc']; ?></td>
-            <td><?php echo $r['sv01apdc']; ?></td>
-            <td><?php echo $r['sv01cdtpc']; ?></td>
-            <td><?php echo $r['sv01emc']; ?></td>
+            <td class="col-sm-2"><?php echo $r['sv01apdc']; ?></td>
+            <td class="col-sm-1"><?php echo $r['sv01cdtpc']; ?></td>
+            <td class="col-sm-1"><?php echo $r['sv01emc']; ?></td>
             <td><?php echo $r['sv01telc'];?></td>
             <!--variable de sesion-->
-            <td align="center">
+            <td style="width:75px;" align="center">
              <button class="btn btn-info" id="btnModi" type="button" onclick="seleccionarTabla()" data-toggle="modal" data-target="#modal-2"> <span class="glyphicon glyphicon-edit"></span> &nbsp;Modificar</button></td>
             </tr>
             <?php
@@ -65,7 +93,7 @@ if(isset ($_SESSION['sv07cdtp'])) {
         ?>
         </tbody>
         </table>
-        
+        </div>
         </div>
 </div>
 <?php else:?>
@@ -93,70 +121,70 @@ if(isset ($_SESSION['sv07cdtp'])) {
             <h3 class="modal-title">Topografo</h3>
            </div>
            <div class="modal-body ">
-    <form name="Diagnostico" method="POST" action="php/agregarct.php" onsubmit="return valciente()">
-    <div class="container">
+    <form name="Diagnostico" method="POST" action="php/agregarct.php" onsubmit="return validar();">
+    
     
      
 <div class="form-group row">
-         <label for="example-text-input" class="col-xs-1 col-form-label">CIT:</label>
-             <div class="col-xs-2">
-                <input class="form-control" type="text" id="ced" name="sv01cdtpc" required>
+         <label for="example-text-input" class="col-xs-3 col-form-label">CIT:</label>
+             <div class="col-xs-7">
+                <input class="form-control" type="text" id="ced" name="svcdtpc" required>
              </div>
              </div>
            <div class="form-group row">
-          <label for="example-text-input" class="col-xs-1 col-form-label">Cedula:</label>
-            <div class="col-xs-2">
-            <input class="form-control" required="required" type="text" id="cit" name="sv01cedc" onkeypress="return Numeros(event)" required>
+          <label for="example-text-input" class="col-xs-3 col-form-label">Cedula:</label>
+            <div class="col-xs-7">
+            <input class="form-control" required="required" type="text" id="cit" name="svcedc" onkeypress="return Numeros(event)" required>
             </div>
             </div>
             <div class="form-group row">
-            <label for="example-text-input" class="col-xs-1 col-form-label">Nombre:</label>
-          <div class="col-xs-2">
-            <input class="form-control" type="text" id="nom" name="sv01nomc" required onkeypress="return Letras(event)">
+            <label for="example-text-input" class="col-xs-3 col-form-label">Nombre:</label>
+          <div class="col-xs-7">
+            <input class="form-control" type="text" id="nom" name="svnomc" required onkeypress="return Letras(event)">
           </div>
 
         </div>
             <div class="form-group row">
-        <label for="example-text-input" class="col-xs-1 col-form-label">Apellido:</label>
-          <div class="col-xs-2">
-            <input class="form-control" type="text" id="apl" name="sv01apdc" required onkeypress="return Letras(event)">
+        <label for="example-text-input" class="col-xs-3 col-form-label">Apellido:</label>
+          <div class="col-xs-7">
+            <input class="form-control" type="text" id="apl" name="svapdc" required onkeypress="return Letras(event)">
           </div>
           </div>
           <div class="form-group row">
-              <label for="example-text-input" class="col-xs-1 col-form-label">Email:</label>
-             <div class="col-xs-2">
-                <input class="form-control" type="email" id="eml" name="sv01emc" required>
+              <label for="example-text-input" class="col-xs-3 col-form-label">Email:</label>
+             <div class="col-xs-7">
+                <input class="form-control" type="email" id="ema" name="svemc" required>
              </div>
              </div>
              <div class="form-group row">
-            <label for="example-text-input" class="col-xs-1 col-form-label">Telefono:</label>
-             <div class="col-xs-2">
-                <input class="form-control" type="text" id="tel" name="sv01telc" onkeypress="return Numeros(event)" required>
+            <label for="example-text-input" class="col-xs-3 col-form-label">Telefono:</label>
+             <div class="col-xs-7">
+                <input class="form-control" type="text" id="tel" name="svtelc" onkeypress="return Numeros(event)" required>
              </div>
         </div>
               <div class="form-group row">
-            <label for="example-text-input" class="col-xs-1 col-form-label">Contraseña:</label>
-             <div class="col-xs-2">
-                <input class="form-control" type="password" id="pass" name="sv01pass" required>
+            <label for="example-text-input" class="col-xs-3 col-form-label">Contraseña:</label>
+             <div class="col-xs-7">
+                <input class="form-control" type="password" id="pass" name="svpass" required>
              </div>
         </div>
               <div class="form-group row">
-            <label for="example-text-input" class="col-xs-1 col-form-label">Repetir contraseña:</label>
-             <div class="col-xs-2">
-                <input class="form-control" type="password" id="passw" name="valpass" required>
+            <label for="example-text-input" class="col-xs-3 col-form-label">Repetir contraseña:</label>
+             <div class="col-xs-7">
+                <input class="form-control" type="password" id="vpass" name="valpass" required>
              </div>
         </div>
     <div class="form-group row"><br>
       
     </div>
     <div class="form-group row">
-     <div class="col-xs-5">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+     <div class="col-xs-9">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
        <button type="submit" class="btn btn-success">Agregar</button>
         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
        <a href="" class="btn btn-danger" data-dismiss="modal">Cancelar</a>
       </div>
       </div>
-    </div>
+    
     </form>
 
     </div>
@@ -175,50 +203,50 @@ if(isset ($_SESSION['sv07cdtp'])) {
                         <h3 class="modal-title">Modificar Topografo</h3>
                      </div>
                      <div class="modal-body ">
-        <form name="Propietario" method="POST" action="php/actualizarct.php" onsubmit="return valciente(event)">
-        <div class="container">
+        <form name="Propietario" method="POST" action="php/actualizarct.php" onsubmit="return validar();">
+        
         
          
 <div class="form-group row">
-         <label for="example-text-input" class="col-xs-1 col-form-label">Cedula:</label>
-             <div class="col-xs-2">
+         <label for="example-text-input" class="col-xs-3 col-form-label">Cedula:</label>
+             <div class="col-xs-7">
                 <input class="form-control" type="text" id="ced" readonly="" name="sv01cedc" value="">
              </div>
 </div>
 <div class="form-group row">
-          <label for="example-text-input" class="col-xs-1 col-form-label">CIT:</label>
-            <div class="col-xs-2">
+          <label for="example-text-input" class="col-xs-3 col-form-label">CIT:</label>
+            <div class="col-xs-7">
             <input class="form-control" required="required" readonly="" type="text" id="cit" name="sv01cdtpc"  value="">
             </div>
 </div>
 <div class="form-group row">
-            <label for="example-text-input" class="col-xs-1 col-form-label">Nombre:</label>
-          <div class="col-xs-2">
+            <label for="example-text-input" class="col-xs-3 col-form-label">Nombre:</label>
+          <div class="col-xs-7">
             <input class="form-control" required type="text" id="nom" name="sv01nomc" value="" onkeypress="return Letras(event)">
           </div>
 </div>
  <div class="form-group row">
-        <label for="example-text-input" class="col-xs-1 col-form-label">Apellido:</label>
-          <div class="col-xs-2">
-            <input class="form-control" type="text" id="apl" name="sv01apdc" value="" onkeypress="return Letras(event)">
+        <label for="example-text-input" class="col-xs-3 col-form-label">Apellido:</label>
+          <div class="col-xs-7">
+            <input class="form-control" type="text" id="ape" name="sv01apdc" value="" onkeypress="return Letras(event)">
           </div>
  </div>
  <div class="form-group row">
-              <label for="example-text-input" class="col-xs-1 col-form-label">Email:</label>
-             <div class="col-xs-2">
-                <input class="form-control" type="text" id="eml" name="sv01emc" value="">
+              <label for="example-text-input" class="col-xs-3 col-form-label">Email:</label>
+             <div class="col-xs-7">
+                <input class="form-control" type="text" id="ema" name="sv01emc" value="">
              </div>
 </div>
 <div class="form-group row">
-            <label for="example-text-input" class="col-xs-1 col-form-label">Telefono:</label>
-             <div class="col-xs-2">
+            <label for="example-text-input" class="col-xs-3 col-form-label">Telefono:</label>
+             <div class="col-xs-7">
                 <input class="form-control" type="text" id="tel" name="sv01telc" value="" onkeypress="return Numeros(event)">
             </div>
 </div>
                 
 <div class="form-group row"><br> </div>
         <div class="form-group row">
-         <div class="col-xs-5">
+         <div class="col-xs-9">
          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
          &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
           <button type="submit" class="btn btn-success">Modificar</button>
@@ -226,7 +254,7 @@ if(isset ($_SESSION['sv07cdtp'])) {
             <a href="" class="btn btn-danger" data-dismiss="modal">Cancelar</a>
           </div>      
           </div>
-        </div>
+        
         </form>
 
         </div>
@@ -275,6 +303,7 @@ if(isset ($_SESSION['sv07cdtp'])) {
 
 <script type="text/javascript" src="public\js\bootstrap.min.js"></script>
 <script type="text/javascript" src="assets/datatables.min.js"></script>
+<script type="text/javascript" src="public\JS\valcli.js"></script>
 
 <script type="text/javascript" charset="utf-8">
 $(document).ready(function() {

@@ -34,11 +34,11 @@ if(isset ($_SESSION['sv07cdtp'])) {
     <option value="1">Cedula</option>
     <option value="2">Consecutivo</option>
     <option value="3">N° Finca</option>
-    <option value="4">N° Plano</option>
+    <option value="4">N° Miunta</option>
     </select>
      </div>&nbsp&nbsp&nbsp&nbsp
      <div class="form-group">
-           <input type="text" name="s" class="form-control" placeholder="Buscar">
+           <input type="text" name="s" class="form-control" required="" placeholder="Buscar">
       </div>
       <button type="submit" class="btn btn-default">&nbsp;Buscar &nbsp;<i class="glyphicon glyphicon-search"></i></button>
     </form>

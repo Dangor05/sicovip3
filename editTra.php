@@ -50,13 +50,13 @@ include ('php/obtreq.php');
     <label class="col-xs-1 col-form-label" for="sv08conse">Consecutivo</label>
     <div class="col-xs-2">
     <p><?php echo $cn;?></p>
-    <input type="hidden" id="ced" class="form-control" value="<?php echo $person->sv03cedp;?> " name="cedp">
+    <input type="hidden" id="ced" readonly="" class="form-control" value="<?php echo $person->sv03cedp;?> " name="cedp">
     </div>
      </div>
   <div class="form-group row">
     <label for="sv08conse" class="col-xs-1 col-form-label" >N° Finca:</label>
     <div class="col-xs-2">
-      <input type="text" id="fin" class="form-control" value="<?php echo $person->sv04nfin; ?>" name="nfin" required>
+      <input type="text" id="fin" readonly="" class="form-control" value="<?php echo $person->sv04nfin; ?>" name="nfin" required>
       </div>
   </div>
   <div class="form-group row">

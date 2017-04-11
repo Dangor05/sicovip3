@@ -35,11 +35,11 @@ if(isset ($_SESSION['sv07cdtp'])) {
     
 
 	 <div class="Form-group" class="col-sm-10">
-	  	   <h4>Codigo IT</h4><input type="text"  name="S" class="form-control" placeholder="Buscar">   <div class="Form-group" 
+	  	   <h4>Codigo IT</h4><input type="text"  name="S" class="form-control" placeholder="Buscar">   <div class="Form-group" >
 		 <div id="next_button" align="left">
-		 <button  type="submit" class="btn btn-default" >&nbsp;<i class="glyphicon glyphicon-search"></i>&nbsp;&nbsp;Buscar</button> 
+		 <button  type="submit" class="btn btn-default" >&nbsp;<i class="glyphicon glyphicon-search"></i>&nbsp;Buscar</button> 
 		 </div>
-     
+     </div>
 	 </div>
 	 
       </form>

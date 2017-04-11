@@ -26,11 +26,11 @@ if(!empty($_POST) && !empty($_FILES)){
 		$sql="UPDATE sv08trmte SET sv02code='$sv02std' WHERE sv08conse='$sv08conse'";
 
 		if ($sv04plan!=null) {
-			$stmt ="UPDATE sv04reqtos SET sv04apln='".$sv04plan['name']."' WHERE sv04nfin='$sv04nfin'";
+			$st ="UPDATE sv04reqtos SET sv04apln='".$sv04plan['name']."' WHERE sv04nfin='$sv04nfin'";
 		$stmt=$con->query($stm);
 		$qry=$con->query($sql);
-		$exec=$con->query($stm);
-				if ($stmt!=null && $qry!=null && $stmt !=null) {
+		$exec=$con->query($st);
+				if ($stmt!=null && $qry!=null && $exec!=null) {
 			
 				move_uploaded_file($mnt['tmp_name'],$path.$sv09mnt);
 				move_uploaded_file($sv04plan['tmp_name'],$path.$sv04plan['name']);
@@ -44,6 +44,9 @@ if(!empty($_POST) && !empty($_FILES)){
 			}
 		}
 		else{
+
+			
+
 					$stmt=$con->query($stm);
 		$qry=$con->query($sql);
 		if ($stmt!=null && $qry!=null) {

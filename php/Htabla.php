@@ -15,9 +15,11 @@ $sql1= "SELECT c.sv03cedp, c.sv03nomp, c.sv03apdp, a.sv08conse, b.sv04nfin, DATE
 $query = $con->query($sql1);
 ?>
 <?php if($query->num_rows>0):?>
+
 	<div class="well well-sm text-lefh">
  <div class="content-loader">
-<table cellspacing="0" width="100%" id="example" class="table table-striped table-hover table-responsive">
+ <div class="table-responsive">
+<table align="center" cellspacing="0" width="90%" id="example" class="table table-striped table-hover small">
 <thead>
     <th>Cedula</th>
 	<th>Nombre</th>
@@ -52,6 +54,7 @@ $query = $con->query($sql1);
 </table>
 </div>
 </div>
+</div>
 <?php else:?>
 	<p class="alert alert-warning">No hay resultados</p>
 <?php endif; mysqli_close($con);?>
@@ -68,26 +71,4 @@ $(document).ready(function() {
 	.removeClass( 'display' )
 	.addClass('table table-bordered');
 });
-</script>
-<script type="text/javascript">
-$(document).ready(function(){
-
-	$(".edit-link").click(function Carga() 
-    {
-        $("#example tbody tr").each(function (index) 
-        {
-            var campo1, campo2, campo3;
-            $(this).children("td").each(function (index2) 
-            {
-                switch (index2) 
-                {
-                    case 0: campo1 = $(this).text();
-                            break;            
-                }
-                $(this).css("background-color", "#ECF8E0");
-            });
-        });
-        alert(campo1);
-    });
- });  
 </script>

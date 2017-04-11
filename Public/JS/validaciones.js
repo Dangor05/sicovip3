@@ -35,6 +35,8 @@ function valciente()
       var pass= document.getElementById('pass').value;
       var vps=document.getElementById('vpass').value;
 
+      var expresion=/^\w+@\w+\.+[a-z]$/;
+
     if (nom ==="" || ape ===""||ema ==="" || cit ==="" || ced==="" || tel ==="" || pass==="" || vps==="") {
         alert("Todos los campos son obligatorios");
         return false;
@@ -88,12 +90,12 @@ function valterm()
     }
 }
 
-function valrequi()
+function valtramite()
 {
     var cedp=document.getElementById('ced').value;
     var fin= document.getElementById('fin').value;
 
-    if (cedp==="") {
+    if (cedp=="") {
         alert("Debes llenar el propietario");
         return false;
     }
@@ -108,10 +110,64 @@ function valpropie()
     var tel=document.getElementById('tel').value;
     var tip=document.getElementById('tip').value;
 
-    if (tip===1) {
+    
         if (ced==="" || nom==="" || apl==="" || eml==="" tel==="") {
             alert("todos los espacios son obligatorios");
             return false;
         }
+    
+}
+
+function valvisa()
+{
+    var expReFolio=/^[A-Z]{1,3}+[0-9]$/;
+    var expReNPlano=/^[A-Z]{1}+[0-9]+[0-9]{4}$/;
+    var expRePre=/^[0-9]{1}+[0-9]{3}+[0-9]{3}$/;
+    var expReNMinta=/^[0-9]{1}+[0-9]+[0-9]{4}/;
+    var excedulaN=/^[0-9]{1}+0+[0-9]{3}+0+[0-9]$/;
+
+    var Npln=document.getElementById("").value;
+    var Nfol=document.getElementById("").value;
+    var Npre=document.getElementById("").value;
+    var Minuta=document.getElementById("").value;
+    var fch=document.getElementById("").value;
+    var cons=document.getElementById("").value;
+    var client=document.getElementById("").value;
+    var prop=document.getElementById("").value;
+    var NFin=document.getElementById("").value;
+    var CIT=document.getElementById("").value;
+
+    if (!Npln || !Nfol || !Npre || !fch) || !cons || !client ||!prop || !NFin || !CIT) {
+    alert("Todos los campos son requeridos");
+}
+
+    else if (!Npln) {
+        alert("### es requerido");
     }
+    else if (!Nfol) {
+        alert("### es requerido");
+    }
+    else if (!Npre) {
+        alert("### es requerido");
+    }
+    else if (!fch) {
+        alert("### es requerido");
+    }
+    else if (!cons) {
+        alert("### es requerido");
+    }
+    else if (!client) {
+        alert("### es requerido");
+    }
+    else if (!prop) {
+        alert("### es requerido");
+    }
+    else if (!NFin) {
+        alert("### es requerido");
+    }
+    else if (!CIT) {
+        alert("### es requerido");
+    }
+
+
 }

@@ -17,7 +17,7 @@ if(!empty($_POST))
                  session_start();
                  $_SESSION['Cedp'] = $Cedp;
                  mysqli_close($con);
-				header("Location: ../Tramite.php"); 
+				//header("Location: ../Tramite.php"); 
 	}else{
 
 	$sql2 = "INSERT INTO sv03ptario(sv03cedp,sv03nomp,sv03apdp,sv03emp,sv03telp,sv06codp)
@@ -32,7 +32,7 @@ if(!empty($_POST))
 				header("Location: ../Tramite.php"); 
 			}else{
 				mysqli_close($con);
-				print "<script>alert(\"No se pudo agregar.\");window.location='../Cliente.php';</script>";
+				//print "<script>alert(\"No se pudo agregar.\");window.location='../Cliente.php';</script>";
 
 			}
 		}

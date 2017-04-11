@@ -26,7 +26,7 @@ if(isset ($_SESSION['sv07cdtp'])) {
         include('php/navh2.php');
       }
  ?>
-<div class="container-fluid">
+<div class="container">
 <div class="row">
 <div class="col-md-12">
 		<h2>Planos de reisnpeccion</h2>
